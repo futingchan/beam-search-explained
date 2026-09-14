@@ -89,7 +89,8 @@ def _sql_db():
     global _SQL_DB
     if _SQL_DB is None:
         _SQL_DB = sqlite3.connect(":memory:")
-        spec = json.load(open(ROOT / "data" / "nl2sql.json"))
+        with open(ROOT / "data" / "nl2sql.json") as f:
+            spec = json.load(f)
         _SQL_DB.executescript(spec["schema"])
         for s in spec["seed"]:
             _SQL_DB.execute(s)
@@ -145,7 +146,8 @@ def build_prompt(task, item, tok, seq2seq):
              + item["input"]},
         ]
     elif task == "nl2sql":
-        spec = json.load(open(ROOT / "data" / "nl2sql.json"))
+        with open(ROOT / "data" / "nl2sql.json") as f:
+            spec = json.load(f)
         msgs = [
             {"role": "system", "content":
              "You write SQLite queries. Output only the SQL query — no "

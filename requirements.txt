@@ -1,14 +1,21 @@
-# Local demo (CPU or CUDA torch): greedy vs sampling vs beam
-transformers>=4.45
-# install torch from https://download.pytorch.org/whl/cpu for a small CPU-only
-# build, or the default index for CUDA. torch>=2.2 works.
-torch>=2.2
+# Local demo + benchmarks (CPU or CUDA torch)
+transformers==5.17.0
+sentencepiece==0.2.2   # required by the Marian/opus-mt tokenizer
+sacrebleu==2.6.0       # chrF scoring in src/experiment_canonical.py
+
+# torch: pick the build for your platform —
+#   CPU-only:   https://download.pytorch.org/whl/cpu
+#   CUDA:       default index
+#   GTX 1080 Ti (sm_61): torch==2.14.0+cu126 is the last wheel whose
+#                        sm_60 PTX JIT-covers it
+torch==2.14.0
 
 # §4 benchmark only: JSON-schema constrained decoding via HF
 # prefix_allowed_tokens_fn (the vLLM guided_json equivalent). Needs the
 # transformers-v5 shim in src/experiment.py:make_prefix_fn.
-lm-format-enforcer>=0.10
+lm-format-enforcer==0.11.3
 
-# Production path (needs an NVIDIA GPU with compute capability >= 7.0):
-# vllm>=0.9
-# openai>=1.40   # only for --server mode
+# 35B serving path (src/vllm_experiment.py; needs an NVIDIA GPU,
+# compute capability >= 7.0 — ran on 8×L4):
+# vllm==0.29.0
+# openai>=1.40          # only for --server mode
