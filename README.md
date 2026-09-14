@@ -651,17 +651,19 @@ results/exp_width.json      beam-width sweep k∈{1,2,4,8}.
 results/exp_determinism.json  5 reps seeded vs unseeded.
 results/exp_judge_*.json    3B judge: relevance scores + pairwise prefs.
 results/sweep_run1/2.json   the earlier demo sweep (pre-experiment).
-```
 
-The 3B and 35B runs live in the companion repo
-([`beam-search-benchmarked`](https://github.com/futingchan/beam-search-benchmarked)):
-`src/vllm_experiment.py` is the self-contained
-vLLM harness (matrix / width / determinism / mechanism / judge phases),
-`results/` carries the raw per-candidate JSONs — including the
-`--no-example` ablation and the guided-beam arms — and
-`HARNESS_CHANGES.md` documents what it took to run beam on vLLM 0.29
-(prompt-inclusive beam sequences, `min_tokens` removal, EOS-masking
-reimplementation, reasoning-mode templates).
+src/vllm_experiment.py      the 35B harness: self-contained vLLM runner
+                            (matrix / width / determinism / mechanism /
+                            judge phases). The 3B matrix used this too.
+src/vllm_canonical.py       the canonical tasks through the same vLLM path.
+results/exp_*_35B*.json     the 35B run, raw per-candidate output —
+                            including the --no-example ablation and the
+                            guided-beam arms.
+HARNESS_CHANGES.md          what it took to run beam on vLLM 0.29
+                            (prompt-inclusive beam sequences, min_tokens
+                            removal, EOS-masking reimplementation,
+                            reasoning-mode templates).
+```
 
 ```bash
 uv venv .venv --python 3.12

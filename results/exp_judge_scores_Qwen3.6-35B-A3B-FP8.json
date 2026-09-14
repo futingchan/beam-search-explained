@@ -1,0 +1,1094 @@
+[
+ {
+  "persona": "solo_backpacker",
+  "strategy": "greedy",
+  "cand_idx": 0,
+  "judge_raw": "5",
+  "score": 5
+ },
+ {
+  "persona": "solo_backpacker",
+  "strategy": "greedy_g",
+  "cand_idx": 0,
+  "judge_raw": "5",
+  "score": 5
+ },
+ {
+  "persona": "solo_backpacker",
+  "strategy": "samp_t07",
+  "cand_idx": 0,
+  "judge_raw": "5",
+  "score": 5
+ },
+ {
+  "persona": "solo_backpacker",
+  "strategy": "samp_t07",
+  "cand_idx": 1,
+  "judge_raw": "4",
+  "score": 4
+ },
+ {
+  "persona": "solo_backpacker",
+  "strategy": "samp_t07",
+  "cand_idx": 2,
+  "judge_raw": "5",
+  "score": 5
+ },
+ {
+  "persona": "solo_backpacker",
+  "strategy": "samp_t07",
+  "cand_idx": 3,
+  "judge_raw": "5",
+  "score": 5
+ },
+ {
+  "persona": "solo_backpacker",
+  "strategy": "samp_t07_g",
+  "cand_idx": 0,
+  "judge_raw": "4",
+  "score": 4
+ },
+ {
+  "persona": "solo_backpacker",
+  "strategy": "samp_t07_g",
+  "cand_idx": 1,
+  "judge_raw": "5",
+  "score": 5
+ },
+ {
+  "persona": "solo_backpacker",
+  "strategy": "samp_t07_g",
+  "cand_idx": 2,
+  "judge_raw": "2",
+  "score": 2
+ },
+ {
+  "persona": "solo_backpacker",
+  "strategy": "samp_t07_g",
+  "cand_idx": 3,
+  "judge_raw": "5",
+  "score": 5
+ },
+ {
+  "persona": "solo_backpacker",
+  "strategy": "samp_t09",
+  "cand_idx": 0,
+  "judge_raw": "2",
+  "score": 2
+ },
+ {
+  "persona": "solo_backpacker",
+  "strategy": "samp_t09",
+  "cand_idx": 1,
+  "judge_raw": "5",
+  "score": 5
+ },
+ {
+  "persona": "solo_backpacker",
+  "strategy": "samp_t09",
+  "cand_idx": 2,
+  "judge_raw": "5",
+  "score": 5
+ },
+ {
+  "persona": "solo_backpacker",
+  "strategy": "samp_t09",
+  "cand_idx": 3,
+  "judge_raw": "5",
+  "score": 5
+ },
+ {
+  "persona": "solo_backpacker",
+  "strategy": "samp_t09_g",
+  "cand_idx": 0,
+  "judge_raw": "4",
+  "score": 4
+ },
+ {
+  "persona": "solo_backpacker",
+  "strategy": "samp_t09_g",
+  "cand_idx": 1,
+  "judge_raw": "5",
+  "score": 5
+ },
+ {
+  "persona": "solo_backpacker",
+  "strategy": "samp_t09_g",
+  "cand_idx": 2,
+  "judge_raw": "2",
+  "score": 2
+ },
+ {
+  "persona": "solo_backpacker",
+  "strategy": "samp_t09_g",
+  "cand_idx": 3,
+  "judge_raw": "4",
+  "score": 4
+ },
+ {
+  "persona": "solo_backpacker",
+  "strategy": "beam_lp10",
+  "cand_idx": 0,
+  "judge_raw": "2",
+  "score": 2
+ },
+ {
+  "persona": "solo_backpacker",
+  "strategy": "beam_lp10",
+  "cand_idx": 1,
+  "judge_raw": "4",
+  "score": 4
+ },
+ {
+  "persona": "solo_backpacker",
+  "strategy": "beam_lp10",
+  "cand_idx": 2,
+  "judge_raw": "4",
+  "score": 4
+ },
+ {
+  "persona": "solo_backpacker",
+  "strategy": "beam_lp10",
+  "cand_idx": 3,
+  "judge_raw": "4",
+  "score": 4
+ },
+ {
+  "persona": "solo_backpacker",
+  "strategy": "beam_lp12",
+  "cand_idx": 0,
+  "judge_raw": "5",
+  "score": 5
+ },
+ {
+  "persona": "solo_backpacker",
+  "strategy": "beam_lp12",
+  "cand_idx": 1,
+  "judge_raw": "5",
+  "score": 5
+ },
+ {
+  "persona": "solo_backpacker",
+  "strategy": "beam_lp12",
+  "cand_idx": 2,
+  "judge_raw": "5",
+  "score": 5
+ },
+ {
+  "persona": "solo_backpacker",
+  "strategy": "beam_lp12",
+  "cand_idx": 3,
+  "judge_raw": "5",
+  "score": 5
+ },
+ {
+  "persona": "family_young_kids",
+  "strategy": "greedy",
+  "cand_idx": 0,
+  "judge_raw": "5",
+  "score": 5
+ },
+ {
+  "persona": "family_young_kids",
+  "strategy": "greedy_g",
+  "cand_idx": 0,
+  "judge_raw": "5",
+  "score": 5
+ },
+ {
+  "persona": "family_young_kids",
+  "strategy": "samp_t07",
+  "cand_idx": 0,
+  "judge_raw": "5",
+  "score": 5
+ },
+ {
+  "persona": "family_young_kids",
+  "strategy": "samp_t07",
+  "cand_idx": 1,
+  "judge_raw": "5",
+  "score": 5
+ },
+ {
+  "persona": "family_young_kids",
+  "strategy": "samp_t07",
+  "cand_idx": 2,
+  "judge_raw": "5",
+  "score": 5
+ },
+ {
+  "persona": "family_young_kids",
+  "strategy": "samp_t07",
+  "cand_idx": 3,
+  "judge_raw": "5",
+  "score": 5
+ },
+ {
+  "persona": "family_young_kids",
+  "strategy": "samp_t07_g",
+  "cand_idx": 0,
+  "judge_raw": "5",
+  "score": 5
+ },
+ {
+  "persona": "family_young_kids",
+  "strategy": "samp_t07_g",
+  "cand_idx": 1,
+  "judge_raw": "5",
+  "score": 5
+ },
+ {
+  "persona": "family_young_kids",
+  "strategy": "samp_t07_g",
+  "cand_idx": 2,
+  "judge_raw": "5",
+  "score": 5
+ },
+ {
+  "persona": "family_young_kids",
+  "strategy": "samp_t07_g",
+  "cand_idx": 3,
+  "judge_raw": "5",
+  "score": 5
+ },
+ {
+  "persona": "family_young_kids",
+  "strategy": "samp_t09",
+  "cand_idx": 0,
+  "judge_raw": "5",
+  "score": 5
+ },
+ {
+  "persona": "family_young_kids",
+  "strategy": "samp_t09",
+  "cand_idx": 1,
+  "judge_raw": "5",
+  "score": 5
+ },
+ {
+  "persona": "family_young_kids",
+  "strategy": "samp_t09",
+  "cand_idx": 2,
+  "judge_raw": "5",
+  "score": 5
+ },
+ {
+  "persona": "family_young_kids",
+  "strategy": "samp_t09",
+  "cand_idx": 3,
+  "judge_raw": "5",
+  "score": 5
+ },
+ {
+  "persona": "family_young_kids",
+  "strategy": "samp_t09_g",
+  "cand_idx": 0,
+  "judge_raw": "5",
+  "score": 5
+ },
+ {
+  "persona": "family_young_kids",
+  "strategy": "samp_t09_g",
+  "cand_idx": 1,
+  "judge_raw": "5",
+  "score": 5
+ },
+ {
+  "persona": "family_young_kids",
+  "strategy": "samp_t09_g",
+  "cand_idx": 2,
+  "judge_raw": "5",
+  "score": 5
+ },
+ {
+  "persona": "family_young_kids",
+  "strategy": "samp_t09_g",
+  "cand_idx": 3,
+  "judge_raw": "5",
+  "score": 5
+ },
+ {
+  "persona": "family_young_kids",
+  "strategy": "beam_lp10",
+  "cand_idx": 0,
+  "judge_raw": "3",
+  "score": 3
+ },
+ {
+  "persona": "family_young_kids",
+  "strategy": "beam_lp10",
+  "cand_idx": 1,
+  "judge_raw": "5",
+  "score": 5
+ },
+ {
+  "persona": "family_young_kids",
+  "strategy": "beam_lp10",
+  "cand_idx": 2,
+  "judge_raw": "5",
+  "score": 5
+ },
+ {
+  "persona": "family_young_kids",
+  "strategy": "beam_lp10",
+  "cand_idx": 3,
+  "judge_raw": "5",
+  "score": 5
+ },
+ {
+  "persona": "family_young_kids",
+  "strategy": "beam_lp12",
+  "cand_idx": 0,
+  "judge_raw": "5",
+  "score": 5
+ },
+ {
+  "persona": "family_young_kids",
+  "strategy": "beam_lp12",
+  "cand_idx": 1,
+  "judge_raw": "5",
+  "score": 5
+ },
+ {
+  "persona": "family_young_kids",
+  "strategy": "beam_lp12",
+  "cand_idx": 2,
+  "judge_raw": "5",
+  "score": 5
+ },
+ {
+  "persona": "family_young_kids",
+  "strategy": "beam_lp12",
+  "cand_idx": 3,
+  "judge_raw": "5",
+  "score": 5
+ },
+ {
+  "persona": "couple_foodie_anniversary",
+  "strategy": "greedy",
+  "cand_idx": 0,
+  "judge_raw": "5",
+  "score": 5
+ },
+ {
+  "persona": "couple_foodie_anniversary",
+  "strategy": "greedy_g",
+  "cand_idx": 0,
+  "judge_raw": "5",
+  "score": 5
+ },
+ {
+  "persona": "couple_foodie_anniversary",
+  "strategy": "samp_t07",
+  "cand_idx": 0,
+  "judge_raw": "5",
+  "score": 5
+ },
+ {
+  "persona": "couple_foodie_anniversary",
+  "strategy": "samp_t07",
+  "cand_idx": 1,
+  "judge_raw": "5",
+  "score": 5
+ },
+ {
+  "persona": "couple_foodie_anniversary",
+  "strategy": "samp_t07",
+  "cand_idx": 2,
+  "judge_raw": "5",
+  "score": 5
+ },
+ {
+  "persona": "couple_foodie_anniversary",
+  "strategy": "samp_t07",
+  "cand_idx": 3,
+  "judge_raw": "5",
+  "score": 5
+ },
+ {
+  "persona": "couple_foodie_anniversary",
+  "strategy": "samp_t07_g",
+  "cand_idx": 0,
+  "judge_raw": "5",
+  "score": 5
+ },
+ {
+  "persona": "couple_foodie_anniversary",
+  "strategy": "samp_t07_g",
+  "cand_idx": 1,
+  "judge_raw": "5",
+  "score": 5
+ },
+ {
+  "persona": "couple_foodie_anniversary",
+  "strategy": "samp_t07_g",
+  "cand_idx": 2,
+  "judge_raw": "5",
+  "score": 5
+ },
+ {
+  "persona": "couple_foodie_anniversary",
+  "strategy": "samp_t07_g",
+  "cand_idx": 3,
+  "judge_raw": "4",
+  "score": 4
+ },
+ {
+  "persona": "couple_foodie_anniversary",
+  "strategy": "samp_t09",
+  "cand_idx": 0,
+  "judge_raw": "5",
+  "score": 5
+ },
+ {
+  "persona": "couple_foodie_anniversary",
+  "strategy": "samp_t09",
+  "cand_idx": 1,
+  "judge_raw": "5",
+  "score": 5
+ },
+ {
+  "persona": "couple_foodie_anniversary",
+  "strategy": "samp_t09",
+  "cand_idx": 2,
+  "judge_raw": "5",
+  "score": 5
+ },
+ {
+  "persona": "couple_foodie_anniversary",
+  "strategy": "samp_t09",
+  "cand_idx": 3,
+  "judge_raw": "5",
+  "score": 5
+ },
+ {
+  "persona": "couple_foodie_anniversary",
+  "strategy": "samp_t09_g",
+  "cand_idx": 0,
+  "judge_raw": "5",
+  "score": 5
+ },
+ {
+  "persona": "couple_foodie_anniversary",
+  "strategy": "samp_t09_g",
+  "cand_idx": 1,
+  "judge_raw": "5",
+  "score": 5
+ },
+ {
+  "persona": "couple_foodie_anniversary",
+  "strategy": "samp_t09_g",
+  "cand_idx": 2,
+  "judge_raw": "5",
+  "score": 5
+ },
+ {
+  "persona": "couple_foodie_anniversary",
+  "strategy": "samp_t09_g",
+  "cand_idx": 3,
+  "judge_raw": "5",
+  "score": 5
+ },
+ {
+  "persona": "couple_foodie_anniversary",
+  "strategy": "beam_lp10",
+  "cand_idx": 0,
+  "judge_raw": "5",
+  "score": 5
+ },
+ {
+  "persona": "couple_foodie_anniversary",
+  "strategy": "beam_lp10",
+  "cand_idx": 1,
+  "judge_raw": "5",
+  "score": 5
+ },
+ {
+  "persona": "couple_foodie_anniversary",
+  "strategy": "beam_lp10",
+  "cand_idx": 2,
+  "judge_raw": "5",
+  "score": 5
+ },
+ {
+  "persona": "couple_foodie_anniversary",
+  "strategy": "beam_lp10",
+  "cand_idx": 3,
+  "judge_raw": "5",
+  "score": 5
+ },
+ {
+  "persona": "couple_foodie_anniversary",
+  "strategy": "beam_lp12",
+  "cand_idx": 0,
+  "judge_raw": "5",
+  "score": 5
+ },
+ {
+  "persona": "couple_foodie_anniversary",
+  "strategy": "beam_lp12",
+  "cand_idx": 1,
+  "judge_raw": "4",
+  "score": 4
+ },
+ {
+  "persona": "couple_foodie_anniversary",
+  "strategy": "beam_lp12",
+  "cand_idx": 2,
+  "judge_raw": "5",
+  "score": 5
+ },
+ {
+  "persona": "couple_foodie_anniversary",
+  "strategy": "beam_lp12",
+  "cand_idx": 3,
+  "judge_raw": "5",
+  "score": 5
+ },
+ {
+  "persona": "retirees_slow_cultural",
+  "strategy": "greedy",
+  "cand_idx": 0,
+  "judge_raw": "5",
+  "score": 5
+ },
+ {
+  "persona": "retirees_slow_cultural",
+  "strategy": "greedy_g",
+  "cand_idx": 0,
+  "judge_raw": "5",
+  "score": 5
+ },
+ {
+  "persona": "retirees_slow_cultural",
+  "strategy": "samp_t07",
+  "cand_idx": 0,
+  "judge_raw": "5",
+  "score": 5
+ },
+ {
+  "persona": "retirees_slow_cultural",
+  "strategy": "samp_t07",
+  "cand_idx": 1,
+  "judge_raw": "5",
+  "score": 5
+ },
+ {
+  "persona": "retirees_slow_cultural",
+  "strategy": "samp_t07",
+  "cand_idx": 2,
+  "judge_raw": "5",
+  "score": 5
+ },
+ {
+  "persona": "retirees_slow_cultural",
+  "strategy": "samp_t07",
+  "cand_idx": 3,
+  "judge_raw": "5",
+  "score": 5
+ },
+ {
+  "persona": "retirees_slow_cultural",
+  "strategy": "samp_t07_g",
+  "cand_idx": 0,
+  "judge_raw": "5",
+  "score": 5
+ },
+ {
+  "persona": "retirees_slow_cultural",
+  "strategy": "samp_t07_g",
+  "cand_idx": 1,
+  "judge_raw": "5",
+  "score": 5
+ },
+ {
+  "persona": "retirees_slow_cultural",
+  "strategy": "samp_t07_g",
+  "cand_idx": 2,
+  "judge_raw": "4",
+  "score": 4
+ },
+ {
+  "persona": "retirees_slow_cultural",
+  "strategy": "samp_t07_g",
+  "cand_idx": 3,
+  "judge_raw": "4",
+  "score": 4
+ },
+ {
+  "persona": "retirees_slow_cultural",
+  "strategy": "samp_t09",
+  "cand_idx": 0,
+  "judge_raw": "5",
+  "score": 5
+ },
+ {
+  "persona": "retirees_slow_cultural",
+  "strategy": "samp_t09",
+  "cand_idx": 1,
+  "judge_raw": "5",
+  "score": 5
+ },
+ {
+  "persona": "retirees_slow_cultural",
+  "strategy": "samp_t09",
+  "cand_idx": 2,
+  "judge_raw": "5",
+  "score": 5
+ },
+ {
+  "persona": "retirees_slow_cultural",
+  "strategy": "samp_t09",
+  "cand_idx": 3,
+  "judge_raw": "5",
+  "score": 5
+ },
+ {
+  "persona": "retirees_slow_cultural",
+  "strategy": "samp_t09_g",
+  "cand_idx": 0,
+  "judge_raw": "5",
+  "score": 5
+ },
+ {
+  "persona": "retirees_slow_cultural",
+  "strategy": "samp_t09_g",
+  "cand_idx": 1,
+  "judge_raw": "5",
+  "score": 5
+ },
+ {
+  "persona": "retirees_slow_cultural",
+  "strategy": "samp_t09_g",
+  "cand_idx": 2,
+  "judge_raw": "5",
+  "score": 5
+ },
+ {
+  "persona": "retirees_slow_cultural",
+  "strategy": "samp_t09_g",
+  "cand_idx": 3,
+  "judge_raw": "2",
+  "score": 2
+ },
+ {
+  "persona": "retirees_slow_cultural",
+  "strategy": "beam_lp10",
+  "cand_idx": 0,
+  "judge_raw": "4",
+  "score": 4
+ },
+ {
+  "persona": "retirees_slow_cultural",
+  "strategy": "beam_lp10",
+  "cand_idx": 1,
+  "judge_raw": "4",
+  "score": 4
+ },
+ {
+  "persona": "retirees_slow_cultural",
+  "strategy": "beam_lp10",
+  "cand_idx": 2,
+  "judge_raw": "5",
+  "score": 5
+ },
+ {
+  "persona": "retirees_slow_cultural",
+  "strategy": "beam_lp10",
+  "cand_idx": 3,
+  "judge_raw": "5",
+  "score": 5
+ },
+ {
+  "persona": "retirees_slow_cultural",
+  "strategy": "beam_lp12",
+  "cand_idx": 0,
+  "judge_raw": "5",
+  "score": 5
+ },
+ {
+  "persona": "retirees_slow_cultural",
+  "strategy": "beam_lp12",
+  "cand_idx": 1,
+  "judge_raw": "5",
+  "score": 5
+ },
+ {
+  "persona": "retirees_slow_cultural",
+  "strategy": "beam_lp12",
+  "cand_idx": 2,
+  "judge_raw": "5",
+  "score": 5
+ },
+ {
+  "persona": "retirees_slow_cultural",
+  "strategy": "beam_lp12",
+  "cand_idx": 3,
+  "judge_raw": "4",
+  "score": 4
+ },
+ {
+  "persona": "friends_adventure",
+  "strategy": "greedy",
+  "cand_idx": 0,
+  "judge_raw": "5",
+  "score": 5
+ },
+ {
+  "persona": "friends_adventure",
+  "strategy": "greedy_g",
+  "cand_idx": 0,
+  "judge_raw": "5",
+  "score": 5
+ },
+ {
+  "persona": "friends_adventure",
+  "strategy": "samp_t07",
+  "cand_idx": 0,
+  "judge_raw": "5",
+  "score": 5
+ },
+ {
+  "persona": "friends_adventure",
+  "strategy": "samp_t07",
+  "cand_idx": 1,
+  "judge_raw": "5",
+  "score": 5
+ },
+ {
+  "persona": "friends_adventure",
+  "strategy": "samp_t07",
+  "cand_idx": 2,
+  "judge_raw": "5",
+  "score": 5
+ },
+ {
+  "persona": "friends_adventure",
+  "strategy": "samp_t07",
+  "cand_idx": 3,
+  "judge_raw": "5",
+  "score": 5
+ },
+ {
+  "persona": "friends_adventure",
+  "strategy": "samp_t07_g",
+  "cand_idx": 0,
+  "judge_raw": "5",
+  "score": 5
+ },
+ {
+  "persona": "friends_adventure",
+  "strategy": "samp_t07_g",
+  "cand_idx": 1,
+  "judge_raw": "5",
+  "score": 5
+ },
+ {
+  "persona": "friends_adventure",
+  "strategy": "samp_t07_g",
+  "cand_idx": 2,
+  "judge_raw": "5",
+  "score": 5
+ },
+ {
+  "persona": "friends_adventure",
+  "strategy": "samp_t07_g",
+  "cand_idx": 3,
+  "judge_raw": "5",
+  "score": 5
+ },
+ {
+  "persona": "friends_adventure",
+  "strategy": "samp_t09",
+  "cand_idx": 0,
+  "judge_raw": "5",
+  "score": 5
+ },
+ {
+  "persona": "friends_adventure",
+  "strategy": "samp_t09",
+  "cand_idx": 1,
+  "judge_raw": "5",
+  "score": 5
+ },
+ {
+  "persona": "friends_adventure",
+  "strategy": "samp_t09",
+  "cand_idx": 2,
+  "judge_raw": "5",
+  "score": 5
+ },
+ {
+  "persona": "friends_adventure",
+  "strategy": "samp_t09",
+  "cand_idx": 3,
+  "judge_raw": "5",
+  "score": 5
+ },
+ {
+  "persona": "friends_adventure",
+  "strategy": "samp_t09_g",
+  "cand_idx": 0,
+  "judge_raw": "2",
+  "score": 2
+ },
+ {
+  "persona": "friends_adventure",
+  "strategy": "samp_t09_g",
+  "cand_idx": 1,
+  "judge_raw": "5",
+  "score": 5
+ },
+ {
+  "persona": "friends_adventure",
+  "strategy": "samp_t09_g",
+  "cand_idx": 2,
+  "judge_raw": "5",
+  "score": 5
+ },
+ {
+  "persona": "friends_adventure",
+  "strategy": "samp_t09_g",
+  "cand_idx": 3,
+  "judge_raw": "5",
+  "score": 5
+ },
+ {
+  "persona": "friends_adventure",
+  "strategy": "beam_lp10",
+  "cand_idx": 0,
+  "judge_raw": "5",
+  "score": 5
+ },
+ {
+  "persona": "friends_adventure",
+  "strategy": "beam_lp10",
+  "cand_idx": 1,
+  "judge_raw": "5",
+  "score": 5
+ },
+ {
+  "persona": "friends_adventure",
+  "strategy": "beam_lp10",
+  "cand_idx": 2,
+  "judge_raw": "5",
+  "score": 5
+ },
+ {
+  "persona": "friends_adventure",
+  "strategy": "beam_lp10",
+  "cand_idx": 3,
+  "judge_raw": "5",
+  "score": 5
+ },
+ {
+  "persona": "friends_adventure",
+  "strategy": "beam_lp12",
+  "cand_idx": 0,
+  "judge_raw": "5",
+  "score": 5
+ },
+ {
+  "persona": "friends_adventure",
+  "strategy": "beam_lp12",
+  "cand_idx": 1,
+  "judge_raw": "5",
+  "score": 5
+ },
+ {
+  "persona": "friends_adventure",
+  "strategy": "beam_lp12",
+  "cand_idx": 2,
+  "judge_raw": "5",
+  "score": 5
+ },
+ {
+  "persona": "friends_adventure",
+  "strategy": "beam_lp12",
+  "cand_idx": 3,
+  "judge_raw": "5",
+  "score": 5
+ },
+ {
+  "persona": "business_bleisure",
+  "strategy": "greedy",
+  "cand_idx": 0,
+  "judge_raw": "4",
+  "score": 4
+ },
+ {
+  "persona": "business_bleisure",
+  "strategy": "greedy_g",
+  "cand_idx": 0,
+  "judge_raw": "2",
+  "score": 2
+ },
+ {
+  "persona": "business_bleisure",
+  "strategy": "samp_t07",
+  "cand_idx": 0,
+  "judge_raw": "4",
+  "score": 4
+ },
+ {
+  "persona": "business_bleisure",
+  "strategy": "samp_t07",
+  "cand_idx": 1,
+  "judge_raw": "4",
+  "score": 4
+ },
+ {
+  "persona": "business_bleisure",
+  "strategy": "samp_t07",
+  "cand_idx": 2,
+  "judge_raw": "5",
+  "score": 5
+ },
+ {
+  "persona": "business_bleisure",
+  "strategy": "samp_t07",
+  "cand_idx": 3,
+  "judge_raw": "4",
+  "score": 4
+ },
+ {
+  "persona": "business_bleisure",
+  "strategy": "samp_t07_g",
+  "cand_idx": 0,
+  "judge_raw": "2",
+  "score": 2
+ },
+ {
+  "persona": "business_bleisure",
+  "strategy": "samp_t07_g",
+  "cand_idx": 1,
+  "judge_raw": "4",
+  "score": 4
+ },
+ {
+  "persona": "business_bleisure",
+  "strategy": "samp_t07_g",
+  "cand_idx": 2,
+  "judge_raw": "5",
+  "score": 5
+ },
+ {
+  "persona": "business_bleisure",
+  "strategy": "samp_t07_g",
+  "cand_idx": 3,
+  "judge_raw": "5",
+  "score": 5
+ },
+ {
+  "persona": "business_bleisure",
+  "strategy": "samp_t09",
+  "cand_idx": 0,
+  "judge_raw": "4",
+  "score": 4
+ },
+ {
+  "persona": "business_bleisure",
+  "strategy": "samp_t09",
+  "cand_idx": 1,
+  "judge_raw": "5",
+  "score": 5
+ },
+ {
+  "persona": "business_bleisure",
+  "strategy": "samp_t09",
+  "cand_idx": 2,
+  "judge_raw": "4",
+  "score": 4
+ },
+ {
+  "persona": "business_bleisure",
+  "strategy": "samp_t09",
+  "cand_idx": 3,
+  "judge_raw": "4",
+  "score": 4
+ },
+ {
+  "persona": "business_bleisure",
+  "strategy": "samp_t09_g",
+  "cand_idx": 0,
+  "judge_raw": "2",
+  "score": 2
+ },
+ {
+  "persona": "business_bleisure",
+  "strategy": "samp_t09_g",
+  "cand_idx": 1,
+  "judge_raw": "5",
+  "score": 5
+ },
+ {
+  "persona": "business_bleisure",
+  "strategy": "samp_t09_g",
+  "cand_idx": 2,
+  "judge_raw": "5",
+  "score": 5
+ },
+ {
+  "persona": "business_bleisure",
+  "strategy": "samp_t09_g",
+  "cand_idx": 3,
+  "judge_raw": "2",
+  "score": 2
+ },
+ {
+  "persona": "business_bleisure",
+  "strategy": "beam_lp10",
+  "cand_idx": 0,
+  "judge_raw": "5",
+  "score": 5
+ },
+ {
+  "persona": "business_bleisure",
+  "strategy": "beam_lp10",
+  "cand_idx": 1,
+  "judge_raw": "5",
+  "score": 5
+ },
+ {
+  "persona": "business_bleisure",
+  "strategy": "beam_lp10",
+  "cand_idx": 2,
+  "judge_raw": "2",
+  "score": 2
+ },
+ {
+  "persona": "business_bleisure",
+  "strategy": "beam_lp10",
+  "cand_idx": 3,
+  "judge_raw": "5",
+  "score": 5
+ },
+ {
+  "persona": "business_bleisure",
+  "strategy": "beam_lp12",
+  "cand_idx": 0,
+  "judge_raw": "2",
+  "score": 2
+ },
+ {
+  "persona": "business_bleisure",
+  "strategy": "beam_lp12",
+  "cand_idx": 1,
+  "judge_raw": "2",
+  "score": 2
+ },
+ {
+  "persona": "business_bleisure",
+  "strategy": "beam_lp12",
+  "cand_idx": 2,
+  "judge_raw": "4",
+  "score": 4
+ },
+ {
+  "persona": "business_bleisure",
+  "strategy": "beam_lp12",
+  "cand_idx": 3,
+  "judge_raw": "5",
+  "score": 5
+ }
+]

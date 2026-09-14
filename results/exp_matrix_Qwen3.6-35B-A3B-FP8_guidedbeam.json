@@ -1,0 +1,1106 @@
+[
+ {
+  "persona": "solo_backpacker",
+  "prompt": "<|im_start|>system\nYou are TripKaja's recommendation engine. The traveler describes a trip\nin a free-text paragraph. You produce a JSON list of the top 8 next actions\nthey can take to build their itinerary.\n\nOutput STRICT JSON only \u2014 no prose, no markdown fences. Shape:\n\n{\"recommendations\": [\n  {\"action\": \"Book\", \"target\": \"Hotel in Alfama\",\n   \"when\": \"2026-06-09/2026-06-13\",\n   \"rationale\": \"<one sentence why it fits THIS traveler>\"},\n  {\"action\": \"Visit\", \"target\": \"Gothic Quarter\", \"when\": \"2026-06-10\",\n   \"rationale\": \"...\"}\n]}\n\nValid actions and example targets:\n- \"Book\": bookable things. Targets like \"Hotel in Alfama\", \"Flight to\n  Lisbon\", \"Uber to airport\", \"Sagrada Familia tickets\", \"concert tickets\",\n  \"food tour experience\".\n- \"Visit\": places to plan a visit to. Targets like \"Gothic Quarter\",\n  \"Boqueria market\", \"Sintra day trip\".\n- \"Ask_About\": topics to research before committing. Targets like\n  \"stroller access at Sintra\", \"cider house reservations\".\n\nThe `when` field is ISO 8601: a single date \"2026-06-10\" or an interval\n\"2026-06-09/2026-06-13\" for ranges (stays, booking windows). Use null only\nwhen no date applies.\n\nRules:\n- Exactly 8 recommendations.\n- Match the stated pace: packed trips skew to Book/Visit anchors, slow trips\n  include Ask_About research items.\n- Respect hard constraints in the paragraph (diet, mobility, budget, kids).\n- Targets must be real, well-known things or generic categories\n  (e.g. \"family-friendly tapas bar\"), never invented proper nouns.<|im_end|>\n<|im_start|>user\n<trip_paragraph>\nI'm a 26-year-old solo traveler doing a fast-paced 10-day trip through Japan in late March \u2014 flying into Tokyo, want to hit Kyoto and Osaka too. I'm on a backpacker budget so hostels and street food are fine. I want to pack in as much as possible: temples, markets, neon districts, maybe a day trip to Nara or Hakone. I don't mind early mornings and long walking days. Not a huge foodie but I want to try a proper ramen shop and a conveyor-belt sushi place at least once.\n</trip_paragraph>\n\nReturn the JSON recommendations object now.<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+  "strategies": {
+   "beam_lp10_g": {
+    "wall": 149.72,
+    "total_tokens": 2606,
+    "jaccard": 1.0,
+    "candidates": [
+     {
+      "text": "{\n  \"recommendations\": [\n    {\n      \"action\": \"Book\",\n      \"target\": \"Hostel in Shinjuku or Asakusa, Tokyo\",\n      \"when\": \"2026-03-25/2026-03-28\",\n      \"rationale\": \"Central locations in Tokyo minimize transit time for a fast-paced itinerary and fit the backpacker budget.\"\n    },\n    {\n      \"action\": \"Book\",\n      \"target\": \"Japan Rail Pass (7-day or 14-day)\",\n      \"when\": \"2026-03-20\",\n      \"rationale\": \"Essential for efficient, budget-friendly travel between Tokyo, Kyoto, and Osaka on a tight schedule.\"\n    },\n    {\n      \"action\": \"Visit\",\n      \"target\": \"Senso-ji Temple and Nakamise Street\",\n      \"when\": \"2026-03-25\",\n      \"rationale\": \"Hits the 'temples' and 'markets' requirement early in the trip while exploring a historic Tokyo district.\"\n    },\n    {\n      \"action\": \"Visit\",\n      \"target\": \"Shibuya Crossing and Shinjuku Golden Gai\",\n      \"when\": \"2026-03-26\",\n      \"rationale\": \"Satisfies the desire to see 'neon districts' and experience Tokyo's vibrant nightlife on a budget.\"\n    },\n    {\n      \"action\": \"Book\",\n      \"target\": \"Ramen shop in Tokyo (e.g., Ichiran or Afuri)\",\n      \"when\": \"2026-03-27\",\n      \"rationale\": \"Fulfills the specific request to try a 'proper ramen shop' before heading to Kyoto.\"\n    },\n    {\n      \"action\": \"Book\",\n      \"target\": \"Hostel in Kyoto (near Kawaramachi or Sanjo)\",\n      \"when\": \"2026-03-28/2026-03-30\",\n      \"rationale\": \"Central Kyoto accommodation allows for early starts and easy access to major temples for a packed schedule.\"\n    },\n    {\n      \"action\": \"Visit\",\n      \"target\": \"Fushimi Inari Shrine and Kiyomizu-dera\",\n      \"when\": \"2026-03-29\",\n      \"rationale\": \"Combines two iconic 'temple' experiences in one day to maximize sightseeing efficiency.\"\n    },\n    {\n      \"action\": \"Book\",\n      \"target\": \"Conveyor-belt sushi experience in Osaka (e.g., Kura Sushi)\",\n      \"when\": \"2026-03-31\",\n      \"rationale\": \"Meets the specific food goal of trying conveyor-belt sushi while keeping costs low in Osaka.\"\n    }\n  ]\n}",
+      "tokens": 650,
+      "seq_lp": -61.9823,
+      "finish": "stop",
+      "hit_cap": false,
+      "valid": true,
+      "trailing_chars": 0,
+      "degenerate": false,
+      "violations": {
+       "when_out_of_window": 1,
+       "when_not_iso": 0,
+       "dup_items": 0,
+       "missing_verbs": [
+        "Ask_About"
+       ],
+       "foreign_targets": 0
+      },
+      "hard_pass": false,
+      "n_recs": 8,
+      "coverage": 0.857
+     },
+     {
+      "text": "{\n  \"recommendations\": [\n    {\n      \"action\": \"Book\",\n      \"target\": \"Hostel in Shinjuku or Asakusa, Tokyo\",\n      \"when\": \"2026-03-25/2026-03-28\",\n      \"rationale\": \"Central locations in Tokyo minimize transit time for a fast-paced itinerary and fit the backpacker budget.\"\n    },\n    {\n      \"action\": \"Book\",\n      \"target\": \"Japan Rail Pass (7-day or 14-day)\",\n      \"when\": \"2026-03-20\",\n      \"rationale\": \"Essential for efficient, budget-friendly travel between Tokyo, Kyoto, and Osaka on a tight schedule.\"\n    },\n    {\n      \"action\": \"Visit\",\n      \"target\": \"Senso-ji Temple and Nakamise Street\",\n      \"when\": \"2026-03-25\",\n      \"rationale\": \"Hits the 'temples' and 'markets' requirement early in the trip while exploring a historic Tokyo district.\"\n    },\n    {\n      \"action\": \"Visit\",\n      \"target\": \"Shibuya Crossing and Shinjuku Golden Gai\",\n      \"when\": \"2026-03-26\",\n      \"rationale\": \"Satisfies the desire to see 'neon districts' and experience Tokyo's vibrant nightlife on a budget.\"\n    },\n    {\n      \"action\": \"Book\",\n      \"target\": \"Ramen shop in Tokyo (e.g., Ichiran or Afuri)\",\n      \"when\": \"2026-03-27\",\n      \"rationale\": \"Fulfills the specific request to try a 'proper ramen shop' before heading to Kyoto.\"\n    },\n    {\n      \"action\": \"Book\",\n      \"target\": \"Hostel in Kyoto (near Kawaramachi or Sanjo)\",\n      \"when\": \"2026-03-28/2026-03-30\",\n      \"rationale\": \"Central Kyoto accommodation allows for early starts and easy access to major temples for a packed schedule.\"\n    },\n    {\n      \"action\": \"Visit\",\n      \"target\": \"Fushimi Inari Shrine and Kiyomizu-dera\",\n      \"when\": \"2026-03-29\",\n      \"rationale\": \"Combines two iconic 'temple' experiences in one day to maximize sightseeing efficiency.\"\n    },\n    {\n      \"action\": \"Book\",\n      \"target\": \"Conveyor-belt sushi experience in Osaka (e.g., Kura Sushi)\",\n      \"when\": \"2026-03-31\",\n      \"rationale\": \"Meets the specific food goal of trying conveyor-belt sushi while staying within a backpacker budget.\"\n    }\n  ]\n}",
+      "tokens": 651,
+      "seq_lp": -62.7371,
+      "finish": "stop",
+      "hit_cap": false,
+      "valid": true,
+      "trailing_chars": 0,
+      "degenerate": false,
+      "violations": {
+       "when_out_of_window": 1,
+       "when_not_iso": 0,
+       "dup_items": 0,
+       "missing_verbs": [
+        "Ask_About"
+       ],
+       "foreign_targets": 0
+      },
+      "hard_pass": false,
+      "n_recs": 8,
+      "coverage": 0.857
+     },
+     {
+      "text": "{\n  \"recommendations\": [\n    {\n      \"action\": \"Book\",\n      \"target\": \"Hostel in Shinjuku or Asakusa, Tokyo\",\n      \"when\": \"2026-03-25/2026-03-28\",\n      \"rationale\": \"Central locations in Tokyo minimize transit time for a fast-paced itinerary and fit the backpacker budget.\"\n    },\n    {\n      \"action\": \"Book\",\n      \"target\": \"Japan Rail Pass (7-day or 14-day)\",\n      \"when\": \"2026-03-20\",\n      \"rationale\": \"Essential for efficient, budget-friendly travel between Tokyo, Kyoto, and Osaka on a tight schedule.\"\n    },\n    {\n      \"action\": \"Visit\",\n      \"target\": \"Senso-ji Temple and Nakamise Street\",\n      \"when\": \"2026-03-25\",\n      \"rationale\": \"Hits the 'temples' and 'markets' requirement early in the trip while exploring a historic Tokyo district.\"\n    },\n    {\n      \"action\": \"Visit\",\n      \"target\": \"Shibuya Crossing and Shinjuku Golden Gai\",\n      \"when\": \"2026-03-26\",\n      \"rationale\": \"Satisfies the desire to see 'neon districts' and experience Tokyo's vibrant nightlife on a budget.\"\n    },\n    {\n      \"action\": \"Book\",\n      \"target\": \"Ramen shop in Tokyo (e.g., Ichiran or Afuri)\",\n      \"when\": \"2026-03-27\",\n      \"rationale\": \"Fulfills the specific request to try a 'proper ramen shop' before heading to Kyoto.\"\n    },\n    {\n      \"action\": \"Book\",\n      \"target\": \"Hostel in Kyoto (near Kawaramachi or Sanjo)\",\n      \"when\": \"2026-03-28/2026-03-30\",\n      \"rationale\": \"Central Kyoto accommodation allows for early starts and easy access to major temples for a packed schedule.\"\n    },\n    {\n      \"action\": \"Visit\",\n      \"target\": \"Fushimi Inari Shrine and Kiyomizu-dera\",\n      \"when\": \"2026-03-29\",\n      \"rationale\": \"Combines two iconic 'temple' experiences in one day to maximize sightseeing efficiency.\"\n    },\n    {\n      \"action\": \"Book\",\n      \"target\": \"Conveyor-belt sushi experience in Osaka (e.g., Kura Sushi)\",\n      \"when\": \"2026-03-31\",\n      \"rationale\": \"Meets the specific foodie goal of trying conveyor-belt sushi while staying within a backpacker budget.\"\n    }\n  ]\n}",
+      "tokens": 652,
+      "seq_lp": -62.9124,
+      "finish": "stop",
+      "hit_cap": false,
+      "valid": true,
+      "trailing_chars": 0,
+      "degenerate": false,
+      "violations": {
+       "when_out_of_window": 1,
+       "when_not_iso": 0,
+       "dup_items": 0,
+       "missing_verbs": [
+        "Ask_About"
+       ],
+       "foreign_targets": 0
+      },
+      "hard_pass": false,
+      "n_recs": 8,
+      "coverage": 0.857
+     },
+     {
+      "text": "{\n  \"recommendations\": [\n    {\n      \"action\": \"Book\",\n      \"target\": \"Hostel in Shinjuku or Asakusa, Tokyo\",\n      \"when\": \"2026-03-25/2026-03-28\",\n      \"rationale\": \"Central locations in Tokyo minimize transit time for a fast-paced itinerary and fit the backpacker budget.\"\n    },\n    {\n      \"action\": \"Book\",\n      \"target\": \"Japan Rail Pass (7-day or 14-day)\",\n      \"when\": \"2026-03-20\",\n      \"rationale\": \"Essential for efficient, budget-friendly travel between Tokyo, Kyoto, and Osaka on a tight schedule.\"\n    },\n    {\n      \"action\": \"Visit\",\n      \"target\": \"Senso-ji Temple and Nakamise Street\",\n      \"when\": \"2026-03-25\",\n      \"rationale\": \"Hits the 'temples' and 'markets' requirement early in the trip while exploring a historic Tokyo district.\"\n    },\n    {\n      \"action\": \"Visit\",\n      \"target\": \"Shibuya Crossing and Shinjuku Golden Gai\",\n      \"when\": \"2026-03-26\",\n      \"rationale\": \"Satisfies the desire to see 'neon districts' and experience Tokyo's vibrant nightlife on a budget.\"\n    },\n    {\n      \"action\": \"Book\",\n      \"target\": \"Ramen shop in Tokyo (e.g., Ichiran or Afuri)\",\n      \"when\": \"2026-03-27\",\n      \"rationale\": \"Fulfills the specific request to try a 'proper ramen shop' before heading to Kyoto.\"\n    },\n    {\n      \"action\": \"Book\",\n      \"target\": \"Hostel in Kyoto (near Kawaramachi or Sanjo)\",\n      \"when\": \"2026-03-28/2026-03-30\",\n      \"rationale\": \"Central Kyoto accommodation allows for early starts and easy access to major temples for a packed schedule.\"\n    },\n    {\n      \"action\": \"Visit\",\n      \"target\": \"Fushimi Inari Shrine and Kiyomizu-dera\",\n      \"when\": \"2026-03-29\",\n      \"rationale\": \"Combines two iconic 'temple' experiences in one day to maximize sightseeing efficiency.\"\n    },\n    {\n      \"action\": \"Book\",\n      \"target\": \"Conveyor-belt sushi experience in Osaka (e.g., Kura Sushi)\",\n      \"when\": \"2026-03-31\",\n      \"rationale\": \"Meets the specific food goal of trying conveyor-belt sushi while staying within a backpacker budget in Osaka.\"\n    }\n  ]\n}",
+      "tokens": 653,
+      "seq_lp": -63.6167,
+      "finish": "stop",
+      "hit_cap": false,
+      "valid": true,
+      "trailing_chars": 0,
+      "degenerate": false,
+      "violations": {
+       "when_out_of_window": 1,
+       "when_not_iso": 0,
+       "dup_items": 0,
+       "missing_verbs": [
+        "Ask_About"
+       ],
+       "foreign_targets": 0
+      },
+      "hard_pass": false,
+      "n_recs": 8,
+      "coverage": 0.857
+     }
+    ]
+   },
+   "beam_lp12_g": {
+    "wall": 146.43,
+    "total_tokens": 2460,
+    "jaccard": 1.0,
+    "candidates": [
+     {
+      "text": "{\n  \"recommendations\": [\n    {\n      \"action\": \"Book\",\n      \"target\": \"Hostel in Shinjuku or Asakusa, Tokyo\",\n      \"when\": \"2026-03-25/2026-03-28\",\n      \"rationale\": \"Central locations in Tokyo minimize transit time for a fast-paced itinerary and fit the backpacker budget.\"\n    },\n    {\n      \"action\": \"Book\",\n      \"target\": \"Japan Rail Pass (7-day)\",\n      \"when\": \"2026-03-20\",\n      \"rationale\": \"Essential for cost-effective and efficient high-speed travel between Tokyo, Kyoto, and Osaka.\"\n    },\n    {\n      \"action\": \"Visit\",\n      \"target\": \"Tsukiji Outer Market\",\n      \"when\": \"2026-03-25\",\n      \"rationale\": \"Perfect for a quick, cheap, and iconic street food breakfast to start a packed day in Tokyo.\"\n    },\n    {\n      \"action\": \"Visit\",\n      \"target\": \"Senso-ji Temple and Nakamise Street\",\n      \"when\": \"2026-03-25\",\n      \"rationale\": \"Hits the 'temples' requirement early in the trip with easy access from major hostels.\"\n    },\n    {\n      \"action\": \"Visit\",\n      \"target\": \"Shibuya Crossing and Shinjuku Golden Gai\",\n      \"when\": \"2026-03-26\",\n      \"rationale\": \"Satisfies the desire to see neon districts and experience Tokyo's vibrant nightlife on a budget.\"\n    },\n    {\n      \"action\": \"Book\",\n      \"target\": \"Hostel in Kyoto (Gion or Kawaramachi area)\",\n      \"when\": \"2026-03-28/2026-03-30\",\n      \"rationale\": \"Staying in central Kyoto allows for early morning temple visits before crowds arrive.\"\n    },\n    {\n      \"action\": \"Visit\",\n      \"target\": \"Fushimi Inari Shrine\",\n      \"when\": \"2026-03-29\",\n      \"rationale\": \"A must-see temple experience that is free, visually stunning, and fits a fast-paced schedule.\"\n    },\n    {\n      \"action\": \"Book\",\n      \"target\": \"Conveyor-belt sushi experience in Osaka\",\n      \"when\": \"2026-03-30\",\n      \"rationale\": \"Fulfills the specific food goal of trying conveyor-belt sushi while staying within a backpacker budget.\"\n    }\n  ]\n}",
+      "tokens": 616,
+      "seq_lp": -61.601,
+      "finish": "stop",
+      "hit_cap": false,
+      "valid": true,
+      "trailing_chars": 0,
+      "degenerate": false,
+      "violations": {
+       "when_out_of_window": 0,
+       "when_not_iso": 0,
+       "dup_items": 0,
+       "missing_verbs": [
+        "Ask_About"
+       ],
+       "foreign_targets": 0
+      },
+      "hard_pass": false,
+      "n_recs": 8,
+      "coverage": 0.714
+     },
+     {
+      "text": "{\n  \"recommendations\": [\n    {\n      \"action\": \"Book\",\n      \"target\": \"Hostel in Shinjuku or Asakusa, Tokyo\",\n      \"when\": \"2026-03-25/2026-03-28\",\n      \"rationale\": \"Central locations in Tokyo minimize transit time for a fast-paced itinerary and fit the backpacker budget.\"\n    },\n    {\n      \"action\": \"Book\",\n      \"target\": \"Japan Rail Pass (7-day)\",\n      \"when\": \"2026-03-20\",\n      \"rationale\": \"Essential for cost-effective and efficient high-speed travel between Tokyo, Kyoto, and Osaka.\"\n    },\n    {\n      \"action\": \"Visit\",\n      \"target\": \"Tsukiji Outer Market\",\n      \"when\": \"2026-03-25\",\n      \"rationale\": \"Perfect for a quick, cheap, and iconic street food breakfast to start a packed day in Tokyo.\"\n    },\n    {\n      \"action\": \"Visit\",\n      \"target\": \"Senso-ji Temple and Nakamise Street\",\n      \"when\": \"2026-03-25\",\n      \"rationale\": \"Hits the 'temples' requirement early in the trip with easy access from major hostels.\"\n    },\n    {\n      \"action\": \"Visit\",\n      \"target\": \"Shibuya Crossing and Shinjuku Golden Gai\",\n      \"when\": \"2026-03-26\",\n      \"rationale\": \"Satisfies the desire to see neon districts and experience Tokyo's vibrant nightlife on a budget.\"\n    },\n    {\n      \"action\": \"Book\",\n      \"target\": \"Hostel in Kyoto (Gion or Kawaramachi area)\",\n      \"when\": \"2026-03-28/2026-03-30\",\n      \"rationale\": \"Staying in central Kyoto allows for early morning temple visits before crowds arrive.\"\n    },\n    {\n      \"action\": \"Visit\",\n      \"target\": \"Fushimi Inari Shrine\",\n      \"when\": \"2026-03-29\",\n      \"rationale\": \"A must-see temple experience that is free, visually stunning, and fits a fast-paced schedule.\"\n    },\n    {\n      \"action\": \"Book\",\n      \"target\": \"Conveyor-belt sushi experience in Osaka\",\n      \"when\": \"2026-03-31\",\n      \"rationale\": \"Fulfills the specific food goal of trying conveyor-belt sushi while keeping costs low in Osaka.\"\n    }\n  ]\n}",
+      "tokens": 615,
+      "seq_lp": -61.7375,
+      "finish": "stop",
+      "hit_cap": false,
+      "valid": true,
+      "trailing_chars": 0,
+      "degenerate": false,
+      "violations": {
+       "when_out_of_window": 1,
+       "when_not_iso": 0,
+       "dup_items": 0,
+       "missing_verbs": [
+        "Ask_About"
+       ],
+       "foreign_targets": 0
+      },
+      "hard_pass": false,
+      "n_recs": 8,
+      "coverage": 0.714
+     },
+     {
+      "text": "{\n  \"recommendations\": [\n    {\n      \"action\": \"Book\",\n      \"target\": \"Hostel in Shinjuku or Asakusa, Tokyo\",\n      \"when\": \"2026-03-25/2026-03-28\",\n      \"rationale\": \"Central locations in Tokyo minimize transit time for a fast-paced itinerary and fit the backpacker budget.\"\n    },\n    {\n      \"action\": \"Book\",\n      \"target\": \"Japan Rail Pass (7-day)\",\n      \"when\": \"2026-03-20\",\n      \"rationale\": \"Essential for cost-effective and efficient high-speed travel between Tokyo, Kyoto, and Osaka.\"\n    },\n    {\n      \"action\": \"Visit\",\n      \"target\": \"Tsukiji Outer Market\",\n      \"when\": \"2026-03-25\",\n      \"rationale\": \"Perfect for a quick, cheap, and iconic street food breakfast to start a packed day in Tokyo.\"\n    },\n    {\n      \"action\": \"Visit\",\n      \"target\": \"Senso-ji Temple and Nakamise Street\",\n      \"when\": \"2026-03-25\",\n      \"rationale\": \"Hits the 'temples' requirement early in the trip with easy access from major hostels.\"\n    },\n    {\n      \"action\": \"Visit\",\n      \"target\": \"Shibuya Crossing and Shinjuku Golden Gai\",\n      \"when\": \"2026-03-26\",\n      \"rationale\": \"Satisfies the desire to see neon districts and experience Tokyo's vibrant nightlife on a budget.\"\n    },\n    {\n      \"action\": \"Book\",\n      \"target\": \"Hostel in Kyoto (Gion or Kawaramachi area)\",\n      \"when\": \"2026-03-28/2026-03-30\",\n      \"rationale\": \"Staying in central Kyoto allows for early morning temple visits before crowds arrive.\"\n    },\n    {\n      \"action\": \"Visit\",\n      \"target\": \"Fushimi Inari Shrine\",\n      \"when\": \"2026-03-29\",\n      \"rationale\": \"A must-see temple experience that is free, visually stunning, and fits a fast-paced schedule.\"\n    },\n    {\n      \"action\": \"Book\",\n      \"target\": \"Conveyor-belt sushi experience in Osaka\",\n      \"when\": \"2026-03-31\",\n      \"rationale\": \"Fulfills the specific food goal of trying conveyor-belt sushi while staying within a backpacker budget.\"\n    }\n  ]\n}",
+      "tokens": 616,
+      "seq_lp": -61.967,
+      "finish": "stop",
+      "hit_cap": false,
+      "valid": true,
+      "trailing_chars": 0,
+      "degenerate": false,
+      "violations": {
+       "when_out_of_window": 1,
+       "when_not_iso": 0,
+       "dup_items": 0,
+       "missing_verbs": [
+        "Ask_About"
+       ],
+       "foreign_targets": 0
+      },
+      "hard_pass": false,
+      "n_recs": 8,
+      "coverage": 0.714
+     },
+     {
+      "text": "{\n  \"recommendations\": [\n    {\n      \"action\": \"Book\",\n      \"target\": \"Hostel in Shinjuku or Asakusa, Tokyo\",\n      \"when\": \"2026-03-25/2026-03-28\",\n      \"rationale\": \"Central locations in Tokyo minimize transit time for a fast-paced itinerary and fit the backpacker budget.\"\n    },\n    {\n      \"action\": \"Book\",\n      \"target\": \"Japan Rail Pass (7-day)\",\n      \"when\": \"2026-03-20\",\n      \"rationale\": \"Essential for cost-effective and efficient high-speed travel between Tokyo, Kyoto, and Osaka.\"\n    },\n    {\n      \"action\": \"Visit\",\n      \"target\": \"Tsukiji Outer Market\",\n      \"when\": \"2026-03-25\",\n      \"rationale\": \"Perfect for a quick, cheap, and iconic street food breakfast to start a packed day in Tokyo.\"\n    },\n    {\n      \"action\": \"Visit\",\n      \"target\": \"Senso-ji Temple and Nakamise Street\",\n      \"when\": \"2026-03-25\",\n      \"rationale\": \"Hits the 'temples' requirement early in the trip with easy access from major hostels.\"\n    },\n    {\n      \"action\": \"Visit\",\n      \"target\": \"Shibuya Crossing and Shinjuku Golden Gai\",\n      \"when\": \"2026-03-26\",\n      \"rationale\": \"Satisfies the desire to see neon districts and experience Tokyo's vibrant nightlife on a budget.\"\n    },\n    {\n      \"action\": \"Book\",\n      \"target\": \"Hostel in Kyoto (Gion or Kawaramachi area)\",\n      \"when\": \"2026-03-28/2026-03-30\",\n      \"rationale\": \"Staying in central Kyoto allows for early morning temple visits before crowds arrive.\"\n    },\n    {\n      \"action\": \"Visit\",\n      \"target\": \"Fushimi Inari Shrine\",\n      \"when\": \"2026-03-29\",\n      \"rationale\": \"A must-see temple experience that is free, visually stunning, and fits a fast-paced schedule.\"\n    },\n    {\n      \"action\": \"Book\",\n      \"target\": \"Conveyor-belt sushi experience in Osaka\",\n      \"when\": \"2026-03-31\",\n      \"rationale\": \"Fulfills the specific food goal of trying conveyor-belt sushi while keeping costs low.\"\n    }\n  ]\n}",
+      "tokens": 613,
+      "seq_lp": -61.8075,
+      "finish": "stop",
+      "hit_cap": false,
+      "valid": true,
+      "trailing_chars": 0,
+      "degenerate": false,
+      "violations": {
+       "when_out_of_window": 1,
+       "when_not_iso": 0,
+       "dup_items": 0,
+       "missing_verbs": [
+        "Ask_About"
+       ],
+       "foreign_targets": 0
+      },
+      "hard_pass": false,
+      "n_recs": 8,
+      "coverage": 0.714
+     }
+    ]
+   }
+  }
+ },
+ {
+  "persona": "family_young_kids",
+  "prompt": "<|im_start|>system\nYou are TripKaja's recommendation engine. The traveler describes a trip\nin a free-text paragraph. You produce a JSON list of the top 8 next actions\nthey can take to build their itinerary.\n\nOutput STRICT JSON only \u2014 no prose, no markdown fences. Shape:\n\n{\"recommendations\": [\n  {\"action\": \"Book\", \"target\": \"Hotel in Alfama\",\n   \"when\": \"2026-06-09/2026-06-13\",\n   \"rationale\": \"<one sentence why it fits THIS traveler>\"},\n  {\"action\": \"Visit\", \"target\": \"Gothic Quarter\", \"when\": \"2026-06-10\",\n   \"rationale\": \"...\"}\n]}\n\nValid actions and example targets:\n- \"Book\": bookable things. Targets like \"Hotel in Alfama\", \"Flight to\n  Lisbon\", \"Uber to airport\", \"Sagrada Familia tickets\", \"concert tickets\",\n  \"food tour experience\".\n- \"Visit\": places to plan a visit to. Targets like \"Gothic Quarter\",\n  \"Boqueria market\", \"Sintra day trip\".\n- \"Ask_About\": topics to research before committing. Targets like\n  \"stroller access at Sintra\", \"cider house reservations\".\n\nThe `when` field is ISO 8601: a single date \"2026-06-10\" or an interval\n\"2026-06-09/2026-06-13\" for ranges (stays, booking windows). Use null only\nwhen no date applies.\n\nRules:\n- Exactly 8 recommendations.\n- Match the stated pace: packed trips skew to Book/Visit anchors, slow trips\n  include Ask_About research items.\n- Respect hard constraints in the paragraph (diet, mobility, budget, kids).\n- Targets must be real, well-known things or generic categories\n  (e.g. \"family-friendly tapas bar\"), never invented proper nouns.<|im_end|>\n<|im_start|>user\n<trip_paragraph>\nWe're a family of four \u2014 two adults and kids aged 4 and 7 \u2014 planning a week in Lisbon in mid-June. This is our first international trip with the kids so we want a relaxed pace: one big thing per day, lots of playground and beach time, early dinners. We'd love a day trip to Sintra if it's manageable with a stroller. The kids are obsessed with trams and castles. We need kid-friendly restaurant suggestions, nothing too fancy or late-night.\n</trip_paragraph>\n\nReturn the JSON recommendations object now.<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+  "strategies": {
+   "beam_lp10_g": {
+    "wall": 140.66,
+    "total_tokens": 2612,
+    "jaccard": 1.0,
+    "candidates": [
+     {
+      "text": "{\n  \"recommendations\": [\n    {\n      \"action\": \"Book\",\n      \"target\": \"Family-friendly hotel in Chiado or Baixa\",\n      \"when\": \"2026-06-15/2026-06-22\",\n      \"rationale\": \"Central location minimizes transit time with young children and provides easy access to playgrounds and early dinner spots.\"\n    },\n    {\n      \"action\": \"Book\",\n      \"target\": \"Sintra day trip with private driver\",\n      \"when\": \"2026-06-17\",\n      \"rationale\": \"A private driver allows for flexible stops and easier stroller management compared to public transport, making the castle visit manageable for a 4-year-old.\"\n    },\n    {\n      \"action\": \"Visit\",\n      \"target\": \"Lisbon Oceanarium\",\n      \"when\": \"2026-06-16\",\n      \"rationale\": \"Highly engaging for kids aged 4 and 7, flat and stroller-friendly, and serves as a perfect 'big thing' that doesn't require excessive walking.\"\n    },\n    {\n      \"action\": \"Visit\",\n      \"target\": \"Parque Eduardo VII\",\n      \"when\": \"2026-06-18\",\n      \"rationale\": \"Offers ample space for the kids to run and play in a safe, green environment, fitting the relaxed pace requirement.\"\n    },\n    {\n      \"action\": \"Visit\",\n      \"target\": \"Praia do Guincho or Costa da Caparica\",\n      \"when\": \"2026-06-19\",\n      \"rationale\": \"Provides the requested beach time; Costa da Caparica offers calmer waters and easier access for families with young children.\"\n    },\n    {\n      \"action\": \"Ask_About\",\n      \"target\": \"Stroller accessibility at Pena Palace and Moorish Castle\",\n      \"when\": null,\n      \"rationale\": \"Crucial to determine if the steep terrain and cobblestones at Sintra's main attractions are feasible with a 4-year-old in a stroller.\"\n    },\n    {\n      \"action\": \"Ask_About\",\n      \"target\": \"Kid-friendly restaurants in Alfama with early seating\",\n      \"when\": null,\n      \"rationale\": \"Identifies casual dining options that accommodate early dinners and have menus suitable for young picky eaters.\"\n    },\n    {\n      \"action\": \"Book\",\n      \"target\": \"Tram 28 ride or Museum of Transport tickets\",\n      \"when\": \"2026-06-20\",\n      \"rationale\": \"Satisfies the kids' obsession with trams; the Museum of Transport is a stroller-friendly alternative if the crowded Tram 28 is too stressful.\"\n    }\n  ]\n}",
+      "tokens": 651,
+      "seq_lp": -80.0124,
+      "finish": "stop",
+      "hit_cap": false,
+      "valid": true,
+      "trailing_chars": 0,
+      "degenerate": false,
+      "violations": {
+       "when_out_of_window": 0,
+       "when_not_iso": 0,
+       "dup_items": 0,
+       "missing_verbs": [],
+       "foreign_targets": 1
+      },
+      "hard_pass": true,
+      "n_recs": 8,
+      "coverage": 1.0
+     },
+     {
+      "text": "{\n  \"recommendations\": [\n    {\n      \"action\": \"Book\",\n      \"target\": \"Family-friendly hotel in Chiado or Baixa\",\n      \"when\": \"2026-06-15/2026-06-22\",\n      \"rationale\": \"Central location minimizes transit time with young children and provides easy access to playgrounds and early dinner spots.\"\n    },\n    {\n      \"action\": \"Book\",\n      \"target\": \"Sintra day trip with private driver\",\n      \"when\": \"2026-06-17\",\n      \"rationale\": \"A private driver allows for flexible stops and easier stroller management compared to public transport, making the castle visit manageable for a 4-year-old.\"\n    },\n    {\n      \"action\": \"Visit\",\n      \"target\": \"Lisbon Oceanarium\",\n      \"when\": \"2026-06-16\",\n      \"rationale\": \"Highly engaging for kids aged 4 and 7, flat and stroller-friendly, and serves as a perfect 'big thing' that doesn't require excessive walking.\"\n    },\n    {\n      \"action\": \"Visit\",\n      \"target\": \"Parque Eduardo VII\",\n      \"when\": \"2026-06-18\",\n      \"rationale\": \"Offers ample space for the kids to run and play in a safe, green environment, fitting the relaxed pace requirement.\"\n    },\n    {\n      \"action\": \"Visit\",\n      \"target\": \"Praia do Guincho or Costa da Caparica\",\n      \"when\": \"2026-06-19\",\n      \"rationale\": \"Provides the requested beach time; Costa da Caparica offers calmer waters and easier access for families with young children.\"\n    },\n    {\n      \"action\": \"Ask_About\",\n      \"target\": \"Stroller accessibility at Pena Palace and Moorish Castle\",\n      \"when\": null,\n      \"rationale\": \"Crucial to determine if the steep terrain and cobblestones at Sintra's main attractions are feasible with a 4-year-old in a stroller.\"\n    },\n    {\n      \"action\": \"Ask_About\",\n      \"target\": \"Kid-friendly restaurants in Alfama with early seating\",\n      \"when\": null,\n      \"rationale\": \"Identifies casual dining options that accommodate early dinners and have menus suitable for young picky eaters.\"\n    },\n    {\n      \"action\": \"Book\",\n      \"target\": \"Tram 28 ride or Museum of Transport tickets\",\n      \"when\": \"2026-06-20\",\n      \"rationale\": \"Satisfies the kids' obsession with trams; the Museum of Transport is a safer, less crowded alternative if Tram 28 is too crowded with a stroller.\"\n    }\n  ]\n}",
+      "tokens": 654,
+      "seq_lp": -80.8498,
+      "finish": "stop",
+      "hit_cap": false,
+      "valid": true,
+      "trailing_chars": 0,
+      "degenerate": false,
+      "violations": {
+       "when_out_of_window": 0,
+       "when_not_iso": 0,
+       "dup_items": 0,
+       "missing_verbs": [],
+       "foreign_targets": 1
+      },
+      "hard_pass": true,
+      "n_recs": 8,
+      "coverage": 1.0
+     },
+     {
+      "text": "{\n  \"recommendations\": [\n    {\n      \"action\": \"Book\",\n      \"target\": \"Family-friendly hotel in Chiado or Baixa\",\n      \"when\": \"2026-06-15/2026-06-22\",\n      \"rationale\": \"Central location minimizes transit time with young children and provides easy access to playgrounds and early dinner spots.\"\n    },\n    {\n      \"action\": \"Book\",\n      \"target\": \"Sintra day trip with private driver\",\n      \"when\": \"2026-06-17\",\n      \"rationale\": \"A private driver allows for flexible stops and easier stroller management compared to public transport, making the castle visit manageable for a 4-year-old.\"\n    },\n    {\n      \"action\": \"Visit\",\n      \"target\": \"Lisbon Oceanarium\",\n      \"when\": \"2026-06-16\",\n      \"rationale\": \"Highly engaging for kids aged 4 and 7, flat and stroller-friendly, and serves as a perfect 'big thing' that doesn't require excessive walking.\"\n    },\n    {\n      \"action\": \"Visit\",\n      \"target\": \"Parque Eduardo VII\",\n      \"when\": \"2026-06-18\",\n      \"rationale\": \"Offers ample space for the kids to run and play in a safe, green environment, fitting the relaxed pace requirement.\"\n    },\n    {\n      \"action\": \"Visit\",\n      \"target\": \"Praia do Guincho or Costa da Caparica\",\n      \"when\": \"2026-06-19\",\n      \"rationale\": \"Provides the requested beach time; Costa da Caparica offers calmer waters and easier access for families with young children.\"\n    },\n    {\n      \"action\": \"Ask_About\",\n      \"target\": \"Stroller accessibility at Pena Palace and Moorish Castle\",\n      \"when\": null,\n      \"rationale\": \"Crucial to determine if the steep terrain and cobblestones at Sintra's main attractions are feasible with a 4-year-old in a stroller.\"\n    },\n    {\n      \"action\": \"Ask_About\",\n      \"target\": \"Kid-friendly restaurants in Alfama with early seating\",\n      \"when\": null,\n      \"rationale\": \"Identifies casual dining options that accommodate early dinners and have menus suitable for young picky eaters.\"\n    },\n    {\n      \"action\": \"Book\",\n      \"target\": \"Tram 28 ride or Museum of Transport tickets\",\n      \"when\": \"2026-06-20\",\n      \"rationale\": \"Satisfies the kids' obsession with trams; the Museum of Transport is a safer, less crowded alternative if the crowded Tram 28 is too stressful.\"\n    }\n  ]\n}",
+      "tokens": 652,
+      "seq_lp": -81.5645,
+      "finish": "stop",
+      "hit_cap": false,
+      "valid": true,
+      "trailing_chars": 0,
+      "degenerate": false,
+      "violations": {
+       "when_out_of_window": 0,
+       "when_not_iso": 0,
+       "dup_items": 0,
+       "missing_verbs": [],
+       "foreign_targets": 1
+      },
+      "hard_pass": true,
+      "n_recs": 8,
+      "coverage": 1.0
+     },
+     {
+      "text": "{\n  \"recommendations\": [\n    {\n      \"action\": \"Book\",\n      \"target\": \"Family-friendly hotel in Chiado or Baixa\",\n      \"when\": \"2026-06-15/2026-06-22\",\n      \"rationale\": \"Central location minimizes transit time with young children and provides easy access to playgrounds and early dinner spots.\"\n    },\n    {\n      \"action\": \"Book\",\n      \"target\": \"Sintra day trip with private driver\",\n      \"when\": \"2026-06-17\",\n      \"rationale\": \"A private driver allows for flexible stops and easier stroller management compared to public transport, making the castle visit manageable for a 4-year-old.\"\n    },\n    {\n      \"action\": \"Visit\",\n      \"target\": \"Lisbon Oceanarium\",\n      \"when\": \"2026-06-16\",\n      \"rationale\": \"Highly engaging for kids aged 4 and 7, flat and stroller-friendly, and serves as a perfect 'big thing' that doesn't require excessive walking.\"\n    },\n    {\n      \"action\": \"Visit\",\n      \"target\": \"Parque Eduardo VII\",\n      \"when\": \"2026-06-18\",\n      \"rationale\": \"Offers ample space for the kids to run and play in a safe, green environment, fitting the relaxed pace requirement.\"\n    },\n    {\n      \"action\": \"Visit\",\n      \"target\": \"Praia do Guincho or Costa da Caparica\",\n      \"when\": \"2026-06-19\",\n      \"rationale\": \"Provides the requested beach time; Costa da Caparica offers calmer waters and easier access for families with young children.\"\n    },\n    {\n      \"action\": \"Ask_About\",\n      \"target\": \"Stroller accessibility at Pena Palace and Moorish Castle\",\n      \"when\": null,\n      \"rationale\": \"Crucial to determine if the steep terrain and cobblestones at Sintra's main attractions are feasible with a 4-year-old in a stroller.\"\n    },\n    {\n      \"action\": \"Ask_About\",\n      \"target\": \"Kid-friendly restaurants in Alfama with early seating\",\n      \"when\": null,\n      \"rationale\": \"Identifies casual dining options that accommodate early dinners and have menus suitable for young picky eaters.\"\n    },\n    {\n      \"action\": \"Book\",\n      \"target\": \"Tram 28 ride or Museum of Transport tickets\",\n      \"when\": \"2026-06-20\",\n      \"rationale\": \"Satisfies the kids' obsession with trams; the Museum of Transport is a safer, less crowded alternative if the crowded Tram 28 is too stressful with young children.\"\n    }\n  ]\n}",
+      "tokens": 655,
+      "seq_lp": -81.7928,
+      "finish": "stop",
+      "hit_cap": false,
+      "valid": true,
+      "trailing_chars": 0,
+      "degenerate": false,
+      "violations": {
+       "when_out_of_window": 0,
+       "when_not_iso": 0,
+       "dup_items": 0,
+       "missing_verbs": [],
+       "foreign_targets": 1
+      },
+      "hard_pass": true,
+      "n_recs": 8,
+      "coverage": 1.0
+     }
+    ]
+   },
+   "beam_lp12_g": {
+    "wall": 136.37,
+    "total_tokens": 2504,
+    "jaccard": 1.0,
+    "candidates": [
+     {
+      "text": "{\n  \"recommendations\": [\n    {\n      \"action\": \"Book\",\n      \"target\": \"Family-friendly hotel in Chiado or Baixa\",\n      \"when\": \"2026-06-14/2026-06-21\",\n      \"rationale\": \"Central location minimizes transit time with young children and provides easy access to playgrounds and early dinner spots.\"\n    },\n    {\n      \"action\": \"Book\",\n      \"target\": \"Sintra day tour with stroller-friendly transport\",\n      \"when\": \"2026-06-16\",\n      \"rationale\": \"Ensures manageable logistics for the castle obsession while accommodating the stroller constraint for the 4-year-old.\"\n    },\n    {\n      \"action\": \"Visit\",\n      \"target\": \"Lisbon Oceanarium\",\n      \"when\": \"2026-06-15\",\n      \"rationale\": \"Highly engaging for kids aged 4 and 7, flat and stroller-friendly, and serves as a perfect 'big thing' for a relaxed day.\"\n    },\n    {\n      \"action\": \"Visit\",\n      \"target\": \"Parque das Na\u00e7\u00f5es playgrounds\",\n      \"when\": \"2026-06-15\",\n      \"rationale\": \"Offers ample space for the kids to burn energy after the Oceanarium, fitting the 'lots of playground time' requirement.\"\n    },\n    {\n      \"action\": \"Visit\",\n      \"target\": \"Castelo de S\u00e3o Jorge\",\n      \"when\": \"2026-06-17\",\n      \"rationale\": \"Satisfies the kids' obsession with castles and offers iconic views, best visited early to avoid heat and crowds.\"\n    },\n    {\n      \"action\": \"Ask_About\",\n      \"target\": \"Stroller accessibility at Castelo de S\u00e3o Jorge\",\n      \"when\": null,\n      \"rationale\": \"Crucial to know if the steep cobblestones and stairs allow for stroller use or if a carrier is needed for the 4-year-old.\"\n    },\n    {\n      \"action\": \"Visit\",\n      \"target\": \"Praia do Guincho or Costa da Caparica\",\n      \"when\": \"2026-06-18\",\n      \"rationale\": \"Provides the requested beach time in a relaxed setting, suitable for a family with young children.\"\n    },\n    {\n      \"action\": \"Ask_About\",\n      \"target\": \"Kid-friendly tapas restaurants with early seating\",\n      \"when\": null,\n      \"rationale\": \"Helps identify specific venues that cater to early dinners and casual atmospheres, avoiding fancy or late-night spots.\"\n    }\n  ]\n}",
+      "tokens": 625,
+      "seq_lp": -69.2694,
+      "finish": "stop",
+      "hit_cap": false,
+      "valid": true,
+      "trailing_chars": 0,
+      "degenerate": false,
+      "violations": {
+       "when_out_of_window": 0,
+       "when_not_iso": 0,
+       "dup_items": 0,
+       "missing_verbs": [],
+       "foreign_targets": 0
+      },
+      "hard_pass": true,
+      "n_recs": 8,
+      "coverage": 0.833
+     },
+     {
+      "text": "{\n  \"recommendations\": [\n    {\n      \"action\": \"Book\",\n      \"target\": \"Family-friendly hotel in Chiado or Baixa\",\n      \"when\": \"2026-06-14/2026-06-21\",\n      \"rationale\": \"Central location minimizes transit time with young children and provides easy access to playgrounds and early dinner spots.\"\n    },\n    {\n      \"action\": \"Book\",\n      \"target\": \"Sintra day tour with stroller-friendly transport\",\n      \"when\": \"2026-06-16\",\n      \"rationale\": \"Ensures manageable logistics for the castle obsession while accommodating the stroller constraint for the 4-year-old.\"\n    },\n    {\n      \"action\": \"Visit\",\n      \"target\": \"Lisbon Oceanarium\",\n      \"when\": \"2026-06-15\",\n      \"rationale\": \"Highly engaging for kids aged 4 and 7, flat and stroller-friendly, and serves as a perfect 'big thing' for a relaxed day.\"\n    },\n    {\n      \"action\": \"Visit\",\n      \"target\": \"Parque das Na\u00e7\u00f5es playgrounds\",\n      \"when\": \"2026-06-15\",\n      \"rationale\": \"Offers ample space for the kids to burn energy after the Oceanarium, fitting the 'lots of playground time' requirement.\"\n    },\n    {\n      \"action\": \"Visit\",\n      \"target\": \"Castelo de S\u00e3o Jorge\",\n      \"when\": \"2026-06-17\",\n      \"rationale\": \"Satisfies the kids' obsession with castles and offers iconic views, best visited early to avoid heat and crowds.\"\n    },\n    {\n      \"action\": \"Ask_About\",\n      \"target\": \"Stroller accessibility at Castelo de S\u00e3o Jorge\",\n      \"when\": null,\n      \"rationale\": \"Crucial to know if the steep cobblestones and stairs allow for stroller use or if a carrier is needed for the 4-year-old.\"\n    },\n    {\n      \"action\": \"Visit\",\n      \"target\": \"Praia do Guincho or Costa da Caparica\",\n      \"when\": \"2026-06-18\",\n      \"rationale\": \"Provides the requested beach time in a relaxed setting, suitable for young children to play in the sand.\"\n    },\n    {\n      \"action\": \"Ask_About\",\n      \"target\": \"Kid-friendly tapas restaurants with early seating\",\n      \"when\": null,\n      \"rationale\": \"Identifies casual dining options that cater to early dinner times and picky eaters, avoiding fancy or late-night venues.\"\n    }\n  ]\n}",
+      "tokens": 629,
+      "seq_lp": -69.5933,
+      "finish": "stop",
+      "hit_cap": false,
+      "valid": true,
+      "trailing_chars": 0,
+      "degenerate": false,
+      "violations": {
+       "when_out_of_window": 0,
+       "when_not_iso": 0,
+       "dup_items": 0,
+       "missing_verbs": [],
+       "foreign_targets": 0
+      },
+      "hard_pass": true,
+      "n_recs": 8,
+      "coverage": 0.833
+     },
+     {
+      "text": "{\n  \"recommendations\": [\n    {\n      \"action\": \"Book\",\n      \"target\": \"Family-friendly hotel in Chiado or Baixa\",\n      \"when\": \"2026-06-14/2026-06-21\",\n      \"rationale\": \"Central location minimizes transit time with young children and provides easy access to playgrounds and early dinner spots.\"\n    },\n    {\n      \"action\": \"Book\",\n      \"target\": \"Sintra day tour with stroller-friendly transport\",\n      \"when\": \"2026-06-16\",\n      \"rationale\": \"Ensures manageable logistics for the castle obsession while accommodating the stroller constraint for the 4-year-old.\"\n    },\n    {\n      \"action\": \"Visit\",\n      \"target\": \"Lisbon Oceanarium\",\n      \"when\": \"2026-06-15\",\n      \"rationale\": \"Highly engaging for kids aged 4 and 7, flat and stroller-friendly, and serves as a perfect 'big thing' for a relaxed day.\"\n    },\n    {\n      \"action\": \"Visit\",\n      \"target\": \"Parque das Na\u00e7\u00f5es playgrounds\",\n      \"when\": \"2026-06-15\",\n      \"rationale\": \"Offers ample space for the kids to burn energy after the Oceanarium, fitting the 'lots of playground time' requirement.\"\n    },\n    {\n      \"action\": \"Visit\",\n      \"target\": \"Castelo de S\u00e3o Jorge\",\n      \"when\": \"2026-06-17\",\n      \"rationale\": \"Satisfies the kids' obsession with castles and offers iconic views, best visited early to avoid heat and crowds.\"\n    },\n    {\n      \"action\": \"Ask_About\",\n      \"target\": \"Stroller accessibility at Castelo de S\u00e3o Jorge\",\n      \"when\": null,\n      \"rationale\": \"Crucial to know if the steep cobblestones and stairs allow for stroller use or if a carrier is needed for the 4-year-old.\"\n    },\n    {\n      \"action\": \"Visit\",\n      \"target\": \"Praia do Guincho or Costa da Caparica\",\n      \"when\": \"2026-06-18\",\n      \"rationale\": \"Provides the requested beach time in a relaxed setting, suitable for a family with young children.\"\n    },\n    {\n      \"action\": \"Ask_About\",\n      \"target\": \"Kid-friendly tapas restaurants with early seating\",\n      \"when\": null,\n      \"rationale\": \"Helps identify specific venues that cater to early dinners and casual dining preferences for the family.\"\n    }\n  ]\n}",
+      "tokens": 621,
+      "seq_lp": -69.6612,
+      "finish": "stop",
+      "hit_cap": false,
+      "valid": true,
+      "trailing_chars": 0,
+      "degenerate": false,
+      "violations": {
+       "when_out_of_window": 0,
+       "when_not_iso": 0,
+       "dup_items": 0,
+       "missing_verbs": [],
+       "foreign_targets": 0
+      },
+      "hard_pass": true,
+      "n_recs": 8,
+      "coverage": 0.833
+     },
+     {
+      "text": "{\n  \"recommendations\": [\n    {\n      \"action\": \"Book\",\n      \"target\": \"Family-friendly hotel in Chiado or Baixa\",\n      \"when\": \"2026-06-14/2026-06-21\",\n      \"rationale\": \"Central location minimizes transit time with young children and provides easy access to playgrounds and early dinner spots.\"\n    },\n    {\n      \"action\": \"Book\",\n      \"target\": \"Sintra day tour with stroller-friendly transport\",\n      \"when\": \"2026-06-16\",\n      \"rationale\": \"Ensures manageable logistics for the castle obsession while accommodating the stroller constraint for the 4-year-old.\"\n    },\n    {\n      \"action\": \"Visit\",\n      \"target\": \"Lisbon Oceanarium\",\n      \"when\": \"2026-06-15\",\n      \"rationale\": \"Highly engaging for kids aged 4 and 7, flat and stroller-friendly, and serves as a perfect 'big thing' for a relaxed day.\"\n    },\n    {\n      \"action\": \"Visit\",\n      \"target\": \"Parque das Na\u00e7\u00f5es playgrounds\",\n      \"when\": \"2026-06-15\",\n      \"rationale\": \"Offers ample space for the kids to burn energy after the Oceanarium, fitting the 'lots of playground time' requirement.\"\n    },\n    {\n      \"action\": \"Visit\",\n      \"target\": \"Castelo de S\u00e3o Jorge\",\n      \"when\": \"2026-06-17\",\n      \"rationale\": \"Satisfies the kids' obsession with castles and offers iconic views, best visited early to avoid heat and crowds.\"\n    },\n    {\n      \"action\": \"Ask_About\",\n      \"target\": \"Stroller accessibility at Castelo de S\u00e3o Jorge\",\n      \"when\": null,\n      \"rationale\": \"Crucial to know if the steep cobblestones and stairs allow for stroller use or if a carrier is needed for the 4-year-old.\"\n    },\n    {\n      \"action\": \"Visit\",\n      \"target\": \"Praia do Guincho or Costa da Caparica\",\n      \"when\": \"2026-06-18\",\n      \"rationale\": \"Provides the requested beach time in a relaxed setting, suitable for young children to play in the sand.\"\n    },\n    {\n      \"action\": \"Ask_About\",\n      \"target\": \"Kid-friendly tapas restaurants with early seating\",\n      \"when\": null,\n      \"rationale\": \"Identifies casual dining options that cater to early dinner times and picky eaters, avoiding late-night or fancy venues.\"\n    }\n  ]\n}",
+      "tokens": 629,
+      "seq_lp": -70.4561,
+      "finish": "stop",
+      "hit_cap": false,
+      "valid": true,
+      "trailing_chars": 0,
+      "degenerate": false,
+      "violations": {
+       "when_out_of_window": 0,
+       "when_not_iso": 0,
+       "dup_items": 0,
+       "missing_verbs": [],
+       "foreign_targets": 0
+      },
+      "hard_pass": true,
+      "n_recs": 8,
+      "coverage": 0.833
+     }
+    ]
+   }
+  }
+ },
+ {
+  "persona": "couple_foodie_anniversary",
+  "prompt": "<|im_start|>system\nYou are TripKaja's recommendation engine. The traveler describes a trip\nin a free-text paragraph. You produce a JSON list of the top 8 next actions\nthey can take to build their itinerary.\n\nOutput STRICT JSON only \u2014 no prose, no markdown fences. Shape:\n\n{\"recommendations\": [\n  {\"action\": \"Book\", \"target\": \"Hotel in Alfama\",\n   \"when\": \"2026-06-09/2026-06-13\",\n   \"rationale\": \"<one sentence why it fits THIS traveler>\"},\n  {\"action\": \"Visit\", \"target\": \"Gothic Quarter\", \"when\": \"2026-06-10\",\n   \"rationale\": \"...\"}\n]}\n\nValid actions and example targets:\n- \"Book\": bookable things. Targets like \"Hotel in Alfama\", \"Flight to\n  Lisbon\", \"Uber to airport\", \"Sagrada Familia tickets\", \"concert tickets\",\n  \"food tour experience\".\n- \"Visit\": places to plan a visit to. Targets like \"Gothic Quarter\",\n  \"Boqueria market\", \"Sintra day trip\".\n- \"Ask_About\": topics to research before committing. Targets like\n  \"stroller access at Sintra\", \"cider house reservations\".\n\nThe `when` field is ISO 8601: a single date \"2026-06-10\" or an interval\n\"2026-06-09/2026-06-13\" for ranges (stays, booking windows). Use null only\nwhen no date applies.\n\nRules:\n- Exactly 8 recommendations.\n- Match the stated pace: packed trips skew to Book/Visit anchors, slow trips\n  include Ask_About research items.\n- Respect hard constraints in the paragraph (diet, mobility, budget, kids).\n- Targets must be real, well-known things or generic categories\n  (e.g. \"family-friendly tapas bar\"), never invented proper nouns.<|im_end|>\n<|im_start|>user\n<trip_paragraph>\nMy partner and I are celebrating our 10th anniversary with a long weekend in San Sebasti\u00e1n, Spain, first weekend of October. Food is the whole point of the trip \u2014 pintxos crawls in the old town, one splurge Michelin-star dinner, a txoko-style cider house if possible. Between meals we want gentle stuff: beach walks, the funicular up Monte Igueldo, maybe a market visit. Romantic but not cheesy. Budget is flexible \u2014 this is our treat trip.\n</trip_paragraph>\n\nReturn the JSON recommendations object now.<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+  "strategies": {
+   "beam_lp10_g": {
+    "wall": 147.28,
+    "total_tokens": 2473,
+    "jaccard": 1.0,
+    "candidates": [
+     {
+      "text": "{\n  \"recommendations\": [\n    {\n      \"action\": \"Book\",\n      \"target\": \"Reserve a Michelin-star dinner (e.g., Arzak or Mugaritz)\",\n      \"when\": \"2026-10-02/2026-10-04\",\n      \"rationale\": \"Essential for the 'splurge' anniversary dinner, requiring advance booking due to high demand.\"\n    },\n    {\n      \"action\": \"Book\",\n      \"target\": \"Hotel in the Old Town (Parte Vieja)\",\n      \"when\": \"2026-10-02/2026-10-05\",\n      \"rationale\": \"Central location minimizes travel time and maximizes access to pintxos bars for the food-focused itinerary.\"\n    },\n    {\n      \"action\": \"Visit\",\n      \"target\": \"Pintxos crawl in Parte Vieja\",\n      \"when\": \"2026-10-02\",\n      \"rationale\": \"Core activity for the trip, allowing the couple to experience San Sebasti\u00e1n's famous bar-hopping culture.\"\n    },\n    {\n      \"action\": \"Visit\",\n      \"target\": \"Monte Igueldo Funicular\",\n      \"when\": \"2026-10-03\",\n      \"rationale\": \"Provides gentle exercise and panoramic views, fitting the 'gentle stuff' requirement between meals.\"\n    },\n    {\n      \"action\": \"Visit\",\n      \"target\": \"La Concha Beach walk\",\n      \"when\": \"2026-10-03\",\n      \"rationale\": \"A romantic, low-effort activity that complements the food-heavy schedule with scenic relaxation.\"\n    },\n    {\n      \"action\": \"Ask_About\",\n      \"target\": \"Txoko cider house reservations\",\n      \"when\": \"2026-10-01\",\n      \"rationale\": \"Txokos are private social clubs; the traveler needs to know if they accept tourists or how to find a public alternative.\"\n    },\n    {\n      \"action\": \"Visit\",\n      \"target\": \"La Bretxa Market\",\n      \"when\": \"2026-10-02\",\n      \"rationale\": \"Offers a local market experience and high-quality ingredients, aligning with the food-centric theme.\"\n    },\n    {\n      \"action\": \"Book\",\n      \"target\": \"Private pintxos food tour\",\n      \"when\": \"2026-10-02\",\n      \"rationale\": \"Ensures a curated, romantic introduction to the best bars without the stress of navigating crowds alone.\"\n    }\n  ]\n}",
+      "tokens": 618,
+      "seq_lp": -74.9143,
+      "finish": "stop",
+      "hit_cap": false,
+      "valid": true,
+      "trailing_chars": 0,
+      "degenerate": false,
+      "violations": {
+       "when_out_of_window": 1,
+       "when_not_iso": 0,
+       "dup_items": 0,
+       "missing_verbs": [],
+       "foreign_targets": 0
+      },
+      "hard_pass": false,
+      "n_recs": 8,
+      "coverage": 1.0
+     },
+     {
+      "text": "{\n  \"recommendations\": [\n    {\n      \"action\": \"Book\",\n      \"target\": \"Reserve a Michelin-star dinner (e.g., Arzak or Mugaritz)\",\n      \"when\": \"2026-10-02/2026-10-04\",\n      \"rationale\": \"Essential for the 'splurge' anniversary dinner, requiring advance booking due to high demand.\"\n    },\n    {\n      \"action\": \"Book\",\n      \"target\": \"Hotel in the Old Town (Parte Vieja)\",\n      \"when\": \"2026-10-02/2026-10-05\",\n      \"rationale\": \"Central location minimizes travel time and maximizes access to pintxos bars for the food-focused itinerary.\"\n    },\n    {\n      \"action\": \"Visit\",\n      \"target\": \"Pintxos crawl in Parte Vieja\",\n      \"when\": \"2026-10-02\",\n      \"rationale\": \"Core activity for the trip, allowing the couple to experience San Sebasti\u00e1n's famous bar-hopping culture.\"\n    },\n    {\n      \"action\": \"Visit\",\n      \"target\": \"Monte Igueldo Funicular\",\n      \"when\": \"2026-10-03\",\n      \"rationale\": \"Provides gentle exercise and panoramic views, fitting the 'gentle stuff' requirement between meals.\"\n    },\n    {\n      \"action\": \"Visit\",\n      \"target\": \"La Concha Beach walk\",\n      \"when\": \"2026-10-03\",\n      \"rationale\": \"A romantic, low-effort activity that complements the food-heavy schedule with scenic relaxation.\"\n    },\n    {\n      \"action\": \"Ask_About\",\n      \"target\": \"Txoko cider house reservations\",\n      \"when\": \"2026-10-01\",\n      \"rationale\": \"Txokos are private social clubs; the traveler needs to know if they accept tourists or how to find a public alternative.\"\n    },\n    {\n      \"action\": \"Visit\",\n      \"target\": \"La Bretxa Market\",\n      \"when\": \"2026-10-02\",\n      \"rationale\": \"Offers a local market experience and high-quality ingredients, aligning with the food-centric theme.\"\n    },\n    {\n      \"action\": \"Book\",\n      \"target\": \"Private pintxos food tour\",\n      \"when\": \"2026-10-02\",\n      \"rationale\": \"Helps navigate the Old Town efficiently and ensures they hit the best spots for their anniversary celebration.\"\n    }\n  ]\n}",
+      "tokens": 618,
+      "seq_lp": -75.0125,
+      "finish": "stop",
+      "hit_cap": false,
+      "valid": true,
+      "trailing_chars": 0,
+      "degenerate": false,
+      "violations": {
+       "when_out_of_window": 1,
+       "when_not_iso": 0,
+       "dup_items": 0,
+       "missing_verbs": [],
+       "foreign_targets": 0
+      },
+      "hard_pass": false,
+      "n_recs": 8,
+      "coverage": 1.0
+     },
+     {
+      "text": "{\n  \"recommendations\": [\n    {\n      \"action\": \"Book\",\n      \"target\": \"Reserve a Michelin-star dinner (e.g., Arzak or Mugaritz)\",\n      \"when\": \"2026-10-02/2026-10-04\",\n      \"rationale\": \"Essential for the 'splurge' anniversary dinner, requiring advance booking due to high demand.\"\n    },\n    {\n      \"action\": \"Book\",\n      \"target\": \"Hotel in the Old Town (Parte Vieja)\",\n      \"when\": \"2026-10-02/2026-10-05\",\n      \"rationale\": \"Central location minimizes travel time and maximizes access to pintxos bars for the food-focused itinerary.\"\n    },\n    {\n      \"action\": \"Visit\",\n      \"target\": \"Pintxos crawl in Parte Vieja\",\n      \"when\": \"2026-10-02\",\n      \"rationale\": \"Core activity for the trip, allowing the couple to experience San Sebasti\u00e1n's famous bar-hopping culture.\"\n    },\n    {\n      \"action\": \"Visit\",\n      \"target\": \"Monte Igueldo Funicular\",\n      \"when\": \"2026-10-03\",\n      \"rationale\": \"Provides gentle exercise and panoramic views, fitting the 'gentle stuff' requirement between meals.\"\n    },\n    {\n      \"action\": \"Visit\",\n      \"target\": \"La Concha Beach walk\",\n      \"when\": \"2026-10-03\",\n      \"rationale\": \"A romantic, low-effort activity that complements the food-heavy schedule with scenic relaxation.\"\n    },\n    {\n      \"action\": \"Ask_About\",\n      \"target\": \"Txoko cider house reservations\",\n      \"when\": \"2026-10-01\",\n      \"rationale\": \"Txokos are private social clubs; the traveler needs to know if they accept tourists or how to find a public alternative.\"\n    },\n    {\n      \"action\": \"Visit\",\n      \"target\": \"La Bretxa Market\",\n      \"when\": \"2026-10-02\",\n      \"rationale\": \"Offers a local market experience and high-quality ingredients, aligning with the food-centric theme.\"\n    },\n    {\n      \"action\": \"Book\",\n      \"target\": \"Private pintxos food tour\",\n      \"when\": \"2026-10-02\",\n      \"rationale\": \"Helps navigate the Old Town efficiently and ensures they hit the best spots for their anniversary treat.\"\n    }\n  ]\n}",
+      "tokens": 618,
+      "seq_lp": -75.3431,
+      "finish": "stop",
+      "hit_cap": false,
+      "valid": true,
+      "trailing_chars": 0,
+      "degenerate": false,
+      "violations": {
+       "when_out_of_window": 1,
+       "when_not_iso": 0,
+       "dup_items": 0,
+       "missing_verbs": [],
+       "foreign_targets": 0
+      },
+      "hard_pass": false,
+      "n_recs": 8,
+      "coverage": 1.0
+     },
+     {
+      "text": "{\n  \"recommendations\": [\n    {\n      \"action\": \"Book\",\n      \"target\": \"Reserve a Michelin-star dinner (e.g., Arzak or Mugaritz)\",\n      \"when\": \"2026-10-02/2026-10-04\",\n      \"rationale\": \"Essential for the 'splurge' anniversary dinner, requiring advance booking due to high demand.\"\n    },\n    {\n      \"action\": \"Book\",\n      \"target\": \"Hotel in the Old Town (Parte Vieja)\",\n      \"when\": \"2026-10-02/2026-10-05\",\n      \"rationale\": \"Central location minimizes travel time and maximizes access to pintxos bars for the food-focused itinerary.\"\n    },\n    {\n      \"action\": \"Visit\",\n      \"target\": \"Pintxos crawl in Parte Vieja\",\n      \"when\": \"2026-10-02\",\n      \"rationale\": \"Core activity for the trip, allowing the couple to experience San Sebasti\u00e1n's famous bar-hopping culture.\"\n    },\n    {\n      \"action\": \"Visit\",\n      \"target\": \"Monte Igueldo Funicular\",\n      \"when\": \"2026-10-03\",\n      \"rationale\": \"Provides gentle exercise and panoramic views, fitting the 'gentle stuff' requirement between meals.\"\n    },\n    {\n      \"action\": \"Visit\",\n      \"target\": \"La Concha Beach walk\",\n      \"when\": \"2026-10-03\",\n      \"rationale\": \"A romantic, low-effort activity that complements the food-heavy schedule with scenic relaxation.\"\n    },\n    {\n      \"action\": \"Ask_About\",\n      \"target\": \"Txoko cider house reservations\",\n      \"when\": \"2026-10-01\",\n      \"rationale\": \"Txokos are private social clubs; the traveler needs to know if they accept tourists or how to find a public alternative.\"\n    },\n    {\n      \"action\": \"Visit\",\n      \"target\": \"La Bretxa Market\",\n      \"when\": \"2026-10-02\",\n      \"rationale\": \"Offers a local market experience and high-quality fresh ingredients, aligning with the food-centric theme.\"\n    },\n    {\n      \"action\": \"Book\",\n      \"target\": \"Private pintxos food tour\",\n      \"when\": \"2026-10-02\",\n      \"rationale\": \"Helps navigate the Old Town efficiently and introduces them to hidden gems, enhancing the anniversary experience.\"\n    }\n  ]\n}",
+      "tokens": 619,
+      "seq_lp": -75.8122,
+      "finish": "stop",
+      "hit_cap": false,
+      "valid": true,
+      "trailing_chars": 0,
+      "degenerate": false,
+      "violations": {
+       "when_out_of_window": 1,
+       "when_not_iso": 0,
+       "dup_items": 0,
+       "missing_verbs": [],
+       "foreign_targets": 0
+      },
+      "hard_pass": false,
+      "n_recs": 8,
+      "coverage": 1.0
+     }
+    ]
+   },
+   "beam_lp12_g": {
+    "wall": 137.03,
+    "total_tokens": 2381,
+    "jaccard": 1.0,
+    "candidates": [
+     {
+      "text": "{\n  \"recommendations\": [\n    {\n      \"action\": \"Book\",\n      \"target\": \"Reserve a Michelin-star dinner (e.g., Arzak or Mugaritz)\",\n      \"when\": \"2026-10-02/2026-10-04\",\n      \"rationale\": \"Essential for the 'splurge' anniversary dinner, requiring advance booking due to high demand.\"\n    },\n    {\n      \"action\": \"Book\",\n      \"target\": \"Hotel in the Old Town (Parte Vieja)\",\n      \"when\": \"2026-10-01/2026-10-05\",\n      \"rationale\": \"Central location minimizes travel time between pintxos bars and romantic evening strolls.\"\n    },\n    {\n      \"action\": \"Visit\",\n      \"target\": \"Pintxos crawl in Parte Vieja\",\n      \"when\": \"2026-10-02\",\n      \"rationale\": \"Core activity for food-focused travelers, leveraging the dense concentration of bars in the old town.\"\n    },\n    {\n      \"action\": \"Visit\",\n      \"target\": \"Monte Igueldo Funicular\",\n      \"when\": \"2026-10-03\",\n      \"rationale\": \"Provides gentle exercise and panoramic views of the bay, fitting the 'gentle stuff' requirement.\"\n    },\n    {\n      \"action\": \"Visit\",\n      \"target\": \"La Bretxa Market\",\n      \"when\": \"2026-10-02\",\n      \"rationale\": \"Offers a local culinary experience and high-quality ingredients, aligning with the food-centric theme.\"\n    },\n    {\n      \"action\": \"Book\",\n      \"target\": \"Txoko-style cider house experience\",\n      \"when\": \"2026-10-03\",\n      \"rationale\": \"Fulfills the specific request for a traditional Basque cider house dining experience.\"\n    },\n    {\n      \"action\": \"Visit\",\n      \"target\": \"La Concha Beach walk\",\n      \"when\": \"2026-10-01\",\n      \"rationale\": \"Ideal for a romantic, gentle start to the trip with stunning coastal scenery.\"\n    },\n    {\n      \"action\": \"Ask_About\",\n      \"target\": \"Cider house reservation policies for small groups\",\n      \"when\": null,\n      \"rationale\": \"Txokos and traditional cider houses often have specific booking requirements or group size limits that need verification.\"\n    }\n  ]\n}",
+      "tokens": 595,
+      "seq_lp": -69.3134,
+      "finish": "stop",
+      "hit_cap": false,
+      "valid": true,
+      "trailing_chars": 0,
+      "degenerate": false,
+      "violations": {
+       "when_out_of_window": 1,
+       "when_not_iso": 0,
+       "dup_items": 0,
+       "missing_verbs": [],
+       "foreign_targets": 0
+      },
+      "hard_pass": false,
+      "n_recs": 8,
+      "coverage": 1.0
+     },
+     {
+      "text": "{\n  \"recommendations\": [\n    {\n      \"action\": \"Book\",\n      \"target\": \"Reserve a Michelin-star dinner (e.g., Arzak or Mugaritz)\",\n      \"when\": \"2026-10-02/2026-10-04\",\n      \"rationale\": \"Essential for the 'splurge' anniversary dinner, requiring advance booking due to high demand.\"\n    },\n    {\n      \"action\": \"Book\",\n      \"target\": \"Hotel in the Old Town (Parte Vieja)\",\n      \"when\": \"2026-10-01/2026-10-05\",\n      \"rationale\": \"Central location minimizes travel time between pintxos bars and romantic evening strolls.\"\n    },\n    {\n      \"action\": \"Visit\",\n      \"target\": \"Pintxos crawl in Parte Vieja\",\n      \"when\": \"2026-10-02\",\n      \"rationale\": \"Core activity for food-focused travelers, leveraging the dense concentration of bars in the old town.\"\n    },\n    {\n      \"action\": \"Visit\",\n      \"target\": \"Monte Igueldo Funicular\",\n      \"when\": \"2026-10-03\",\n      \"rationale\": \"Provides gentle exercise and panoramic views of the bay, fitting the 'gentle stuff' requirement.\"\n    },\n    {\n      \"action\": \"Visit\",\n      \"target\": \"La Bretxa Market\",\n      \"when\": \"2026-10-02\",\n      \"rationale\": \"Offers a local culinary experience and high-quality ingredients, aligning with the food-centric theme.\"\n    },\n    {\n      \"action\": \"Book\",\n      \"target\": \"Txoko-style cider house experience\",\n      \"when\": \"2026-10-03\",\n      \"rationale\": \"Fulfills the specific request for a traditional Basque culinary experience, often requiring reservation.\"\n    },\n    {\n      \"action\": \"Visit\",\n      \"target\": \"La Concha Beach walk\",\n      \"when\": \"2026-10-01\",\n      \"rationale\": \"Ideal for a romantic, gentle start to the trip with scenic coastal views.\"\n    },\n    {\n      \"action\": \"Ask_About\",\n      \"target\": \"Cider house reservation policies for small groups\",\n      \"when\": null,\n      \"rationale\": \"Txokos and traditional cider houses often have specific booking windows or group size restrictions.\"\n    }\n  ]\n}",
+      "tokens": 594,
+      "seq_lp": -69.6688,
+      "finish": "stop",
+      "hit_cap": false,
+      "valid": true,
+      "trailing_chars": 0,
+      "degenerate": false,
+      "violations": {
+       "when_out_of_window": 1,
+       "when_not_iso": 0,
+       "dup_items": 0,
+       "missing_verbs": [],
+       "foreign_targets": 0
+      },
+      "hard_pass": false,
+      "n_recs": 8,
+      "coverage": 1.0
+     },
+     {
+      "text": "{\n  \"recommendations\": [\n    {\n      \"action\": \"Book\",\n      \"target\": \"Reserve a Michelin-star dinner (e.g., Arzak or Mugaritz)\",\n      \"when\": \"2026-10-02/2026-10-04\",\n      \"rationale\": \"Essential for the 'splurge' anniversary dinner, requiring advance booking due to high demand.\"\n    },\n    {\n      \"action\": \"Book\",\n      \"target\": \"Hotel in the Old Town (Parte Vieja)\",\n      \"when\": \"2026-10-01/2026-10-05\",\n      \"rationale\": \"Central location minimizes travel time between pintxos bars and romantic evening strolls.\"\n    },\n    {\n      \"action\": \"Visit\",\n      \"target\": \"Pintxos crawl in Parte Vieja\",\n      \"when\": \"2026-10-02\",\n      \"rationale\": \"Core activity for food-focused travelers, leveraging the dense concentration of bars in the old town.\"\n    },\n    {\n      \"action\": \"Visit\",\n      \"target\": \"Monte Igueldo Funicular\",\n      \"when\": \"2026-10-03\",\n      \"rationale\": \"Provides gentle exercise and panoramic views of the bay, fitting the 'gentle stuff' requirement.\"\n    },\n    {\n      \"action\": \"Visit\",\n      \"target\": \"La Bretxa Market\",\n      \"when\": \"2026-10-02\",\n      \"rationale\": \"Offers a local culinary experience and high-quality ingredients, aligning with the food-centric theme.\"\n    },\n    {\n      \"action\": \"Book\",\n      \"target\": \"Txoko-style cider house experience\",\n      \"when\": \"2026-10-03\",\n      \"rationale\": \"Fulfills the specific request for a traditional Basque cider house dining experience.\"\n    },\n    {\n      \"action\": \"Visit\",\n      \"target\": \"La Concha Beach walk\",\n      \"when\": \"2026-10-01\",\n      \"rationale\": \"Ideal for a romantic, gentle start to the trip with stunning coastal scenery.\"\n    },\n    {\n      \"action\": \"Ask_About\",\n      \"target\": \"Cider house reservation policies for small groups\",\n      \"when\": null,\n      \"rationale\": \"Txokos and traditional cider houses often have specific booking requirements or group size limits that need clarification.\"\n    }\n  ]\n}",
+      "tokens": 595,
+      "seq_lp": -69.9715,
+      "finish": "stop",
+      "hit_cap": false,
+      "valid": true,
+      "trailing_chars": 0,
+      "degenerate": false,
+      "violations": {
+       "when_out_of_window": 1,
+       "when_not_iso": 0,
+       "dup_items": 0,
+       "missing_verbs": [],
+       "foreign_targets": 0
+      },
+      "hard_pass": false,
+      "n_recs": 8,
+      "coverage": 1.0
+     },
+     {
+      "text": "{\n  \"recommendations\": [\n    {\n      \"action\": \"Book\",\n      \"target\": \"Reserve a Michelin-star dinner (e.g., Arzak or Mugaritz)\",\n      \"when\": \"2026-10-02/2026-10-04\",\n      \"rationale\": \"Essential for the 'splurge' anniversary dinner, requiring advance booking due to high demand.\"\n    },\n    {\n      \"action\": \"Book\",\n      \"target\": \"Hotel in the Old Town (Parte Vieja)\",\n      \"when\": \"2026-10-01/2026-10-05\",\n      \"rationale\": \"Central location minimizes travel time between pintxos bars and romantic evening strolls.\"\n    },\n    {\n      \"action\": \"Visit\",\n      \"target\": \"Pintxos crawl in Parte Vieja\",\n      \"when\": \"2026-10-02\",\n      \"rationale\": \"Core activity for food-focused travelers, leveraging the dense concentration of bars in the old town.\"\n    },\n    {\n      \"action\": \"Visit\",\n      \"target\": \"Monte Igueldo Funicular\",\n      \"when\": \"2026-10-03\",\n      \"rationale\": \"Provides gentle exercise and panoramic views of the bay, fitting the 'gentle stuff' requirement.\"\n    },\n    {\n      \"action\": \"Visit\",\n      \"target\": \"La Bretxa Market\",\n      \"when\": \"2026-10-02\",\n      \"rationale\": \"Offers a local culinary experience and high-quality ingredients, aligning with the food-centric theme.\"\n    },\n    {\n      \"action\": \"Book\",\n      \"target\": \"Txoko-style cider house experience\",\n      \"when\": \"2026-10-03\",\n      \"rationale\": \"Fulfills the specific request for a traditional Basque culinary experience, often requiring reservation.\"\n    },\n    {\n      \"action\": \"Visit\",\n      \"target\": \"La Concha Beach walk\",\n      \"when\": \"2026-10-01\",\n      \"rationale\": \"Ideal for a romantic, gentle start to the trip with scenic coastal views.\"\n    },\n    {\n      \"action\": \"Ask_About\",\n      \"target\": \"Cider house reservation policies for small groups\",\n      \"when\": null,\n      \"rationale\": \"Txokos and traditional cider houses often have specific booking windows or group size restrictions that need verification.\"\n    }\n  ]\n}",
+      "tokens": 597,
+      "seq_lp": -70.2194,
+      "finish": "stop",
+      "hit_cap": false,
+      "valid": true,
+      "trailing_chars": 0,
+      "degenerate": false,
+      "violations": {
+       "when_out_of_window": 1,
+       "when_not_iso": 0,
+       "dup_items": 0,
+       "missing_verbs": [],
+       "foreign_targets": 0
+      },
+      "hard_pass": false,
+      "n_recs": 8,
+      "coverage": 1.0
+     }
+    ]
+   }
+  }
+ },
+ {
+  "persona": "retirees_slow_cultural",
+  "prompt": "<|im_start|>system\nYou are TripKaja's recommendation engine. The traveler describes a trip\nin a free-text paragraph. You produce a JSON list of the top 8 next actions\nthey can take to build their itinerary.\n\nOutput STRICT JSON only \u2014 no prose, no markdown fences. Shape:\n\n{\"recommendations\": [\n  {\"action\": \"Book\", \"target\": \"Hotel in Alfama\",\n   \"when\": \"2026-06-09/2026-06-13\",\n   \"rationale\": \"<one sentence why it fits THIS traveler>\"},\n  {\"action\": \"Visit\", \"target\": \"Gothic Quarter\", \"when\": \"2026-06-10\",\n   \"rationale\": \"...\"}\n]}\n\nValid actions and example targets:\n- \"Book\": bookable things. Targets like \"Hotel in Alfama\", \"Flight to\n  Lisbon\", \"Uber to airport\", \"Sagrada Familia tickets\", \"concert tickets\",\n  \"food tour experience\".\n- \"Visit\": places to plan a visit to. Targets like \"Gothic Quarter\",\n  \"Boqueria market\", \"Sintra day trip\".\n- \"Ask_About\": topics to research before committing. Targets like\n  \"stroller access at Sintra\", \"cider house reservations\".\n\nThe `when` field is ISO 8601: a single date \"2026-06-10\" or an interval\n\"2026-06-09/2026-06-13\" for ranges (stays, booking windows). Use null only\nwhen no date applies.\n\nRules:\n- Exactly 8 recommendations.\n- Match the stated pace: packed trips skew to Book/Visit anchors, slow trips\n  include Ask_About research items.\n- Respect hard constraints in the paragraph (diet, mobility, budget, kids).\n- Targets must be real, well-known things or generic categories\n  (e.g. \"family-friendly tapas bar\"), never invented proper nouns.<|im_end|>\n<|im_start|>user\n<trip_paragraph>\nWe're recently retired and finally doing the Italy trip we've talked about for years: two weeks in May, flying into Rome and out of Venice, with Florence in between. We want a slow pace \u2014 no more than one museum or sight per morning, afternoons free for caf\u00e9s and wandering. My husband has a bad knee so minimal stairs and steep hills. We love art, churches, and long lunches with good wine. We'd rather do fewer things properly than rush.\n</trip_paragraph>\n\nReturn the JSON recommendations object now.<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+  "strategies": {
+   "beam_lp10_g": {
+    "wall": 153.41,
+    "total_tokens": 2509,
+    "jaccard": 1.0,
+    "candidates": [
+     {
+      "text": "{\n  \"recommendations\": [\n    {\n      \"action\": \"Book\",\n      \"target\": \"Hotel in Trastevere, Rome\",\n      \"when\": \"2026-05-01/2026-05-05\",\n      \"rationale\": \"Trastevere is relatively flat and charming for wandering, avoiding the steep hills of other Roman neighborhoods, fitting the husband's knee condition.\"\n    },\n    {\n      \"action\": \"Book\",\n      \"target\": \"Skip-the-line Vatican Museums tickets\",\n      \"when\": \"2026-05-02\",\n      \"rationale\": \"Pre-booking is essential to minimize standing and walking time in lines, respecting the slow pace and mobility needs.\"\n    },\n    {\n      \"action\": \"Visit\",\n      \"target\": \"Vatican Museums and Sistine Chapel\",\n      \"when\": \"2026-05-02\",\n      \"rationale\": \"A major art highlight that can be done at a leisurely pace with elevator access available for the knee issue.\"\n    },\n    {\n      \"action\": \"Book\",\n      \"target\": \"High-speed train Rome to Florence\",\n      \"when\": \"2026-05-05/2026-05-05\",\n      \"rationale\": \"Ensures comfortable, seated travel between cities without the hassle of airport transfers or long bus rides.\"\n    },\n    {\n      \"action\": \"Book\",\n      \"target\": \"Boutique Hotel in Oltrarno, Florence\",\n      \"when\": \"2026-05-05/2026-05-09\",\n      \"rationale\": \"Oltrarno is less touristy and flatter than the historic center, ideal for easy wandering and authentic local cafes.\"\n    },\n    {\n      \"action\": \"Visit\",\n      \"target\": \"Uffizi Gallery\",\n      \"when\": \"2026-05-06\",\n      \"rationale\": \"A premier art destination that allows for a slow, seated-friendly exploration of Renaissance masterpieces.\"\n    },\n    {\n      \"action\": \"Ask_About\",\n      \"target\": \"elevator access at Accademia Gallery\",\n      \"when\": null,\n      \"rationale\": \"Critical to verify if the husband can view the David without navigating significant stairs or steep inclines.\"\n    },\n    {\n      \"action\": \"Book\",\n      \"target\": \"Wine tasting tour in Chianti\",\n      \"when\": \"2026-05-08\",\n      \"rationale\": \"Provides a relaxed, seated afternoon activity with wine and food, perfectly matching their love for long lunches and wine.\"\n    }\n  ]\n}",
+      "tokens": 626,
+      "seq_lp": -81.9932,
+      "finish": "stop",
+      "hit_cap": false,
+      "valid": true,
+      "trailing_chars": 0,
+      "degenerate": false,
+      "violations": {
+       "when_out_of_window": 0,
+       "when_not_iso": 0,
+       "dup_items": 0,
+       "missing_verbs": [],
+       "foreign_targets": 0
+      },
+      "hard_pass": true,
+      "n_recs": 8,
+      "coverage": 1.0
+     },
+     {
+      "text": "{\n  \"recommendations\": [\n    {\n      \"action\": \"Book\",\n      \"target\": \"Hotel in Trastevere, Rome\",\n      \"when\": \"2026-05-01/2026-05-05\",\n      \"rationale\": \"Trastevere is relatively flat and charming for wandering, avoiding the steep hills of other Roman neighborhoods, fitting the husband's knee condition.\"\n    },\n    {\n      \"action\": \"Book\",\n      \"target\": \"Skip-the-line Vatican Museums tickets\",\n      \"when\": \"2026-05-02\",\n      \"rationale\": \"Pre-booking is essential to minimize standing and walking time in lines, respecting the slow pace and mobility needs.\"\n    },\n    {\n      \"action\": \"Visit\",\n      \"target\": \"Vatican Museums and Sistine Chapel\",\n      \"when\": \"2026-05-02\",\n      \"rationale\": \"A major art highlight that can be done at a leisurely pace with elevator access available for the knee issue.\"\n    },\n    {\n      \"action\": \"Book\",\n      \"target\": \"High-speed train Rome to Florence\",\n      \"when\": \"2026-05-05/2026-05-05\",\n      \"rationale\": \"Ensures comfortable, seated travel between cities without the hassle of airport transfers or long bus rides.\"\n    },\n    {\n      \"action\": \"Book\",\n      \"target\": \"Boutique Hotel in Oltrarno, Florence\",\n      \"when\": \"2026-05-05/2026-05-09\",\n      \"rationale\": \"Oltrarno is less touristy and flatter than the historic center, ideal for easy wandering and authentic local cafes.\"\n    },\n    {\n      \"action\": \"Visit\",\n      \"target\": \"Uffizi Gallery\",\n      \"when\": \"2026-05-06\",\n      \"rationale\": \"A premier art destination that allows for a slow, seated-friendly exploration of Renaissance masterpieces.\"\n    },\n    {\n      \"action\": \"Ask_About\",\n      \"target\": \"elevator access at Accademia Gallery\",\n      \"when\": null,\n      \"rationale\": \"Critical to verify if the husband can view the David without navigating significant stairs or steep inclines.\"\n    },\n    {\n      \"action\": \"Book\",\n      \"target\": \"Wine tasting tour in Chianti\",\n      \"when\": \"2026-05-08\",\n      \"rationale\": \"Provides a relaxed, seated afternoon activity with good wine and food, perfectly matching their love for long lunches and wine.\"\n    }\n  ]\n}",
+      "tokens": 627,
+      "seq_lp": -82.2211,
+      "finish": "stop",
+      "hit_cap": false,
+      "valid": true,
+      "trailing_chars": 0,
+      "degenerate": false,
+      "violations": {
+       "when_out_of_window": 0,
+       "when_not_iso": 0,
+       "dup_items": 0,
+       "missing_verbs": [],
+       "foreign_targets": 0
+      },
+      "hard_pass": true,
+      "n_recs": 8,
+      "coverage": 1.0
+     },
+     {
+      "text": "{\n  \"recommendations\": [\n    {\n      \"action\": \"Book\",\n      \"target\": \"Hotel in Trastevere, Rome\",\n      \"when\": \"2026-05-01/2026-05-05\",\n      \"rationale\": \"Trastevere is relatively flat and charming for wandering, avoiding the steep hills of other Roman neighborhoods, fitting the husband's knee condition.\"\n    },\n    {\n      \"action\": \"Book\",\n      \"target\": \"Skip-the-line Vatican Museums tickets\",\n      \"when\": \"2026-05-02\",\n      \"rationale\": \"Pre-booking is essential to minimize standing and walking time in lines, respecting the slow pace and mobility needs.\"\n    },\n    {\n      \"action\": \"Visit\",\n      \"target\": \"Vatican Museums and Sistine Chapel\",\n      \"when\": \"2026-05-02\",\n      \"rationale\": \"A major art highlight that can be done at a leisurely pace with elevator access available for the knee issue.\"\n    },\n    {\n      \"action\": \"Book\",\n      \"target\": \"High-speed train Rome to Florence\",\n      \"when\": \"2026-05-05/2026-05-05\",\n      \"rationale\": \"Ensures comfortable, seated travel between cities without the hassle of airport transfers or long bus rides.\"\n    },\n    {\n      \"action\": \"Book\",\n      \"target\": \"Boutique Hotel in Oltrarno, Florence\",\n      \"when\": \"2026-05-05/2026-05-09\",\n      \"rationale\": \"Oltrarno is less touristy and flatter than the historic center, ideal for easy wandering and authentic local cafes.\"\n    },\n    {\n      \"action\": \"Visit\",\n      \"target\": \"Uffizi Gallery\",\n      \"when\": \"2026-05-06\",\n      \"rationale\": \"A premier art destination that allows for a slow, seated-friendly exploration of Renaissance masterpieces.\"\n    },\n    {\n      \"action\": \"Ask_About\",\n      \"target\": \"elevator access at Accademia Gallery\",\n      \"when\": null,\n      \"rationale\": \"Critical to verify if the husband can view the David without navigating significant stairs or steep inclines.\"\n    },\n    {\n      \"action\": \"Book\",\n      \"target\": \"Wine tasting tour in Chianti\",\n      \"when\": \"2026-05-08\",\n      \"rationale\": \"Provides a relaxed, seated afternoon activity with wine and food, perfectly matching the couple's love for long lunches and wine.\"\n    }\n  ]\n}",
+      "tokens": 628,
+      "seq_lp": -82.8223,
+      "finish": "stop",
+      "hit_cap": false,
+      "valid": true,
+      "trailing_chars": 0,
+      "degenerate": false,
+      "violations": {
+       "when_out_of_window": 0,
+       "when_not_iso": 0,
+       "dup_items": 0,
+       "missing_verbs": [],
+       "foreign_targets": 0
+      },
+      "hard_pass": true,
+      "n_recs": 8,
+      "coverage": 1.0
+     },
+     {
+      "text": "{\n  \"recommendations\": [\n    {\n      \"action\": \"Book\",\n      \"target\": \"Hotel in Trastevere, Rome\",\n      \"when\": \"2026-05-01/2026-05-05\",\n      \"rationale\": \"Trastevere is relatively flat and charming for wandering, avoiding the steep hills of other Roman neighborhoods, fitting the husband's knee condition.\"\n    },\n    {\n      \"action\": \"Book\",\n      \"target\": \"Skip-the-line Vatican Museums tickets\",\n      \"when\": \"2026-05-02\",\n      \"rationale\": \"Pre-booking is essential to minimize standing and walking time in lines, respecting the slow pace and mobility needs.\"\n    },\n    {\n      \"action\": \"Visit\",\n      \"target\": \"Vatican Museums and Sistine Chapel\",\n      \"when\": \"2026-05-02\",\n      \"rationale\": \"A major art highlight that can be done at a leisurely pace with elevator access available for the knee issue.\"\n    },\n    {\n      \"action\": \"Book\",\n      \"target\": \"High-speed train Rome to Florence\",\n      \"when\": \"2026-05-05/2026-05-05\",\n      \"rationale\": \"Ensures comfortable, seated travel between cities without the hassle of airport transfers or long bus rides.\"\n    },\n    {\n      \"action\": \"Book\",\n      \"target\": \"Boutique Hotel in Oltrarno, Florence\",\n      \"when\": \"2026-05-05/2026-05-09\",\n      \"rationale\": \"Oltrarno is less touristy and flatter than the historic center, ideal for easy wandering and authentic local cafes.\"\n    },\n    {\n      \"action\": \"Visit\",\n      \"target\": \"Uffizi Gallery\",\n      \"when\": \"2026-05-06\",\n      \"rationale\": \"A premier art destination that allows for a slow, seated-friendly exploration of Renaissance masterpieces.\"\n    },\n    {\n      \"action\": \"Ask_About\",\n      \"target\": \"elevator access at Accademia Gallery\",\n      \"when\": null,\n      \"rationale\": \"Critical to verify if the husband can view the David without navigating significant stairs or steep inclines.\"\n    },\n    {\n      \"action\": \"Book\",\n      \"target\": \"Wine tasting tour in Chianti\",\n      \"when\": \"2026-05-08\",\n      \"rationale\": \"Provides a relaxed, seated afternoon activity with good wine and food, perfectly matching their love for long lunches and slow pace.\"\n    }\n  ]\n}",
+      "tokens": 628,
+      "seq_lp": -82.8488,
+      "finish": "stop",
+      "hit_cap": false,
+      "valid": true,
+      "trailing_chars": 0,
+      "degenerate": false,
+      "violations": {
+       "when_out_of_window": 0,
+       "when_not_iso": 0,
+       "dup_items": 0,
+       "missing_verbs": [],
+       "foreign_targets": 0
+      },
+      "hard_pass": true,
+      "n_recs": 8,
+      "coverage": 1.0
+     }
+    ]
+   },
+   "beam_lp12_g": {
+    "wall": 157.35,
+    "total_tokens": 2612,
+    "jaccard": 1.0,
+    "candidates": [
+     {
+      "text": "{\n  \"recommendations\": [\n    {\n      \"action\": \"Book\",\n      \"target\": \"Flight to Rome (FCO)\",\n      \"when\": \"2026-05-01/2026-05-15\",\n      \"rationale\": \"Essential first step for the open-jaw itinerary starting in Rome.\"\n    },\n    {\n      \"action\": \"Book\",\n      \"target\": \"Flight from Venice (VCE)\",\n      \"when\": \"2026-05-01/2026-05-15\",\n      \"rationale\": \"Essential first step for the open-jaw itinerary ending in Venice.\"\n    },\n    {\n      \"action\": \"Book\",\n      \"target\": \"High-speed train (Frecciarossa) Rome to Florence\",\n      \"when\": \"2026-05-05/2026-05-10\",\n      \"rationale\": \"Provides a comfortable, flat, and fast transfer between cities, respecting the husband's knee condition.\"\n    },\n    {\n      \"action\": \"Book\",\n      \"target\": \"High-speed train (Frecciarossa) Florence to Venice\",\n      \"when\": \"2026-05-05/2026-05-10\",\n      \"rationale\": \"Provides a comfortable, flat, and fast transfer between cities, respecting the husband's knee condition.\"\n    },\n    {\n      \"action\": \"Book\",\n      \"target\": \"Skip-the-line Uffizi Gallery tickets\",\n      \"when\": \"2026-05-05/2026-05-10\",\n      \"rationale\": \"Allows for a relaxed morning visit to this major art site without standing in long queues, fitting the slow pace.\"\n    },\n    {\n      \"action\": \"Book\",\n      \"target\": \"Private accessible tour of Vatican Museums\",\n      \"when\": \"2026-05-01/2026-05-04\",\n      \"rationale\": \"Ensures minimal stairs and steep hills are avoided while seeing key art and churches in Rome.\"\n    },\n    {\n      \"action\": \"Ask_About\",\n      \"target\": \"wheelchair accessible hotels in Venice\",\n      \"when\": \"null\",\n      \"rationale\": \"Venice is notoriously difficult for mobility issues due to bridges and steps, requiring careful accommodation research.\"\n    },\n    {\n      \"action\": \"Book\",\n      \"target\": \"Wine tasting experience in Chianti region\",\n      \"when\": \"2026-05-05/2026-05-10\",\n      \"rationale\": \"Aligns with the couple's love for good wine and long lunches, offering a relaxed afternoon activity.\"\n    }\n  ]\n}",
+      "tokens": 653,
+      "seq_lp": -60.5761,
+      "finish": "stop",
+      "hit_cap": false,
+      "valid": true,
+      "trailing_chars": 0,
+      "degenerate": false,
+      "violations": {
+       "when_out_of_window": 0,
+       "when_not_iso": 1,
+       "dup_items": 0,
+       "missing_verbs": [
+        "Visit"
+       ],
+       "foreign_targets": 0
+      },
+      "hard_pass": false,
+      "n_recs": 8,
+      "coverage": 0.8
+     },
+     {
+      "text": "{\n  \"recommendations\": [\n    {\n      \"action\": \"Book\",\n      \"target\": \"Flight to Rome (FCO)\",\n      \"when\": \"2026-05-01/2026-05-15\",\n      \"rationale\": \"Essential first step for the open-jaw itinerary starting in Rome.\"\n    },\n    {\n      \"action\": \"Book\",\n      \"target\": \"Flight from Venice (VCE)\",\n      \"when\": \"2026-05-01/2026-05-15\",\n      \"rationale\": \"Essential first step for the open-jaw itinerary ending in Venice.\"\n    },\n    {\n      \"action\": \"Book\",\n      \"target\": \"High-speed train (Frecciarossa) Rome to Florence\",\n      \"when\": \"2026-05-05/2026-05-10\",\n      \"rationale\": \"Provides a comfortable, flat, and fast transfer between cities, respecting the husband's knee condition.\"\n    },\n    {\n      \"action\": \"Book\",\n      \"target\": \"High-speed train (Frecciarossa) Florence to Venice\",\n      \"when\": \"2026-05-05/2026-05-10\",\n      \"rationale\": \"Provides a comfortable, flat, and fast transfer between cities, respecting the husband's knee condition.\"\n    },\n    {\n      \"action\": \"Book\",\n      \"target\": \"Skip-the-line Uffizi Gallery tickets\",\n      \"when\": \"2026-05-05/2026-05-10\",\n      \"rationale\": \"Allows for a relaxed morning visit to this major art site without standing in long queues, fitting the slow pace.\"\n    },\n    {\n      \"action\": \"Book\",\n      \"target\": \"Private accessible tour of Vatican Museums\",\n      \"when\": \"2026-05-01/2026-05-04\",\n      \"rationale\": \"Ensures minimal stairs and steep hills are avoided while seeing key art and churches in Rome.\"\n    },\n    {\n      \"action\": \"Ask_About\",\n      \"target\": \"wheelchair accessible hotels in Venice\",\n      \"when\": \"null\",\n      \"rationale\": \"Venice is notoriously difficult for mobility issues due to bridges and steps, requiring careful accommodation research.\"\n    },\n    {\n      \"action\": \"Book\",\n      \"target\": \"Wine tasting experience in Chianti region\",\n      \"when\": \"2026-05-05/2026-05-10\",\n      \"rationale\": \"Aligns with the couple's love for good wine and long lunches, offering a gentle afternoon activity.\"\n    }\n  ]\n}",
+      "tokens": 653,
+      "seq_lp": -61.0473,
+      "finish": "stop",
+      "hit_cap": false,
+      "valid": true,
+      "trailing_chars": 0,
+      "degenerate": false,
+      "violations": {
+       "when_out_of_window": 0,
+       "when_not_iso": 1,
+       "dup_items": 0,
+       "missing_verbs": [
+        "Visit"
+       ],
+       "foreign_targets": 0
+      },
+      "hard_pass": false,
+      "n_recs": 8,
+      "coverage": 0.8
+     },
+     {
+      "text": "{\n  \"recommendations\": [\n    {\n      \"action\": \"Book\",\n      \"target\": \"Flight to Rome (FCO)\",\n      \"when\": \"2026-05-01/2026-05-15\",\n      \"rationale\": \"Essential first step for the open-jaw itinerary starting in Rome.\"\n    },\n    {\n      \"action\": \"Book\",\n      \"target\": \"Flight from Venice (VCE)\",\n      \"when\": \"2026-05-01/2026-05-15\",\n      \"rationale\": \"Essential first step for the open-jaw itinerary ending in Venice.\"\n    },\n    {\n      \"action\": \"Book\",\n      \"target\": \"High-speed train (Frecciarossa) Rome to Florence\",\n      \"when\": \"2026-05-05/2026-05-10\",\n      \"rationale\": \"Provides a comfortable, flat, and fast transfer between cities, respecting the husband's knee condition.\"\n    },\n    {\n      \"action\": \"Book\",\n      \"target\": \"High-speed train (Frecciarossa) Florence to Venice\",\n      \"when\": \"2026-05-05/2026-05-10\",\n      \"rationale\": \"Provides a comfortable, flat, and fast transfer between cities, respecting the husband's knee condition.\"\n    },\n    {\n      \"action\": \"Book\",\n      \"target\": \"Skip-the-line Uffizi Gallery tickets\",\n      \"when\": \"2026-05-05/2026-05-10\",\n      \"rationale\": \"Allows for a relaxed morning visit to this major art site without standing in long queues, fitting the slow pace.\"\n    },\n    {\n      \"action\": \"Book\",\n      \"target\": \"Private accessible tour of Vatican Museums\",\n      \"when\": \"2026-05-01/2026-05-04\",\n      \"rationale\": \"Ensures minimal stairs and steep hills are avoided while seeing key art and churches in Rome.\"\n    },\n    {\n      \"action\": \"Ask_About\",\n      \"target\": \"wheelchair accessible hotels in Venice\",\n      \"when\": \"null\",\n      \"rationale\": \"Venice is notoriously difficult for mobility issues due to bridges and steps, requiring careful accommodation research.\"\n    },\n    {\n      \"action\": \"Book\",\n      \"target\": \"Wine tasting experience in Chianti region\",\n      \"when\": \"2026-05-05/2026-05-10\",\n      \"rationale\": \"Aligns with their love for good wine and long lunches, offering a relaxed afternoon activity.\"\n    }\n  ]\n}",
+      "tokens": 651,
+      "seq_lp": -61.4339,
+      "finish": "stop",
+      "hit_cap": false,
+      "valid": true,
+      "trailing_chars": 0,
+      "degenerate": false,
+      "violations": {
+       "when_out_of_window": 0,
+       "when_not_iso": 1,
+       "dup_items": 0,
+       "missing_verbs": [
+        "Visit"
+       ],
+       "foreign_targets": 0
+      },
+      "hard_pass": false,
+      "n_recs": 8,
+      "coverage": 0.8
+     },
+     {
+      "text": "{\n  \"recommendations\": [\n    {\n      \"action\": \"Book\",\n      \"target\": \"Flight to Rome (FCO)\",\n      \"when\": \"2026-05-01/2026-05-15\",\n      \"rationale\": \"Essential first step for the open-jaw itinerary starting in Rome.\"\n    },\n    {\n      \"action\": \"Book\",\n      \"target\": \"Flight from Venice (VCE)\",\n      \"when\": \"2026-05-01/2026-05-15\",\n      \"rationale\": \"Essential first step for the open-jaw itinerary ending in Venice.\"\n    },\n    {\n      \"action\": \"Book\",\n      \"target\": \"High-speed train (Frecciarossa) Rome to Florence\",\n      \"when\": \"2026-05-05/2026-05-10\",\n      \"rationale\": \"Provides a comfortable, flat, and fast transfer between cities, respecting the husband's knee condition.\"\n    },\n    {\n      \"action\": \"Book\",\n      \"target\": \"High-speed train (Frecciarossa) Florence to Venice\",\n      \"when\": \"2026-05-05/2026-05-10\",\n      \"rationale\": \"Provides a comfortable, flat, and fast transfer between cities, respecting the husband's knee condition.\"\n    },\n    {\n      \"action\": \"Book\",\n      \"target\": \"Skip-the-line Uffizi Gallery tickets\",\n      \"when\": \"2026-05-05/2026-05-10\",\n      \"rationale\": \"Allows for a relaxed morning visit to this major art site without standing in long queues, fitting the slow pace.\"\n    },\n    {\n      \"action\": \"Book\",\n      \"target\": \"Private accessible tour of Vatican Museums\",\n      \"when\": \"2026-05-01/2026-05-04\",\n      \"rationale\": \"Ensures minimal stairs and steep hills are avoided while seeing key art and churches in Rome.\"\n    },\n    {\n      \"action\": \"Ask_About\",\n      \"target\": \"wheelchair accessible hotels in Venice\",\n      \"when\": \"null\",\n      \"rationale\": \"Venice is notoriously difficult for mobility issues due to bridges and steps, requiring careful accommodation research.\"\n    },\n    {\n      \"action\": \"Book\",\n      \"target\": \"Wine tasting experience in Chianti region\",\n      \"when\": \"2026-05-05/2026-05-10\",\n      \"rationale\": \"Aligns with the couple's love for good wine and long lunches, offering a gentle afternoon activity near Florence.\"\n    }\n  ]\n}",
+      "tokens": 655,
+      "seq_lp": -62.4224,
+      "finish": "stop",
+      "hit_cap": false,
+      "valid": true,
+      "trailing_chars": 0,
+      "degenerate": false,
+      "violations": {
+       "when_out_of_window": 0,
+       "when_not_iso": 1,
+       "dup_items": 0,
+       "missing_verbs": [
+        "Visit"
+       ],
+       "foreign_targets": 0
+      },
+      "hard_pass": false,
+      "n_recs": 8,
+      "coverage": 0.8
+     }
+    ]
+   }
+  }
+ },
+ {
+  "persona": "friends_adventure",
+  "prompt": "<|im_start|>system\nYou are TripKaja's recommendation engine. The traveler describes a trip\nin a free-text paragraph. You produce a JSON list of the top 8 next actions\nthey can take to build their itinerary.\n\nOutput STRICT JSON only \u2014 no prose, no markdown fences. Shape:\n\n{\"recommendations\": [\n  {\"action\": \"Book\", \"target\": \"Hotel in Alfama\",\n   \"when\": \"2026-06-09/2026-06-13\",\n   \"rationale\": \"<one sentence why it fits THIS traveler>\"},\n  {\"action\": \"Visit\", \"target\": \"Gothic Quarter\", \"when\": \"2026-06-10\",\n   \"rationale\": \"...\"}\n]}\n\nValid actions and example targets:\n- \"Book\": bookable things. Targets like \"Hotel in Alfama\", \"Flight to\n  Lisbon\", \"Uber to airport\", \"Sagrada Familia tickets\", \"concert tickets\",\n  \"food tour experience\".\n- \"Visit\": places to plan a visit to. Targets like \"Gothic Quarter\",\n  \"Boqueria market\", \"Sintra day trip\".\n- \"Ask_About\": topics to research before committing. Targets like\n  \"stroller access at Sintra\", \"cider house reservations\".\n\nThe `when` field is ISO 8601: a single date \"2026-06-10\" or an interval\n\"2026-06-09/2026-06-13\" for ranges (stays, booking windows). Use null only\nwhen no date applies.\n\nRules:\n- Exactly 8 recommendations.\n- Match the stated pace: packed trips skew to Book/Visit anchors, slow trips\n  include Ask_About research items.\n- Respect hard constraints in the paragraph (diet, mobility, budget, kids).\n- Targets must be real, well-known things or generic categories\n  (e.g. \"family-friendly tapas bar\"), never invented proper nouns.<|im_end|>\n<|im_start|>user\n<trip_paragraph>\nFour friends in our early 30s doing a packed 8-day Iceland ring-road trip in September. We've rented a 4x4 and want waterfalls, glacier hiking, black sand beaches, hot springs, and hopefully northern lights. We're all pretty fit and happy with long driving days and 6am starts to beat the crowds. Budget is mid-range \u2014 guesthouses are fine, but we'll splurge on one glacier tour and one nice dinner in Reykjavik.\n</trip_paragraph>\n\nReturn the JSON recommendations object now.<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+  "strategies": {
+   "beam_lp10_g": {
+    "wall": 150.93,
+    "total_tokens": 2682,
+    "jaccard": 1.0,
+    "candidates": [
+     {
+      "text": "{\n  \"recommendations\": [\n    {\n      \"action\": \"Book\",\n      \"target\": \"Glacier hiking tour on S\u00f3lheimaj\u00f6kull or Vatnaj\u00f6kull\",\n      \"when\": \"2026-09-15/2026-09-22\",\n      \"rationale\": \"Fits the splurge budget and leverages the group's fitness level for a high-value experience.\"\n    },\n    {\n      \"action\": \"Book\",\n      \"target\": \"Fine dining restaurant in Reykjavik (e.g., Dill or Matur og Drykkur)\",\n      \"when\": \"2026-09-15/2026-09-22\",\n      \"rationale\": \"Satisfies the desire to splurge on one nice dinner in the capital.\"\n    },\n    {\n      \"action\": \"Visit\",\n      \"target\": \"J\u00f6kuls\u00e1rl\u00f3n Glacier Lagoon and Diamond Beach\",\n      \"when\": \"2026-09-18\",\n      \"rationale\": \"Essential stop for black sand beaches and glacier views on the Ring Road.\"\n    },\n    {\n      \"action\": \"Visit\",\n      \"target\": \"Seljalandsfoss and Sk\u00f3gafoss waterfalls\",\n      \"when\": \"2026-09-12\",\n      \"rationale\": \"Iconic waterfalls accessible early in the trip to beat crowds.\"\n    },\n    {\n      \"action\": \"Visit\",\n      \"target\": \"Reykjadalur Hot Spring Valley\",\n      \"when\": \"2026-09-16\",\n      \"rationale\": \"A fit-friendly hike to a natural hot spring, fitting the mid-range budget better than the Blue Lagoon.\"\n    },\n    {\n      \"action\": \"Ask_About\",\n      \"target\": \"Northern Lights forecast and aurora tour options\",\n      \"when\": \"2026-09-15/2026-09-22\",\n      \"rationale\": \"September has lower aurora probability than winter, so checking forecasts and booking flexible tours is crucial.\"\n    },\n    {\n      \"action\": \"Book\",\n      \"target\": \"Guesthouses along the South Coast (e.g., near V\u00edk or Kirkjub\u00e6jarklaustur)\",\n      \"when\": \"2026-09-12/2026-09-14\",\n      \"rationale\": \"Mid-range accommodation strategy to save budget for the glacier tour and nice dinner.\"\n    },\n    {\n      \"action\": \"Visit\",\n      \"target\": \"Dyrh\u00f3laey Arch and Reynisfjara Black Sand Beach\",\n      \"when\": \"2026-09-13\",\n      \"rationale\": \"Key black sand beach destination requiring early start to manage tide safety and crowds.\"\n    }\n  ]\n}",
+      "tokens": 670,
+      "seq_lp": -78.1677,
+      "finish": "stop",
+      "hit_cap": false,
+      "valid": true,
+      "trailing_chars": 0,
+      "degenerate": false,
+      "violations": {
+       "when_out_of_window": 6,
+       "when_not_iso": 0,
+       "dup_items": 0,
+       "missing_verbs": [],
+       "foreign_targets": 1
+      },
+      "hard_pass": false,
+      "n_recs": 8,
+      "coverage": 1.0
+     },
+     {
+      "text": "{\n  \"recommendations\": [\n    {\n      \"action\": \"Book\",\n      \"target\": \"Glacier hiking tour on S\u00f3lheimaj\u00f6kull or Vatnaj\u00f6kull\",\n      \"when\": \"2026-09-15/2026-09-22\",\n      \"rationale\": \"Fits the splurge budget and leverages the group's fitness level for a high-value experience.\"\n    },\n    {\n      \"action\": \"Book\",\n      \"target\": \"Fine dining restaurant in Reykjavik (e.g., Dill or Matur og Drykkur)\",\n      \"when\": \"2026-09-15/2026-09-22\",\n      \"rationale\": \"Satisfies the desire to splurge on one nice dinner in the capital.\"\n    },\n    {\n      \"action\": \"Visit\",\n      \"target\": \"J\u00f6kuls\u00e1rl\u00f3n Glacier Lagoon and Diamond Beach\",\n      \"when\": \"2026-09-18\",\n      \"rationale\": \"Essential stop for black sand beaches and glacier views on the Ring Road.\"\n    },\n    {\n      \"action\": \"Visit\",\n      \"target\": \"Seljalandsfoss and Sk\u00f3gafoss waterfalls\",\n      \"when\": \"2026-09-12\",\n      \"rationale\": \"Iconic waterfalls accessible early in the trip to beat crowds.\"\n    },\n    {\n      \"action\": \"Visit\",\n      \"target\": \"Reykjadalur Hot Spring Valley\",\n      \"when\": \"2026-09-16\",\n      \"rationale\": \"A fit-friendly hike to a natural hot spring, fitting the mid-range budget better than the Blue Lagoon.\"\n    },\n    {\n      \"action\": \"Ask_About\",\n      \"target\": \"Northern Lights forecast and aurora tour options\",\n      \"when\": \"2026-09-15/2026-09-22\",\n      \"rationale\": \"September has lower aurora probability than winter, so checking forecasts and booking flexible tours is crucial.\"\n    },\n    {\n      \"action\": \"Book\",\n      \"target\": \"Guesthouses along the South Coast (e.g., near V\u00edk or Kirkjub\u00e6jarklaustur)\",\n      \"when\": \"2026-09-12/2026-09-14\",\n      \"rationale\": \"Mid-range accommodation strategy to save budget for the glacier tour and splurge dinner.\"\n    },\n    {\n      \"action\": \"Visit\",\n      \"target\": \"Dyrh\u00f3laey Arch and Reynisfjara Black Sand Beach\",\n      \"when\": \"2026-09-13\",\n      \"rationale\": \"Key black sand beach destination requiring early start to manage tide safety and crowds.\"\n    }\n  ]\n}",
+      "tokens": 671,
+      "seq_lp": -78.3126,
+      "finish": "stop",
+      "hit_cap": false,
+      "valid": true,
+      "trailing_chars": 0,
+      "degenerate": false,
+      "violations": {
+       "when_out_of_window": 6,
+       "when_not_iso": 0,
+       "dup_items": 0,
+       "missing_verbs": [],
+       "foreign_targets": 1
+      },
+      "hard_pass": false,
+      "n_recs": 8,
+      "coverage": 1.0
+     },
+     {
+      "text": "{\n  \"recommendations\": [\n    {\n      \"action\": \"Book\",\n      \"target\": \"Glacier hiking tour on S\u00f3lheimaj\u00f6kull or Vatnaj\u00f6kull\",\n      \"when\": \"2026-09-15/2026-09-22\",\n      \"rationale\": \"Fits the splurge budget and leverages the group's fitness level for a high-value experience.\"\n    },\n    {\n      \"action\": \"Book\",\n      \"target\": \"Fine dining restaurant in Reykjavik (e.g., Dill or Matur og Drykkur)\",\n      \"when\": \"2026-09-15/2026-09-22\",\n      \"rationale\": \"Satisfies the desire to splurge on one nice dinner in the capital.\"\n    },\n    {\n      \"action\": \"Visit\",\n      \"target\": \"J\u00f6kuls\u00e1rl\u00f3n Glacier Lagoon and Diamond Beach\",\n      \"when\": \"2026-09-18\",\n      \"rationale\": \"Essential stop for black sand beaches and glacier views on the Ring Road.\"\n    },\n    {\n      \"action\": \"Visit\",\n      \"target\": \"Seljalandsfoss and Sk\u00f3gafoss waterfalls\",\n      \"when\": \"2026-09-12\",\n      \"rationale\": \"Iconic waterfalls accessible early in the trip to beat crowds.\"\n    },\n    {\n      \"action\": \"Visit\",\n      \"target\": \"Reykjadalur Hot Spring Valley\",\n      \"when\": \"2026-09-16\",\n      \"rationale\": \"A fit-friendly hike to a natural hot spring, fitting the mid-range budget better than the Blue Lagoon.\"\n    },\n    {\n      \"action\": \"Ask_About\",\n      \"target\": \"Northern Lights forecast and aurora tour options\",\n      \"when\": \"2026-09-15/2026-09-22\",\n      \"rationale\": \"September has lower aurora probability than winter, so checking forecasts and booking flexible tours is crucial.\"\n    },\n    {\n      \"action\": \"Book\",\n      \"target\": \"Guesthouses along the South Coast (e.g., near V\u00edk or Kirkjub\u00e6jarklaustur)\",\n      \"when\": \"2026-09-12/2026-09-14\",\n      \"rationale\": \"Mid-range accommodation strategy to save budget for the glacier tour and nice dinner.\"\n    },\n    {\n      \"action\": \"Visit\",\n      \"target\": \"Dyrh\u00f3laey Arch and Reynisfjara Black Sand Beach\",\n      \"when\": \"2026-09-13\",\n      \"rationale\": \"Key black sand beach destination requiring early start due to tides and crowds.\"\n    }\n  ]\n}",
+      "tokens": 670,
+      "seq_lp": -78.9086,
+      "finish": "stop",
+      "hit_cap": false,
+      "valid": true,
+      "trailing_chars": 0,
+      "degenerate": false,
+      "violations": {
+       "when_out_of_window": 6,
+       "when_not_iso": 0,
+       "dup_items": 0,
+       "missing_verbs": [],
+       "foreign_targets": 1
+      },
+      "hard_pass": false,
+      "n_recs": 8,
+      "coverage": 1.0
+     },
+     {
+      "text": "{\n  \"recommendations\": [\n    {\n      \"action\": \"Book\",\n      \"target\": \"Glacier hiking tour on S\u00f3lheimaj\u00f6kull or Vatnaj\u00f6kull\",\n      \"when\": \"2026-09-15/2026-09-22\",\n      \"rationale\": \"Fits the splurge budget and leverages the group's fitness level for a high-value experience.\"\n    },\n    {\n      \"action\": \"Book\",\n      \"target\": \"Fine dining restaurant in Reykjavik (e.g., Dill or Matur og Drykkur)\",\n      \"when\": \"2026-09-15/2026-09-22\",\n      \"rationale\": \"Satisfies the desire to splurge on one nice dinner in the capital.\"\n    },\n    {\n      \"action\": \"Visit\",\n      \"target\": \"J\u00f6kuls\u00e1rl\u00f3n Glacier Lagoon and Diamond Beach\",\n      \"when\": \"2026-09-18\",\n      \"rationale\": \"Essential stop for black sand beaches and glacier views on the Ring Road.\"\n    },\n    {\n      \"action\": \"Visit\",\n      \"target\": \"Seljalandsfoss and Sk\u00f3gafoss waterfalls\",\n      \"when\": \"2026-09-12\",\n      \"rationale\": \"Iconic waterfalls accessible early in the trip to beat crowds.\"\n    },\n    {\n      \"action\": \"Visit\",\n      \"target\": \"Reykjadalur Hot Spring Valley\",\n      \"when\": \"2026-09-16\",\n      \"rationale\": \"A fit-friendly hike to a natural hot spring, fitting the mid-range budget better than the Blue Lagoon.\"\n    },\n    {\n      \"action\": \"Ask_About\",\n      \"target\": \"Northern Lights forecast and aurora tour options\",\n      \"when\": \"2026-09-15/2026-09-22\",\n      \"rationale\": \"September has lower aurora probability than winter, so checking forecasts and booking flexible tours is crucial.\"\n    },\n    {\n      \"action\": \"Book\",\n      \"target\": \"Guesthouses along the South Coast (e.g., near V\u00edk or Kirkjub\u00e6jarklaustur)\",\n      \"when\": \"2026-09-12/2026-09-14\",\n      \"rationale\": \"Mid-range accommodation strategy to save budget for the glacier tour and splurge dinner.\"\n    },\n    {\n      \"action\": \"Visit\",\n      \"target\": \"Dyrh\u00f3laey Arch and Reynisfjara Black Sand Beach\",\n      \"when\": \"2026-09-13\",\n      \"rationale\": \"Key black sand beach destination requiring early start due to tides and crowds.\"\n    }\n  ]\n}",
+      "tokens": 671,
+      "seq_lp": -79.3361,
+      "finish": "stop",
+      "hit_cap": false,
+      "valid": true,
+      "trailing_chars": 0,
+      "degenerate": false,
+      "violations": {
+       "when_out_of_window": 6,
+       "when_not_iso": 0,
+       "dup_items": 0,
+       "missing_verbs": [],
+       "foreign_targets": 1
+      },
+      "hard_pass": false,
+      "n_recs": 8,
+      "coverage": 1.0
+     }
+    ]
+   },
+   "beam_lp12_g": {
+    "wall": 148.33,
+    "total_tokens": 2543,
+    "jaccard": 1.0,
+    "candidates": [
+     {
+      "text": "{\n  \"recommendations\": [\n    {\n      \"action\": \"Book\",\n      \"target\": \"Glacier hiking tour on S\u00f3lheimaj\u00f6kull or Vatnaj\u00f6kull\",\n      \"when\": \"2026-09-15/2026-09-22\",\n      \"rationale\": \"Fits the splurge budget and leverages the group's fitness level for a high-value experience.\"\n    },\n    {\n      \"action\": \"Book\",\n      \"target\": \"Fine dining restaurant in Reykjavik (e.g., Dill or Matur og Drykkur)\",\n      \"when\": \"2026-09-15/2026-09-22\",\n      \"rationale\": \"Satisfies the desire to splurge on one nice dinner in the capital.\"\n    },\n    {\n      \"action\": \"Visit\",\n      \"target\": \"Seljalandsfoss and Sk\u00f3gafoss waterfalls\",\n      \"when\": \"2026-09-10\",\n      \"rationale\": \"Iconic early-ring-road stops that fit the packed itinerary and 6am start preference.\"\n    },\n    {\n      \"action\": \"Visit\",\n      \"target\": \"Reynisfjara black sand beach\",\n      \"when\": \"2026-09-11\",\n      \"rationale\": \"Essential ring-road stop for the requested black sand beach experience.\"\n    },\n    {\n      \"action\": \"Visit\",\n      \"target\": \"Secret Lagoon or Landmannalaugar hot springs\",\n      \"when\": \"2026-09-13/2026-09-14\",\n      \"rationale\": \"Provides relaxation after long driving days and fits the mid-range guesthouse budget.\"\n    },\n    {\n      \"action\": \"Ask_About\",\n      \"target\": \"Northern Lights visibility forecast and aurora tour options\",\n      \"when\": null,\n      \"rationale\": \"Crucial for planning evening activities in September to maximize chances of seeing the lights.\"\n    },\n    {\n      \"action\": \"Book\",\n      \"target\": \"Guesthouses along Route 1 (Ring Road)\",\n      \"when\": \"2026-09-10/2026-09-18\",\n      \"rationale\": \"Secures mid-range accommodation for the 8-day trip, allowing flexibility for the 6am starts.\"\n    },\n    {\n      \"action\": \"Ask_About\",\n      \"target\": \"September road conditions and F-road closures\",\n      \"when\": null,\n      \"rationale\": \"Ensures the rented 4x4 is used appropriately and safe routes are identified for the packed itinerary.\"\n    }\n  ]\n}",
+      "tokens": 636,
+      "seq_lp": -69.9984,
+      "finish": "stop",
+      "hit_cap": false,
+      "valid": true,
+      "trailing_chars": 0,
+      "degenerate": false,
+      "violations": {
+       "when_out_of_window": 3,
+       "when_not_iso": 0,
+       "dup_items": 0,
+       "missing_verbs": [],
+       "foreign_targets": 1
+      },
+      "hard_pass": false,
+      "n_recs": 8,
+      "coverage": 1.0
+     },
+     {
+      "text": "{\n  \"recommendations\": [\n    {\n      \"action\": \"Book\",\n      \"target\": \"Glacier hiking tour on S\u00f3lheimaj\u00f6kull or Vatnaj\u00f6kull\",\n      \"when\": \"2026-09-15/2026-09-22\",\n      \"rationale\": \"Fits the splurge budget and leverages the group's fitness level for a high-value experience.\"\n    },\n    {\n      \"action\": \"Book\",\n      \"target\": \"Fine dining restaurant in Reykjavik (e.g., Dill or Matur og Drykkur)\",\n      \"when\": \"2026-09-15/2026-09-22\",\n      \"rationale\": \"Satisfies the desire to splurge on one nice dinner in the capital.\"\n    },\n    {\n      \"action\": \"Visit\",\n      \"target\": \"Seljalandsfoss and Sk\u00f3gafoss waterfalls\",\n      \"when\": \"2026-09-10\",\n      \"rationale\": \"Iconic early-ring-road stops that fit the packed itinerary and 6am start preference.\"\n    },\n    {\n      \"action\": \"Visit\",\n      \"target\": \"Reynisfjara black sand beach\",\n      \"when\": \"2026-09-11\",\n      \"rationale\": \"Essential ring-road stop for the requested black sand beach experience.\"\n    },\n    {\n      \"action\": \"Visit\",\n      \"target\": \"Secret Lagoon or Landmannalaugar hot springs\",\n      \"when\": \"2026-09-13/2026-09-14\",\n      \"rationale\": \"Provides relaxation after long driving days and fits the mid-range guesthouse budget.\"\n    },\n    {\n      \"action\": \"Ask_About\",\n      \"target\": \"Northern Lights visibility forecast and aurora tour options\",\n      \"when\": null,\n      \"rationale\": \"Crucial for planning evening activities in September to maximize chances of seeing the lights.\"\n    },\n    {\n      \"action\": \"Book\",\n      \"target\": \"Guesthouses along Route 1 (Ring Road)\",\n      \"when\": \"2026-09-10/2026-09-18\",\n      \"rationale\": \"Secures mid-range accommodation for the 8-day trip, allowing flexibility for the 6am starts.\"\n    },\n    {\n      \"action\": \"Ask_About\",\n      \"target\": \"September road conditions and F-road closures\",\n      \"when\": null,\n      \"rationale\": \"Ensures the rented 4x4 is used appropriately and safe routes are selected for the packed itinerary.\"\n    }\n  ]\n}",
+      "tokens": 636,
+      "seq_lp": -70.4614,
+      "finish": "stop",
+      "hit_cap": false,
+      "valid": true,
+      "trailing_chars": 0,
+      "degenerate": false,
+      "violations": {
+       "when_out_of_window": 3,
+       "when_not_iso": 0,
+       "dup_items": 0,
+       "missing_verbs": [],
+       "foreign_targets": 1
+      },
+      "hard_pass": false,
+      "n_recs": 8,
+      "coverage": 1.0
+     },
+     {
+      "text": "{\n  \"recommendations\": [\n    {\n      \"action\": \"Book\",\n      \"target\": \"Glacier hiking tour on S\u00f3lheimaj\u00f6kull or Vatnaj\u00f6kull\",\n      \"when\": \"2026-09-15/2026-09-22\",\n      \"rationale\": \"Fits the splurge budget and leverages the group's fitness level for a high-value experience.\"\n    },\n    {\n      \"action\": \"Book\",\n      \"target\": \"Fine dining restaurant in Reykjavik (e.g., Dill or Matur og Drykkur)\",\n      \"when\": \"2026-09-15/2026-09-22\",\n      \"rationale\": \"Satisfies the desire to splurge on one nice dinner in the capital.\"\n    },\n    {\n      \"action\": \"Visit\",\n      \"target\": \"Seljalandsfoss and Sk\u00f3gafoss waterfalls\",\n      \"when\": \"2026-09-10\",\n      \"rationale\": \"Iconic early-ring-road stops that fit the packed itinerary and 6am start preference.\"\n    },\n    {\n      \"action\": \"Visit\",\n      \"target\": \"Reynisfjara black sand beach\",\n      \"when\": \"2026-09-11\",\n      \"rationale\": \"Essential ring-road stop for the requested black sand beach experience.\"\n    },\n    {\n      \"action\": \"Visit\",\n      \"target\": \"Secret Lagoon or Landmannalaugar hot springs\",\n      \"when\": \"2026-09-13/2026-09-14\",\n      \"rationale\": \"Provides relaxation after long driving days and fits the mid-range guesthouse budget.\"\n    },\n    {\n      \"action\": \"Ask_About\",\n      \"target\": \"Northern Lights visibility forecast and aurora tour options\",\n      \"when\": null,\n      \"rationale\": \"Crucial for planning evening activities in September to maximize chances of seeing the lights.\"\n    },\n    {\n      \"action\": \"Book\",\n      \"target\": \"Guesthouses along Route 1 (Ring Road)\",\n      \"when\": \"2026-09-10/2026-09-18\",\n      \"rationale\": \"Secures mid-range accommodation for the 8-day trip, allowing flexibility for the 6am starts.\"\n    },\n    {\n      \"action\": \"Ask_About\",\n      \"target\": \"September road conditions and F-road closures\",\n      \"when\": null,\n      \"rationale\": \"Ensures the rented 4x4 is used appropriately and safe routes are planned for the season.\"\n    }\n  ]\n}",
+      "tokens": 635,
+      "seq_lp": -70.6335,
+      "finish": "stop",
+      "hit_cap": false,
+      "valid": true,
+      "trailing_chars": 0,
+      "degenerate": false,
+      "violations": {
+       "when_out_of_window": 3,
+       "when_not_iso": 0,
+       "dup_items": 0,
+       "missing_verbs": [],
+       "foreign_targets": 1
+      },
+      "hard_pass": false,
+      "n_recs": 8,
+      "coverage": 1.0
+     },
+     {
+      "text": "{\n  \"recommendations\": [\n    {\n      \"action\": \"Book\",\n      \"target\": \"Glacier hiking tour on S\u00f3lheimaj\u00f6kull or Vatnaj\u00f6kull\",\n      \"when\": \"2026-09-15/2026-09-22\",\n      \"rationale\": \"Fits the splurge budget and leverages the group's fitness level for a high-value experience.\"\n    },\n    {\n      \"action\": \"Book\",\n      \"target\": \"Fine dining restaurant in Reykjavik (e.g., Dill or Matur og Drykkur)\",\n      \"when\": \"2026-09-15/2026-09-22\",\n      \"rationale\": \"Satisfies the desire to splurge on one nice dinner in the capital.\"\n    },\n    {\n      \"action\": \"Visit\",\n      \"target\": \"Seljalandsfoss and Sk\u00f3gafoss waterfalls\",\n      \"when\": \"2026-09-10\",\n      \"rationale\": \"Iconic early-ring-road stops that fit the packed itinerary and 6am start preference.\"\n    },\n    {\n      \"action\": \"Visit\",\n      \"target\": \"Reynisfjara black sand beach\",\n      \"when\": \"2026-09-11\",\n      \"rationale\": \"Essential ring-road stop for the requested black sand beach experience.\"\n    },\n    {\n      \"action\": \"Visit\",\n      \"target\": \"Secret Lagoon or Landmannalaugar hot springs\",\n      \"when\": \"2026-09-13/2026-09-14\",\n      \"rationale\": \"Provides relaxation after long driving days and fits the mid-range guesthouse budget.\"\n    },\n    {\n      \"action\": \"Ask_About\",\n      \"target\": \"Northern Lights visibility forecast and aurora tour options\",\n      \"when\": null,\n      \"rationale\": \"Crucial for planning evening activities in September to maximize chances of seeing the lights.\"\n    },\n    {\n      \"action\": \"Book\",\n      \"target\": \"Guesthouses along Route 1 (Ring Road)\",\n      \"when\": \"2026-09-10/2026-09-18\",\n      \"rationale\": \"Secures mid-range accommodation for the 8-day trip, allowing flexibility for the 6am starts.\"\n    },\n    {\n      \"action\": \"Ask_About\",\n      \"target\": \"September road conditions and F-road closures\",\n      \"when\": null,\n      \"rationale\": \"Ensures the rented 4x4 is used appropriately and safe routes are planned for early autumn weather.\"\n    }\n  ]\n}",
+      "tokens": 636,
+      "seq_lp": -70.737,
+      "finish": "stop",
+      "hit_cap": false,
+      "valid": true,
+      "trailing_chars": 0,
+      "degenerate": false,
+      "violations": {
+       "when_out_of_window": 3,
+       "when_not_iso": 0,
+       "dup_items": 0,
+       "missing_verbs": [],
+       "foreign_targets": 1
+      },
+      "hard_pass": false,
+      "n_recs": 8,
+      "coverage": 1.0
+     }
+    ]
+   }
+  }
+ },
+ {
+  "persona": "business_bleisure",
+  "prompt": "<|im_start|>system\nYou are TripKaja's recommendation engine. The traveler describes a trip\nin a free-text paragraph. You produce a JSON list of the top 8 next actions\nthey can take to build their itinerary.\n\nOutput STRICT JSON only \u2014 no prose, no markdown fences. Shape:\n\n{\"recommendations\": [\n  {\"action\": \"Book\", \"target\": \"Hotel in Alfama\",\n   \"when\": \"2026-06-09/2026-06-13\",\n   \"rationale\": \"<one sentence why it fits THIS traveler>\"},\n  {\"action\": \"Visit\", \"target\": \"Gothic Quarter\", \"when\": \"2026-06-10\",\n   \"rationale\": \"...\"}\n]}\n\nValid actions and example targets:\n- \"Book\": bookable things. Targets like \"Hotel in Alfama\", \"Flight to\n  Lisbon\", \"Uber to airport\", \"Sagrada Familia tickets\", \"concert tickets\",\n  \"food tour experience\".\n- \"Visit\": places to plan a visit to. Targets like \"Gothic Quarter\",\n  \"Boqueria market\", \"Sintra day trip\".\n- \"Ask_About\": topics to research before committing. Targets like\n  \"stroller access at Sintra\", \"cider house reservations\".\n\nThe `when` field is ISO 8601: a single date \"2026-06-10\" or an interval\n\"2026-06-09/2026-06-13\" for ranges (stays, booking windows). Use null only\nwhen no date applies.\n\nRules:\n- Exactly 8 recommendations.\n- Match the stated pace: packed trips skew to Book/Visit anchors, slow trips\n  include Ask_About research items.\n- Respect hard constraints in the paragraph (diet, mobility, budget, kids).\n- Targets must be real, well-known things or generic categories\n  (e.g. \"family-friendly tapas bar\"), never invented proper nouns.<|im_end|>\n<|im_start|>user\n<trip_paragraph>\nI'm in Singapore for a conference Monday to Wednesday and extending through the weekend with my wife flying in Thursday. Weekday evenings I need efficient recommendations near the Marina Bay area \u2014 good dinners I can expense, a rooftop bar for client drinks. Once my wife arrives we want a mix: Gardens by the Bay, hawker centers, a day on Sentosa maybe, and one really nice anniversary-adjacent dinner. She's vegetarian so food picks need to work for both of us.\n</trip_paragraph>\n\nReturn the JSON recommendations object now.<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+  "strategies": {
+   "beam_lp10_g": {
+    "wall": 145.73,
+    "total_tokens": 2345,
+    "jaccard": 0.889,
+    "candidates": [
+     {
+      "text": "{\n  \"recommendations\": [\n    {\n      \"action\": \"Book\",\n      \"target\": \"Hotel in Marina Bay\",\n      \"when\": \"2026-06-08/2026-06-14\",\n      \"rationale\": \"Staying in Marina Bay minimizes commute time for weekday conference dinners and client meetings.\"\n    },\n    {\n      \"action\": \"Visit\",\n      \"target\": \"Gardens by the Bay\",\n      \"when\": \"2026-06-13\",\n      \"rationale\": \"A must-see attraction that fits well into the itinerary after the wife arrives on Thursday.\"\n    },\n    {\n      \"action\": \"Book\",\n      \"target\": \"Vegetarian-friendly fine dining in Marina Bay\",\n      \"when\": \"2026-06-13\",\n      \"rationale\": \"Satisfies the request for a nice anniversary-adjacent dinner that accommodates the wife's vegetarian diet.\"\n    },\n    {\n      \"action\": \"Visit\",\n      \"target\": \"Sentosa Island\",\n      \"when\": \"2026-06-14\",\n      \"rationale\": \"Provides a relaxed weekend day trip option for the couple to enjoy together.\"\n    },\n    {\n      \"action\": \"Visit\",\n      \"target\": \"Lau Pa Sat Hawker Center\",\n      \"when\": \"2026-06-09\",\n      \"rationale\": \"Offers an efficient, authentic local dining experience near Marina Bay for a weekday evening.\"\n    },\n    {\n      \"action\": \"Visit\",\n      \"target\": \"Rooftop bar in Marina Bay\",\n      \"when\": \"2026-06-09\",\n      \"rationale\": \"Fulfills the need for a client drinks location that is convenient to the conference area.\"\n    },\n    {\n      \"action\": \"Ask_About\",\n      \"target\": \"Vegetarian options at Satay by the Bay\",\n      \"when\": \"2026-06-10\",\n      \"rationale\": \"Ensures the hawker center visit includes suitable food choices for the vegetarian traveler.\"\n    },\n    {\n      \"action\": \"Book\",\n      \"target\": \"Flight to Singapore for wife\",\n      \"when\": \"2026-06-12/2026-06-13\",\n      \"rationale\": \"Needs to be booked to ensure the wife arrives on Thursday as requested.\"\n    }\n  ]\n}",
+      "tokens": 586,
+      "seq_lp": -72.1132,
+      "finish": "stop",
+      "hit_cap": false,
+      "valid": true,
+      "trailing_chars": 0,
+      "degenerate": false,
+      "violations": {
+       "when_out_of_window": 8,
+       "when_not_iso": 0,
+       "dup_items": 0,
+       "missing_verbs": [],
+       "foreign_targets": 1
+      },
+      "hard_pass": false,
+      "n_recs": 8,
+      "coverage": 1.0
+     },
+     {
+      "text": "{\n  \"recommendations\": [\n    {\n      \"action\": \"Book\",\n      \"target\": \"Hotel in Marina Bay\",\n      \"when\": \"2026-06-08/2026-06-14\",\n      \"rationale\": \"Staying in Marina Bay minimizes commute time for weekday conference dinners and client meetings.\"\n    },\n    {\n      \"action\": \"Visit\",\n      \"target\": \"Gardens by the Bay\",\n      \"when\": \"2026-06-13\",\n      \"rationale\": \"A must-see attraction that fits well into the itinerary after the wife arrives on Thursday.\"\n    },\n    {\n      \"action\": \"Book\",\n      \"target\": \"Vegetarian-friendly fine dining in Marina Bay\",\n      \"when\": \"2026-06-13\",\n      \"rationale\": \"Satisfies the request for a nice anniversary-adjacent dinner that accommodates the wife's vegetarian diet.\"\n    },\n    {\n      \"action\": \"Visit\",\n      \"target\": \"Sentosa Island\",\n      \"when\": \"2026-06-14\",\n      \"rationale\": \"Provides a relaxed weekend day trip option for the couple to enjoy together.\"\n    },\n    {\n      \"action\": \"Visit\",\n      \"target\": \"Lau Pa Sat Hawker Center\",\n      \"when\": \"2026-06-09\",\n      \"rationale\": \"Offers an efficient, authentic local dining experience near Marina Bay for a weekday evening.\"\n    },\n    {\n      \"action\": \"Visit\",\n      \"target\": \"Rooftop bar in Marina Bay\",\n      \"when\": \"2026-06-09\",\n      \"rationale\": \"Fulfills the need for a client drinks location that is convenient to the conference area.\"\n    },\n    {\n      \"action\": \"Ask_About\",\n      \"target\": \"Vegetarian options at Satay by the Bay\",\n      \"when\": \"2026-06-10\",\n      \"rationale\": \"Ensures the hawker center visit includes suitable food choices for the vegetarian traveler.\"\n    },\n    {\n      \"action\": \"Book\",\n      \"target\": \"Flight to Singapore\",\n      \"when\": \"2026-06-12/2026-06-13\",\n      \"rationale\": \"Needs to be booked to ensure the wife arrives on Thursday as planned.\"\n    }\n  ]\n}",
+      "tokens": 584,
+      "seq_lp": -72.1558,
+      "finish": "stop",
+      "hit_cap": false,
+      "valid": true,
+      "trailing_chars": 0,
+      "degenerate": false,
+      "violations": {
+       "when_out_of_window": 8,
+       "when_not_iso": 0,
+       "dup_items": 0,
+       "missing_verbs": [],
+       "foreign_targets": 1
+      },
+      "hard_pass": false,
+      "n_recs": 8,
+      "coverage": 1.0
+     },
+     {
+      "text": "{\n  \"recommendations\": [\n    {\n      \"action\": \"Book\",\n      \"target\": \"Hotel in Marina Bay\",\n      \"when\": \"2026-06-08/2026-06-14\",\n      \"rationale\": \"Staying in Marina Bay minimizes commute time for weekday conference dinners and client meetings.\"\n    },\n    {\n      \"action\": \"Visit\",\n      \"target\": \"Gardens by the Bay\",\n      \"when\": \"2026-06-13\",\n      \"rationale\": \"A must-see attraction that fits well into the itinerary after the wife arrives on Thursday.\"\n    },\n    {\n      \"action\": \"Book\",\n      \"target\": \"Vegetarian-friendly fine dining in Marina Bay\",\n      \"when\": \"2026-06-13\",\n      \"rationale\": \"Satisfies the request for a nice anniversary-adjacent dinner that accommodates the wife's vegetarian diet.\"\n    },\n    {\n      \"action\": \"Visit\",\n      \"target\": \"Sentosa Island\",\n      \"when\": \"2026-06-14\",\n      \"rationale\": \"Provides a relaxed weekend day trip option for the couple to enjoy together.\"\n    },\n    {\n      \"action\": \"Visit\",\n      \"target\": \"Lau Pa Sat Hawker Center\",\n      \"when\": \"2026-06-09\",\n      \"rationale\": \"Offers an efficient, authentic local dining experience near Marina Bay for a weekday evening.\"\n    },\n    {\n      \"action\": \"Visit\",\n      \"target\": \"Rooftop bar in Marina Bay\",\n      \"when\": \"2026-06-09\",\n      \"rationale\": \"Fulfills the need for a client drinks location that is convenient to the conference area.\"\n    },\n    {\n      \"action\": \"Ask_About\",\n      \"target\": \"Vegetarian options at Satay by the Bay\",\n      \"when\": \"2026-06-10\",\n      \"rationale\": \"Ensures the hawker center visit includes suitable food choices for the vegetarian traveler.\"\n    },\n    {\n      \"action\": \"Book\",\n      \"target\": \"Flight to Singapore for wife\",\n      \"when\": \"2026-06-12/2026-06-13\",\n      \"rationale\": \"Needs to be booked to ensure the wife arrives on Thursday as planned.\"\n    }\n  ]\n}",
+      "tokens": 586,
+      "seq_lp": -72.8339,
+      "finish": "stop",
+      "hit_cap": false,
+      "valid": true,
+      "trailing_chars": 0,
+      "degenerate": false,
+      "violations": {
+       "when_out_of_window": 8,
+       "when_not_iso": 0,
+       "dup_items": 0,
+       "missing_verbs": [],
+       "foreign_targets": 1
+      },
+      "hard_pass": false,
+      "n_recs": 8,
+      "coverage": 1.0
+     },
+     {
+      "text": "{\n  \"recommendations\": [\n    {\n      \"action\": \"Book\",\n      \"target\": \"Hotel in Marina Bay\",\n      \"when\": \"2026-06-08/2026-06-14\",\n      \"rationale\": \"Staying in Marina Bay minimizes commute time for weekday conference dinners and client meetings.\"\n    },\n    {\n      \"action\": \"Visit\",\n      \"target\": \"Gardens by the Bay\",\n      \"when\": \"2026-06-13\",\n      \"rationale\": \"A must-see attraction that fits well into the itinerary after the wife arrives on Thursday.\"\n    },\n    {\n      \"action\": \"Book\",\n      \"target\": \"Vegetarian-friendly fine dining in Marina Bay\",\n      \"when\": \"2026-06-13\",\n      \"rationale\": \"Satisfies the request for a nice anniversary-adjacent dinner that accommodates the wife's vegetarian diet.\"\n    },\n    {\n      \"action\": \"Visit\",\n      \"target\": \"Sentosa Island\",\n      \"when\": \"2026-06-14\",\n      \"rationale\": \"Provides a relaxed weekend day trip option for the couple to enjoy together.\"\n    },\n    {\n      \"action\": \"Visit\",\n      \"target\": \"Lau Pa Sat Hawker Center\",\n      \"when\": \"2026-06-09\",\n      \"rationale\": \"Offers an efficient, authentic local dining experience near Marina Bay for a weekday evening.\"\n    },\n    {\n      \"action\": \"Visit\",\n      \"target\": \"Rooftop bar in Marina Bay\",\n      \"when\": \"2026-06-09\",\n      \"rationale\": \"Fulfills the need for a client drinks location that is convenient to the conference area.\"\n    },\n    {\n      \"action\": \"Ask_About\",\n      \"target\": \"Vegetarian options at Satay by the Bay\",\n      \"when\": \"2026-06-10\",\n      \"rationale\": \"Ensures the hawker center visit includes suitable food choices for the vegetarian traveler.\"\n    },\n    {\n      \"action\": \"Book\",\n      \"target\": \"Flight to Singapore for wife\",\n      \"when\": \"2026-06-12/2026-06-13\",\n      \"rationale\": \"Needs to be booked to ensure the wife arrives on Thursday to join the extended stay.\"\n    }\n  ]\n}",
+      "tokens": 589,
+      "seq_lp": -73.3652,
+      "finish": "stop",
+      "hit_cap": false,
+      "valid": true,
+      "trailing_chars": 0,
+      "degenerate": false,
+      "violations": {
+       "when_out_of_window": 8,
+       "when_not_iso": 0,
+       "dup_items": 0,
+       "missing_verbs": [],
+       "foreign_targets": 1
+      },
+      "hard_pass": false,
+      "n_recs": 8,
+      "coverage": 1.0
+     }
+    ]
+   },
+   "beam_lp12_g": {
+    "wall": 145.65,
+    "total_tokens": 2271,
+    "jaccard": 1.0,
+    "candidates": [
+     {
+      "text": "{\n  \"recommendations\": [\n    {\n      \"action\": \"Book\",\n      \"target\": \"Hotel in Marina Bay\",\n      \"when\": \"2026-06-08/2026-06-14\",\n      \"rationale\": \"Staying in Marina Bay minimizes commute time for weekday conference dinners and client meetings.\"\n    },\n    {\n      \"action\": \"Visit\",\n      \"target\": \"Gardens by the Bay\",\n      \"when\": \"2026-06-13\",\n      \"rationale\": \"A must-see Singapore attraction that fits well into the weekend itinerary with your wife.\"\n    },\n    {\n      \"action\": \"Book\",\n      \"target\": \"Vegetarian-friendly fine dining in Marina Bay\",\n      \"when\": \"2026-06-13\",\n      \"rationale\": \"Satisfies the request for a special anniversary-adjacent dinner that accommodates her vegetarian diet.\"\n    },\n    {\n      \"action\": \"Visit\",\n      \"target\": \"Sentosa Island\",\n      \"when\": \"2026-06-14\",\n      \"rationale\": \"Provides a relaxed day trip option for the couple to enjoy beaches and attractions together.\"\n    },\n    {\n      \"action\": \"Visit\",\n      \"target\": \"Maxwell Food Centre\",\n      \"when\": \"2026-06-12\",\n      \"rationale\": \"A top-tier hawker center with excellent vegetarian options like tofu and vegetable dishes.\"\n    },\n    {\n      \"action\": \"Book\",\n      \"target\": \"Rooftop bar in Marina Bay\",\n      \"when\": \"2026-06-09\",\n      \"rationale\": \"Ideal for client drinks with a view, fitting the efficient weekday evening requirement.\"\n    },\n    {\n      \"action\": \"Ask_About\",\n      \"target\": \"Vegetarian menus at Marina Bay fine dining restaurants\",\n      \"when\": null,\n      \"rationale\": \"Ensures the special anniversary dinner offers high-quality vegetarian choices before booking.\"\n    },\n    {\n      \"action\": \"Book\",\n      \"target\": \"Flight to Singapore for wife\",\n      \"when\": \"2026-06-11/2026-06-12\",\n      \"rationale\": \"Coordinates her arrival to join you for the weekend activities starting Thursday.\"\n    }\n  ]\n}",
+      "tokens": 566,
+      "seq_lp": -65.2425,
+      "finish": "stop",
+      "hit_cap": false,
+      "valid": true,
+      "trailing_chars": 0,
+      "degenerate": false,
+      "violations": {
+       "when_out_of_window": 7,
+       "when_not_iso": 0,
+       "dup_items": 0,
+       "missing_verbs": [],
+       "foreign_targets": 0
+      },
+      "hard_pass": false,
+      "n_recs": 8,
+      "coverage": 1.0
+     },
+     {
+      "text": "{\n  \"recommendations\": [\n    {\n      \"action\": \"Book\",\n      \"target\": \"Hotel in Marina Bay\",\n      \"when\": \"2026-06-08/2026-06-14\",\n      \"rationale\": \"Staying in Marina Bay minimizes commute time for weekday conference dinners and client meetings.\"\n    },\n    {\n      \"action\": \"Visit\",\n      \"target\": \"Gardens by the Bay\",\n      \"when\": \"2026-06-13\",\n      \"rationale\": \"A must-see Singapore attraction that fits well into the weekend itinerary with your wife.\"\n    },\n    {\n      \"action\": \"Book\",\n      \"target\": \"Vegetarian-friendly fine dining in Marina Bay\",\n      \"when\": \"2026-06-13\",\n      \"rationale\": \"Satisfies the request for a special anniversary-adjacent dinner that accommodates her vegetarian diet.\"\n    },\n    {\n      \"action\": \"Visit\",\n      \"target\": \"Sentosa Island\",\n      \"when\": \"2026-06-14\",\n      \"rationale\": \"Provides a relaxed day trip option for the couple to enjoy beaches and attractions together.\"\n    },\n    {\n      \"action\": \"Visit\",\n      \"target\": \"Maxwell Food Centre\",\n      \"when\": \"2026-06-12\",\n      \"rationale\": \"A top-tier hawker center with excellent vegetarian options like tofu and vegetable dishes.\"\n    },\n    {\n      \"action\": \"Book\",\n      \"target\": \"Rooftop bar in Marina Bay\",\n      \"when\": \"2026-06-09\",\n      \"rationale\": \"Ideal for client drinks with a view, fitting the efficient weekday evening requirement.\"\n    },\n    {\n      \"action\": \"Ask_About\",\n      \"target\": \"Vegetarian menus at Marina Bay fine dining restaurants\",\n      \"when\": null,\n      \"rationale\": \"Ensures the special anniversary dinner offers high-quality vegetarian choices before booking.\"\n    },\n    {\n      \"action\": \"Book\",\n      \"target\": \"Flight to Singapore for wife\",\n      \"when\": \"2026-06-11/2026-06-12\",\n      \"rationale\": \"Coordinates her arrival to join you for the weekend portion of the trip.\"\n    }\n  ]\n}",
+      "tokens": 567,
+      "seq_lp": -65.3798,
+      "finish": "stop",
+      "hit_cap": false,
+      "valid": true,
+      "trailing_chars": 0,
+      "degenerate": false,
+      "violations": {
+       "when_out_of_window": 7,
+       "when_not_iso": 0,
+       "dup_items": 0,
+       "missing_verbs": [],
+       "foreign_targets": 0
+      },
+      "hard_pass": false,
+      "n_recs": 8,
+      "coverage": 1.0
+     },
+     {
+      "text": "{\n  \"recommendations\": [\n    {\n      \"action\": \"Book\",\n      \"target\": \"Hotel in Marina Bay\",\n      \"when\": \"2026-06-08/2026-06-14\",\n      \"rationale\": \"Staying in Marina Bay minimizes commute time for weekday conference dinners and client meetings.\"\n    },\n    {\n      \"action\": \"Visit\",\n      \"target\": \"Gardens by the Bay\",\n      \"when\": \"2026-06-13\",\n      \"rationale\": \"A must-see Singapore attraction that fits well into the weekend itinerary with your wife.\"\n    },\n    {\n      \"action\": \"Book\",\n      \"target\": \"Vegetarian-friendly fine dining in Marina Bay\",\n      \"when\": \"2026-06-13\",\n      \"rationale\": \"Satisfies the request for a special anniversary-adjacent dinner that accommodates her vegetarian diet.\"\n    },\n    {\n      \"action\": \"Visit\",\n      \"target\": \"Sentosa Island\",\n      \"when\": \"2026-06-14\",\n      \"rationale\": \"Provides a relaxed day trip option for the couple to enjoy beaches and attractions together.\"\n    },\n    {\n      \"action\": \"Visit\",\n      \"target\": \"Maxwell Food Centre\",\n      \"when\": \"2026-06-12\",\n      \"rationale\": \"A top-tier hawker center with excellent vegetarian options like tofu and vegetable dishes.\"\n    },\n    {\n      \"action\": \"Book\",\n      \"target\": \"Rooftop bar in Marina Bay\",\n      \"when\": \"2026-06-09\",\n      \"rationale\": \"Ideal for client drinks with a view, fitting the efficient weekday evening requirement.\"\n    },\n    {\n      \"action\": \"Ask_About\",\n      \"target\": \"Vegetarian menus at Marina Bay fine dining restaurants\",\n      \"when\": null,\n      \"rationale\": \"Ensures the special anniversary dinner offers high-quality vegetarian choices before booking.\"\n    },\n    {\n      \"action\": \"Book\",\n      \"target\": \"Flight to Singapore for wife\",\n      \"when\": \"2026-06-11/2026-06-12\",\n      \"rationale\": \"Coordinates her arrival for the Thursday start of the joint weekend portion of the trip.\"\n    }\n  ]\n}",
+      "tokens": 569,
+      "seq_lp": -65.6848,
+      "finish": "stop",
+      "hit_cap": false,
+      "valid": true,
+      "trailing_chars": 0,
+      "degenerate": false,
+      "violations": {
+       "when_out_of_window": 7,
+       "when_not_iso": 0,
+       "dup_items": 0,
+       "missing_verbs": [],
+       "foreign_targets": 0
+      },
+      "hard_pass": false,
+      "n_recs": 8,
+      "coverage": 1.0
+     },
+     {
+      "text": "{\n  \"recommendations\": [\n    {\n      \"action\": \"Book\",\n      \"target\": \"Hotel in Marina Bay\",\n      \"when\": \"2026-06-08/2026-06-14\",\n      \"rationale\": \"Staying in Marina Bay minimizes commute time for weekday conference dinners and client meetings.\"\n    },\n    {\n      \"action\": \"Visit\",\n      \"target\": \"Gardens by the Bay\",\n      \"when\": \"2026-06-13\",\n      \"rationale\": \"A must-see Singapore attraction that fits well into the weekend itinerary with your wife.\"\n    },\n    {\n      \"action\": \"Book\",\n      \"target\": \"Vegetarian-friendly fine dining in Marina Bay\",\n      \"when\": \"2026-06-13\",\n      \"rationale\": \"Satisfies the request for a special anniversary-adjacent dinner that accommodates her vegetarian diet.\"\n    },\n    {\n      \"action\": \"Visit\",\n      \"target\": \"Sentosa Island\",\n      \"when\": \"2026-06-14\",\n      \"rationale\": \"Provides a relaxed day trip option for the couple to enjoy beaches and attractions together.\"\n    },\n    {\n      \"action\": \"Visit\",\n      \"target\": \"Maxwell Food Centre\",\n      \"when\": \"2026-06-12\",\n      \"rationale\": \"A top-tier hawker center with excellent vegetarian options like tofu and vegetable dishes.\"\n    },\n    {\n      \"action\": \"Book\",\n      \"target\": \"Rooftop bar in Marina Bay\",\n      \"when\": \"2026-06-09\",\n      \"rationale\": \"Ideal for client drinks with a view, fitting the efficient weekday evening requirement.\"\n    },\n    {\n      \"action\": \"Ask_About\",\n      \"target\": \"Vegetarian menus at Marina Bay fine dining restaurants\",\n      \"when\": null,\n      \"rationale\": \"Ensures the special anniversary dinner offers high-quality vegetarian choices before booking.\"\n    },\n    {\n      \"action\": \"Book\",\n      \"target\": \"Flight to Singapore for wife\",\n      \"when\": \"2026-06-11/2026-06-12\",\n      \"rationale\": \"Coordinates her arrival for the Thursday start of the shared weekend portion of the trip.\"\n    }\n  ]\n}",
+      "tokens": 569,
+      "seq_lp": -66.0356,
+      "finish": "stop",
+      "hit_cap": false,
+      "valid": true,
+      "trailing_chars": 0,
+      "degenerate": false,
+      "violations": {
+       "when_out_of_window": 7,
+       "when_not_iso": 0,
+       "dup_items": 0,
+       "missing_verbs": [],
+       "foreign_targets": 0
+      },
+      "hard_pass": false,
+      "n_recs": 8,
+      "coverage": 1.0
+     }
+    ]
+   }
+  }
+ }
+]

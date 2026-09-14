@@ -1,0 +1,86 @@
+[
+ {
+  "persona": "solo_backpacker",
+  "strategy": "samp_t09",
+  "mode": "seeded",
+  "unique_outputs": 2,
+  "of": 5
+ },
+ {
+  "persona": "solo_backpacker",
+  "strategy": "samp_t09",
+  "mode": "unseeded",
+  "unique_outputs": 5,
+  "of": 5
+ },
+ {
+  "persona": "solo_backpacker",
+  "strategy": "beam_lp10",
+  "mode": "seeded",
+  "unique_outputs": 5,
+  "of": 5
+ },
+ {
+  "persona": "solo_backpacker",
+  "strategy": "beam_lp10",
+  "mode": "unseeded",
+  "unique_outputs": 5,
+  "of": 5
+ },
+ {
+  "persona": "family_young_kids",
+  "strategy": "samp_t09",
+  "mode": "seeded",
+  "unique_outputs": 1,
+  "of": 5
+ },
+ {
+  "persona": "family_young_kids",
+  "strategy": "samp_t09",
+  "mode": "unseeded",
+  "unique_outputs": 5,
+  "of": 5
+ },
+ {
+  "persona": "family_young_kids",
+  "strategy": "beam_lp10",
+  "mode": "seeded",
+  "unique_outputs": 5,
+  "of": 5
+ },
+ {
+  "persona": "family_young_kids",
+  "strategy": "beam_lp10",
+  "mode": "unseeded",
+  "unique_outputs": 5,
+  "of": 5
+ },
+ {
+  "persona": "couple_foodie_anniversary",
+  "strategy": "samp_t09",
+  "mode": "seeded",
+  "unique_outputs": 1,
+  "of": 5
+ },
+ {
+  "persona": "couple_foodie_anniversary",
+  "strategy": "samp_t09",
+  "mode": "unseeded",
+  "unique_outputs": 5,
+  "of": 5
+ },
+ {
+  "persona": "couple_foodie_anniversary",
+  "strategy": "beam_lp10",
+  "mode": "seeded",
+  "unique_outputs": 5,
+  "of": 5
+ },
+ {
+  "persona": "couple_foodie_anniversary",
+  "strategy": "beam_lp10",
+  "mode": "unseeded",
+  "unique_outputs": 5,
+  "of": 5
+ }
+]

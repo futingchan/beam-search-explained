@@ -1,0 +1,300 @@
+[
+ {
+  "persona": "solo_backpacker",
+  "prompt": "<|im_start|>system\nYou are TripKaja's recommendation engine. The traveler describes a trip\nin a free-text paragraph. You produce a JSON list of the top 8 next actions\nthey can take to build their itinerary.\n\nOutput STRICT JSON only \u2014 no prose, no markdown fences. Shape:\n\n{\"recommendations\": [\n  {\"action\": \"Book\", \"target\": \"Hotel in Alfama\",\n   \"when\": \"2026-06-09/2026-06-13\",\n   \"rationale\": \"<one sentence why it fits THIS traveler>\"},\n  {\"action\": \"Visit\", \"target\": \"Gothic Quarter\", \"when\": \"2026-06-10\",\n   \"rationale\": \"...\"}\n]}\n\nValid actions and example targets:\n- \"Book\": bookable things. Targets like \"Hotel in Alfama\", \"Flight to\n  Lisbon\", \"Uber to airport\", \"Sagrada Familia tickets\", \"concert tickets\",\n  \"food tour experience\".\n- \"Visit\": places to plan a visit to. Targets like \"Gothic Quarter\",\n  \"Boqueria market\", \"Sintra day trip\".\n- \"Ask_About\": topics to research before committing. Targets like\n  \"stroller access at Sintra\", \"cider house reservations\".\n\nThe `when` field is ISO 8601: a single date \"2026-06-10\" or an interval\n\"2026-06-09/2026-06-13\" for ranges (stays, booking windows). Use null only\nwhen no date applies.\n\nRules:\n- Exactly 8 recommendations.\n- Match the stated pace: packed trips skew to Book/Visit anchors, slow trips\n  include Ask_About research items.\n- Respect hard constraints in the paragraph (diet, mobility, budget, kids).\n- Targets must be real, well-known things or generic categories\n  (e.g. \"family-friendly tapas bar\"), never invented proper nouns.<|im_end|>\n<|im_start|>user\n<trip_paragraph>\nI'm a 26-year-old solo traveler doing a fast-paced 10-day trip through Japan in late March \u2014 flying into Tokyo, want to hit Kyoto and Osaka too. I'm on a backpacker budget so hostels and street food are fine. I want to pack in as much as possible: temples, markets, neon districts, maybe a day trip to Nara or Hakone. I don't mind early mornings and long walking days. Not a huge foodie but I want to try a proper ramen shop and a conveyor-belt sushi place at least once.\n</trip_paragraph>\n\nReturn the JSON recommendations object now.<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+  "strategies": {
+   "greedy": {
+    "wall": 14.08,
+    "total_tokens": 397,
+    "jaccard": 0.0,
+    "candidates": [
+     {
+      "text": "{\"recommendations\": [{\"action\": \"Book\", \"target\": \"Hostel in Shinjuku\", \"when\": \"2026-03-20/2026-03-24\", \"rationale\": \"Fits your backpacker budget and solo travel needs in Tokyo.\"}, {\"action\": \"Book\", \"target\": \"Shinkansen tickets to Kyoto\", \"when\": \"2026-03-24\", \"rationale\": \"Essential for your fast-paced itinerary between Tokyo and Kyoto.\"}, {\"action\": \"Visit\", \"target\": \"Gion district\", \"when\": \"2026-03-21\", \"rationale\": \"A quick, high-impact temple and geisha district visit in Kyoto.\"}, {\"action\": \"Visit\", \"target\": \"Dotonbori\", \"when\": \"2026-03-26\", \"rationale\": \"Perfect for seeing Osaka's neon districts and street food.\"}, {\"action\": \"Book\", \"target\": \"Ramen shop reservation\", \"when\": \"2026-03-22\", \"rationale\": \"Ensures you try a proper ramen shop as requested.\"}, {\"action\": \"Visit\", \"target\": \"Nara Park\", \"when\": \"2026-03-25\", \"rationale\": \"A quick day trip to see the famous deer and temples.\"}, {\"action\": \"Ask_About\", \"target\": \"conveyor-belt sushi availability in Osaka\", \"rationale\": \"Research options to fit your sushi craving into the Osaka leg.\"}, {\"action\": \"Book\", \"target\": \"Hakone day trip\", \"when\": \"2026-03-27\", \"rationale\": \"Adds a scenic mountain day trip to round out your itinerary.\"}]}",
+      "tokens": 397,
+      "seq_lp": -83.6928,
+      "finish": "stop",
+      "hit_cap": false,
+      "valid": true,
+      "violations": {
+       "when_out_of_window": 0,
+       "when_not_iso": 0,
+       "dup_items": 0,
+       "missing_verbs": [],
+       "foreign_targets": 1
+      },
+      "hard_pass": true,
+      "n_recs": 8,
+      "coverage": 0.857
+     }
+    ]
+   },
+   "samp_t07_g": {
+    "wall": 18.67,
+    "total_tokens": 1816,
+    "jaccard": 0.022,
+    "candidates": [
+     {
+      "text": "{\"recommendations\": [{\"action\": \"Book\", \"target\": \"Hostel in Shinjuku\", \"when\": \"2026-03-25/2026-03-26\", \"rationale\": \"Backpacker-friendly accommodation in the heart of Tokyo's neon district for easy exploration.\"}, {\"action\": \"Book\", \"target\": \"Hostel in Pontocho\", \"when\": \"2026-03-28/2026-03-30\", \"rationale\": \"Central Kyoto lodging with easy access to temples and the historic Gion district.\"}, {\"action\": \"Book\", \"target\": \"Hostel in Shinsaibashi\", \"when\": \"2026-03-31/2026-04-02\", \"rationale\": \"Strategic Osaka base near shopping streets and the Shinsaibashi Market for street food.\"}, {\"action\": \"Visit\", \"target\": \"Meiji Shrine\", \"when\": \"2026-03-26\", \"rationale\": \"Early morning temple visit to avoid crowds and experience the peaceful atmosphere.\"}, {\"action\": \"Visit\", \"target\": \"Fushimi Inari Shrine\", \"when\": \"2026-03-29\", \"rationale\": \"Iconic hiking trail through thousands of torii gates, perfect for a long walking day.\"}, {\"action\": \"Visit\", \"target\": \"Kiyomizu-dera Temple\", \"when\": \"2026-03-30\", \"rationale\": \"Historic wooden temple offering panoramic views of Kyoto's old quarter.\"}, {\"action\": \"Visit\", \"target\": \"Osaka Castle\", \"when\": \"2026-04-02\", \"rationale\": \"Major historical site and photo opportunity in the center of Osaka.\"}, {\"action\": \"Ask_About\", \"target\": \"ramen shops in Shinsaibashi\", \"when\": \"2026-04-01\", \"rationale\": \"Research authentic ramen spots in Osaka to fulfill the proper ramen shop requirement.\"}]}",
+      "tokens": 463,
+      "seq_lp": -132.3725,
+      "finish": "stop",
+      "hit_cap": false,
+      "valid": true,
+      "violations": {
+       "when_out_of_window": 3,
+       "when_not_iso": 0,
+       "dup_items": 0,
+       "missing_verbs": [],
+       "foreign_targets": 2
+      },
+      "hard_pass": false,
+      "n_recs": 8,
+      "coverage": 0.714
+     },
+     {
+      "text": "{\"recommendations\": [{\"action\": \"Book\", \"target\": \"Hostel in Tokyo Station\", \"when\": \"2026-03-20/2026-03-24\", \"rationale\": \"Fits the backpacker budget and solo traveler needs near the airport/train hub.\"}, {\"action\": \"Book\", \"target\": \"Shinkansen tickets to Kyoto\", \"when\": \"2026-03-21\", \"rationale\": \"Essential for the fast-paced itinerary between Tokyo and Kyoto.\"}, {\"action\": \"Visit\", \"target\": \"Gion district\", \"when\": \"2026-03-22\", \"rationale\": \"A quick, iconic temple and geisha district visit in Kyoto.\"}, {\"action\": \"Book\", \"target\": \"Ramen shop in Dotonbori\", \"when\": \"2026-03-23\", \"rationale\": \"Fulfills the specific requirement for a proper ramen experience in Osaka.\"}, {\"action\": \"Visit\", \"target\": \"Daiwa Roynet Hotel Osaka Namba\", \"when\": \"2026-03-23/2026-03-26\", \"rationale\": \"Budget-friendly option that serves as a base for exploring Osaka's neon districts.\"}, {\"action\": \"Visit\", \"target\": \"Nara Park day trip\", \"when\": \"2026-03-26\", \"rationale\": \"Fits the packed schedule with a short detour to see the famous deer and temples.\"}, {\"action\": \"Ask_About\", \"target\": \"Hakone early access train times\", \"when\": null, \"rationale\": \"Research needed to ensure the day trip fits the fast pace without delays.\"}, {\"action\": \"Book\", \"target\": \"Conveyor belt sushi reservation\", \"when\": \"2026-03-25\", \"rationale\": \"Secures the specific dining request for a quick, efficient sushi meal.\"}]}",
+      "tokens": 440,
+      "seq_lp": -127.4611,
+      "finish": "stop",
+      "hit_cap": false,
+      "valid": true,
+      "violations": {
+       "when_out_of_window": 0,
+       "when_not_iso": 0,
+       "dup_items": 0,
+       "missing_verbs": [],
+       "foreign_targets": 1
+      },
+      "hard_pass": true,
+      "n_recs": 8,
+      "coverage": 0.857
+     },
+     {
+      "text": "{\"recommendations\": [{\"action\": \"Book\", \"target\": \"Hostel in Shibuya\", \"when\": \"2026-03-20/2026-03-23\", \"rationale\": \"Fits the backpacker budget and solo traveler needs while starting the fast-paced Tokyo itinerary.\"}, {\"action\": \"Book\", \"target\": \"Ramen shop tickets\", \"when\": \"2026-03-21\", \"rationale\": \"Satisfies the specific desire for a proper ramen shop experience on the first day of eating.\"}, {\"action\": \"Visit\", \"target\": \"Shibuya Crossing\", \"when\": \"2026-03-21\", \"rationale\": \"Perfect early morning activity to see the neon district and busy streets without long queues.\"}, {\"action\": \"Visit\", \"target\": \"Meiji Shrine\", \"when\": \"2026-03-22\", \"rationale\": \"Offers a quick temple visit that fits the desire to pack in multiple cultural sites efficiently.\"}, {\"action\": \"Book\", \"target\": \"Conveyor-belt sushi tickets\", \"when\": \"2026-03-24\", \"rationale\": \"Ensures the traveler gets the specific sushi experience requested in Osaka.\"}, {\"action\": \"Visit\", \"target\": \"Dotonbori\", \"when\": \"2026-03-24\", \"rationale\": \"Allows for a quick neon district and street food stop to fit the fast-paced schedule.\"}, {\"action\": \"Book\", \"target\": \"Hakone Day Trip\", \"when\": \"2026-03-25\", \"rationale\": \"Captures the requested day trip destination within the tight 10-day timeline.\"}, {\"action\": \"Ask_About\", \"target\": \"Hakone train reservation\", \"when\": \"2026-03-25\", \"rationale\": \"Researches necessary bookings before committing to the day trip to avoid wasting time on the road.\"}]}",
+      "tokens": 445,
+      "seq_lp": -145.098,
+      "finish": "stop",
+      "hit_cap": false,
+      "valid": true,
+      "violations": {
+       "when_out_of_window": 0,
+       "when_not_iso": 0,
+       "dup_items": 0,
+       "missing_verbs": [],
+       "foreign_targets": 0
+      },
+      "hard_pass": true,
+      "n_recs": 8,
+      "coverage": 0.857
+     },
+     {
+      "text": "{\"recommendations\": [{\"action\": \"Book\", \"target\": \"Hostel in Shinjuku\", \"when\": \"2026-03-15/2026-03-17\", \"rationale\": \"Fits your backpacker budget and central location for starting your Tokyo pace.\"}, {\"action\": \"Book\", \"target\": \"Hostel in Gion\", \"when\": \"2026-03-17/2026-03-19\", \"rationale\": \"Accommodates your quick transit between Kyoto temples and markets.\"}, {\"action\": \"Book\", \"target\": \"Hostel in Dotonbori\", \"when\": \"2026-03-19/2026-03-21\", \"rationale\": \"Centers your Osaka stay near the neon districts and conveyor-belt sushi spots.\"}, {\"action\": \"Visit\", \"target\": \"Senso-ji Temple\", \"when\": \"2026-03-16\", \"rationale\": \"Perfect early morning target for your fast-paced temple-hopping plan.\"}, {\"action\": \"Visit\", \"target\": \"Kiyomizu-dera\", \"when\": \"2026-03-17\", \"rationale\": \"Fits your goal of hitting major Kyoto temples within your tight schedule.\"}, {\"action\": \"Visit\", \"target\": \"Osaka Castle and Park\", \"when\": \"2026-03-20\", \"rationale\": \"A quick hit to cover Osaka's historic sites before your final night.\"}, {\"action\": \"Ask_About\", \"target\": \"conveyor-belt sushi reservations in Dotonbori\", \"when\": \"2026-03-19\", \"rationale\": \"Ensures you secure the specific food experience you want despite long walking days.\"}, {\"action\": \"Ask_About\", \"target\": \"Nara deer park timing and walking distance\", \"when\": \"2026-03-18\", \"rationale\": \"Helps you decide if this day trip fits your packed itinerary without causing exhaustion.\"}]}",
+      "tokens": 468,
+      "seq_lp": -131.0066,
+      "finish": "stop",
+      "hit_cap": false,
+      "valid": true,
+      "violations": {
+       "when_out_of_window": 6,
+       "when_not_iso": 0,
+       "dup_items": 0,
+       "missing_verbs": [],
+       "foreign_targets": 1
+      },
+      "hard_pass": false,
+      "n_recs": 8,
+      "coverage": 0.857
+     }
+    ]
+   },
+   "beam_lp10": {
+    "wall": 189.22,
+    "total_tokens": 3482,
+    "jaccard": 1.0,
+    "candidates": [
+     {
+      "text": "{\"recommendations\": [{\"action\": \"Book\", \"target\": \"Hostel in Shinjuku\", \"when\": \"2026-03-20/2026-03-24\", \"rationale\": \"Fits the backpacker budget and solo travel style for the Tokyo leg.\"}, {\"action\": \"Book\", \"target\": \"Shinkansen tickets to Kyoto\", \"when\": \"2026-03-24\", \"rationale\": \"Essential for fast-paced travel between Tokyo and Kyoto.\"}, {\"action\": \"Visit\", \"target\": \"Gion district\", \"when\": \"2026-03-22\", \"rationale\": \"A quick, high-impact temple and geisha district visit in Kyoto.\"}, {\"action\": \"Visit\", \"target\": \"Dotonbori\", \"when\": \"2026-03-26\", \"rationale\": \"Perfect for neon districts and conveyor-belt sushi in Osaka.\"}, {\"action\": \"Visit\", \"target\": \"Nara Park\", \"when\": \"2026-03-25\", \"rationale\": \"Fits the desire for a day trip to see temples and deer.\"}, {\"action\": \"Visit\", \"target\": \"Tsukiji Outer Market\", \"when\": \"2026-03-21\", \"rationale\": \"Ideal for street food exploration and early morning visits.\"}, {\"action\": \"Ask_About\", \"target\": \"best ramen shops in Tokyo\", \"rationale\": \"Research needed to find a proper ramen shop within the backpacker budget.\"}, {\"action\": \"Ask_About\", \"target\": \"Hakone day trip logistics\", \"rationale\": \"Research needed to plan a day trip that fits the fast pace and budget.\"}]}\n{\"recommendations\": [{\"action\": \"Book\", \"target\": \"Hostel in Shinjuku\", \"when\": \"2026-03-20/2026-03-24\", \"rationale\": \"Fits the backpacker budget and solo travel style for the Tokyo leg.\"}, {\"action\": \"Book\", \"target\": \"Shinkansen tickets to Kyoto\", \"when\": \"2026-03-24\", \"rationale\": \"Essential for fast-paced travel between Tokyo and Kyoto.\"}, {\"action\": \"Visit\", \"target\": \"Gion district\", \"when\": \"2026-03-22\", \"rationale\": \"A quick, high-impact temple and geisha district visit in Kyoto.\"}, {\"action\": \"Visit\", \"target\": \"Dotonbori\", \"when\": \"2026-03-26\", \"rationale\": \"Perfect for neon districts and conveyor-belt sushi in Osaka.\"}, {\"action\": \"Visit\", \"target\": \"Nara Park\", \"when\": \"2026-03-25\", \"rationale\": \"Fits the desire for a day trip to see temples and deer.\"}, {\"action\": \"Visit\", \"target\": \"Tsukiji Outer Market\", \"when\": \"2026-03-21\", \"rationale\": \"Ideal for street food exploration and early morning visits.\"}, {\"action\": \"Ask_About\", \"target\": \"best ramen shops in Tokyo\", \"rationale\": \"Research needed to find a proper ramen shop within the backpacker budget.\"}, {\"action\": \"Ask_About\", \"target\": \"Hakone day trip logistics\", \"rationale\": \"Research needed to plan a day trip that fits the fast pace and budget.\"}]}\n{\"recommendations\": [{\"action\": \"Book\", \"target\": \"Hostel in Shinjuku\", \"when\": \"2026-03-20/2026-03-24\", \"rationale\": \"Fits the backpacker budget and solo travel style for the Tokyo leg.\"}, {\"action\": \"Book\", \"target\": \"Shinkansen tickets to Kyoto\", \"when\": \"2026-03-24\", \"rationale\": \"Essential for fast-paced travel between Tokyo and Kyoto.\"}, {\"",
+      "tokens": 900,
+      "seq_lp": -85.0067,
+      "finish": "length",
+      "hit_cap": true,
+      "valid": false
+     },
+     {
+      "text": "{\"recommendations\": [{\"action\": \"Book\", \"target\": \"Hostel in Shinjuku\", \"when\": \"2026-03-20/2026-03-24\", \"rationale\": \"Fits the backpacker budget and solo travel style for the Tokyo leg.\"}, {\"action\": \"Book\", \"target\": \"Shinkansen tickets to Kyoto\", \"when\": \"2026-03-24\", \"rationale\": \"Essential for fast-paced travel between Tokyo and Kyoto.\"}, {\"action\": \"Visit\", \"target\": \"Gion district\", \"when\": \"2026-03-22\", \"rationale\": \"A quick, high-impact temple and geisha district visit in Kyoto.\"}, {\"action\": \"Visit\", \"target\": \"Dotonbori\", \"when\": \"2026-03-26\", \"rationale\": \"Perfect for neon districts and conveyor-belt sushi in Osaka.\"}, {\"action\": \"Visit\", \"target\": \"Nara Park\", \"when\": \"2026-03-25\", \"rationale\": \"Fits the desire for a day trip to see temples and deer.\"}, {\"action\": \"Visit\", \"target\": \"Tsukiji Outer Market\", \"when\": \"2026-03-21\", \"rationale\": \"Ideal for street food exploration and early morning visits.\"}, {\"action\": \"Ask_About\", \"target\": \"best ramen shops in Tokyo\", \"rationale\": \"Research needed to find a proper ramen shop within the backpacker budget.\"}, {\"action\": \"Ask_About\", \"target\": \"Hakone day trip logistics\", \"rationale\": \"Research needed to plan a day trip that fits the fast pace and walking tolerance.\"}]}\n{\"recommendations\": [{\"action\": \"Book\", \"target\": \"Hostel in Shinjuku\", \"when\": \"2026-03-20/2026-03-24\", \"rationale\": \"Fits the backpacker budget and solo travel style for the Tokyo leg.\"}, {\"action\": \"Book\", \"target\": \"Shinkansen tickets to Kyoto\", \"when\": \"2026-03-24\", \"rationale\": \"Essential for fast-paced travel between Tokyo and Kyoto.\"}, {\"action\": \"Visit\", \"target\": \"Gion district\", \"when\": \"2026-03-22\", \"rationale\": \"A quick, high-impact temple and geisha district visit in Kyoto.\"}, {\"action\": \"Visit\", \"target\": \"Dotonbori\", \"when\": \"2026-03-26\", \"rationale\": \"Perfect for neon districts and conveyor-belt sushi in Osaka.\"}, {\"action\": \"Visit\", \"target\": \"Nara Park\", \"when\": \"2026-03-25\", \"rationale\": \"Fits the desire for a day trip to see temples and deer.\"}, {\"action\": \"Visit\", \"target\": \"Tsukiji Outer Market\", \"when\": \"2026-03-21\", \"rationale\": \"Ideal for street food exploration and early morning visits.\"}, {\"action\": \"Ask_About\", \"target\": \"best ramen shops in Tokyo\", \"rationale\": \"Research needed to find a proper ramen shop within the backpacker budget.\"}, {\"action\": \"Ask_About\", \"target\": \"Hakone day trip logistics\", \"rationale\": \"Research needed to plan a day trip that fits the fast pace and walking tolerance.\"}]}\n{\"recommendations\": [{\"action\": \"Book\", \"target\": \"Hostel in Shinjuku\", \"when\": \"2026-03-20/2026-03-24\", \"rationale\": \"Fits the backpacker budget and solo travel style for the Tokyo leg.\"}, {\"action\": \"Book\", \"target\": \"Shinkansen tickets to Kyoto\", \"when\": \"2026-03-24\", \"rationale\": \"Essential for fast-paced travel between Tokyo and Kyoto.\"",
+      "tokens": 900,
+      "seq_lp": -85.6647,
+      "finish": "length",
+      "hit_cap": true,
+      "valid": false
+     },
+     {
+      "text": "{\"recommendations\": [{\"action\": \"Book\", \"target\": \"Hostel in Shinjuku\", \"when\": \"2026-03-20/2026-03-24\", \"rationale\": \"Fits the backpacker budget and solo travel style for the Tokyo leg.\"}, {\"action\": \"Book\", \"target\": \"Shinkansen tickets to Kyoto\", \"when\": \"2026-03-24\", \"rationale\": \"Essential for fast-paced travel between Tokyo and Kyoto.\"}, {\"action\": \"Visit\", \"target\": \"Gion district\", \"when\": \"2026-03-22\", \"rationale\": \"A quick, high-impact temple and geisha district visit in Kyoto.\"}, {\"action\": \"Visit\", \"target\": \"Dotonbori\", \"when\": \"2026-03-26\", \"rationale\": \"Perfect for neon districts and conveyor-belt sushi in Osaka.\"}, {\"action\": \"Visit\", \"target\": \"Nara Park\", \"when\": \"2026-03-25\", \"rationale\": \"Fits the desire for a day trip to see temples and deer.\"}, {\"action\": \"Visit\", \"target\": \"Tsukiji Outer Market\", \"when\": \"2026-03-21\", \"rationale\": \"Ideal for street food exploration and early morning visits.\"}, {\"action\": \"Ask_About\", \"target\": \"best ramen shops in Tokyo\", \"rationale\": \"Research needed to find a proper ramen shop within the backpacker budget.\"}, {\"action\": \"Ask_About\", \"target\": \"Hakone day trip logistics\", \"rationale\": \"Research needed to plan a day trip that fits the fast pace and budget.\"}]}\n{\"recommendations\": [\n  {\"action\": \"Book\", \"target\": \"Hostel in Shinjuku\", \"when\": \"2026-03-20/2026-03-24\", \"rationale\": \"Fits the backpacker budget and solo travel style for the Tokyo leg.\"},\n  {\"action\": \"Book\", \"target\": \"Shinkansen tickets to Kyoto\", \"when\": \"2026-03-24\", \"rationale\": \"Essential for fast-paced travel between Tokyo and Kyoto.\"},\n  {\"action\": \"Visit\", \"target\": \"Gion district\", \"when\": \"2026-03-22\", \"rationale\": \"A quick, high-impact temple and geisha district visit in Kyoto.\"},\n  {\"action\": \"Visit\", \"target\": \"Dotonbori\", \"when\": \"2026-03-26\", \"rationale\": \"Perfect for neon districts and conveyor-belt sushi in Osaka.\"},\n  {\"action\": \"Visit\", \"target\": \"Nara Park\", \"when\": \"2026-03-25\", \"rationale\": \"Fits the desire for a day trip to see temples and deer.\"},\n  {\"action\": \"Visit\", \"target\": \"Tsukiji Outer Market\", \"when\": \"2026-03-21\", \"rationale\": \"Ideal for street food exploration and early morning visits.\"},\n  {\"action\": \"Ask_About\", \"target\": \"best ramen shops in Tokyo\", \"rationale\": \"Research needed to find a proper ramen shop within the backpacker budget.\"},\n  {\"action\": \"Ask_About\", \"target\": \"Hakone day trip logistics\", \"rationale\": \"Research needed to plan a day trip that fits the fast pace and budget.\"}\n]}\n{\"recommendations\": [\n  {\"action\": \"Book\", \"target\": \"Hostel in Shinjuku\", \"when\": \"2026-03-20/2026-03-24\", \"rationale\": \"Fits the backpacker budget and solo travel style for the Tokyo leg.\"},\n  {\"action\": \"Book\", \"target\": \"Shinkansen tickets to Kyoto\", \"when\": \"2026-0",
+      "tokens": 900,
+      "seq_lp": -89.4702,
+      "finish": "length",
+      "hit_cap": true,
+      "valid": false
+     },
+     {
+      "text": "{\"recommendations\": [{\"action\": \"Book\", \"target\": \"Hostel in Shinjuku\", \"when\": \"2026-03-20/2026-03-24\", \"rationale\": \"Fits the backpacker budget and solo travel style for the Tokyo leg.\"}, {\"action\": \"Book\", \"target\": \"Shinkansen tickets to Kyoto\", \"when\": \"2026-03-24\", \"rationale\": \"Essential for fast-paced travel between Tokyo and Kyoto.\"}, {\"action\": \"Visit\", \"target\": \"Gion district\", \"when\": \"2026-03-22\", \"rationale\": \"A quick, high-impact temple and geisha district visit in Kyoto.\"}, {\"action\": \"Visit\", \"target\": \"Dotonbori\", \"when\": \"2026-03-26\", \"rationale\": \"Perfect for neon districts and conveyor-belt sushi in Osaka.\"}, {\"action\": \"Visit\", \"target\": \"Nara Park\", \"when\": \"2026-03-25\", \"rationale\": \"Fits the desire for a day trip to see temples and deer.\"}, {\"action\": \"Visit\", \"target\": \"Tsukiji Outer Market\", \"when\": \"2026-03-21\", \"rationale\": \"Ideal for street food exploration and early morning visits.\"}, {\"action\": \"Ask_About\", \"target\": \"best ramen shops in Tokyo\", \"rationale\": \"Research needed to find a proper ramen shop within the backpacker budget.\"}, {\"action\": \"Ask_About\", \"target\": \"Hakone day trip logistics\", \"rationale\": \"Research needed to plan a day trip that fits the fast pace and budget.\"}]}\n{\"recommendations\": [{\"action\": \"Book\", \"target\": \"Hostel in Shinjuku\", \"when\": \"2026-03-20/2026-03-24\", \"rationale\": \"Fits the backpacker budget and solo travel style for the Tokyo leg.\"}, {\"action\": \"Book\", \"target\": \"Shinkansen tickets to Kyoto\", \"when\": \"2026-03-24\", \"rationale\": \"Essential for fast-paced travel between Tokyo and Kyoto.\"}, {\"action\": \"Visit\", \"target\": \"Gion district\", \"when\": \"2026-03-22\", \"rationale\": \"A quick, high-impact temple and geisha district visit in Kyoto.\"}, {\"action\": \"Visit\", \"target\": \"Dotonbori\", \"when\": \"2026-03-26\", \"rationale\": \"Perfect for neon districts and conveyor-belt sushi in Osaka.\"}, {\"action\": \"Visit\", \"target\": \"Nara Park\", \"when\": \"2026-03-25\", \"rationale\": \"Fits the desire for a day trip to see temples and deer.\"}, {\"action\": \"Visit\", \"target\": \"Tsukiji Outer Market\", \"when\": \"2026-03-21\", \"rationale\": \"Ideal for street food exploration and early morning visits.\"}, {\"action\": \"Ask_About\", \"target\": \"best ramen shops in Tokyo\", \"rationale\": \"Research needed to find a proper ramen shop within the backpacker budget.\"}, {\"action\": \"Ask_About\", \"target\": \"Hakone day trip logistics\", \"rationale\": \"Research needed to plan a day trip that fits the fast pace and budget.\"}]}",
+      "tokens": 782,
+      "seq_lp": -83.087,
+      "finish": "stop",
+      "hit_cap": false,
+      "valid": false
+     }
+    ]
+   }
+  }
+ },
+ {
+  "persona": "family_young_kids",
+  "prompt": "<|im_start|>system\nYou are TripKaja's recommendation engine. The traveler describes a trip\nin a free-text paragraph. You produce a JSON list of the top 8 next actions\nthey can take to build their itinerary.\n\nOutput STRICT JSON only \u2014 no prose, no markdown fences. Shape:\n\n{\"recommendations\": [\n  {\"action\": \"Book\", \"target\": \"Hotel in Alfama\",\n   \"when\": \"2026-06-09/2026-06-13\",\n   \"rationale\": \"<one sentence why it fits THIS traveler>\"},\n  {\"action\": \"Visit\", \"target\": \"Gothic Quarter\", \"when\": \"2026-06-10\",\n   \"rationale\": \"...\"}\n]}\n\nValid actions and example targets:\n- \"Book\": bookable things. Targets like \"Hotel in Alfama\", \"Flight to\n  Lisbon\", \"Uber to airport\", \"Sagrada Familia tickets\", \"concert tickets\",\n  \"food tour experience\".\n- \"Visit\": places to plan a visit to. Targets like \"Gothic Quarter\",\n  \"Boqueria market\", \"Sintra day trip\".\n- \"Ask_About\": topics to research before committing. Targets like\n  \"stroller access at Sintra\", \"cider house reservations\".\n\nThe `when` field is ISO 8601: a single date \"2026-06-10\" or an interval\n\"2026-06-09/2026-06-13\" for ranges (stays, booking windows). Use null only\nwhen no date applies.\n\nRules:\n- Exactly 8 recommendations.\n- Match the stated pace: packed trips skew to Book/Visit anchors, slow trips\n  include Ask_About research items.\n- Respect hard constraints in the paragraph (diet, mobility, budget, kids).\n- Targets must be real, well-known things or generic categories\n  (e.g. \"family-friendly tapas bar\"), never invented proper nouns.<|im_end|>\n<|im_start|>user\n<trip_paragraph>\nWe're a family of four \u2014 two adults and kids aged 4 and 7 \u2014 planning a week in Lisbon in mid-June. This is our first international trip with the kids so we want a relaxed pace: one big thing per day, lots of playground and beach time, early dinners. We'd love a day trip to Sintra if it's manageable with a stroller. The kids are obsessed with trams and castles. We need kid-friendly restaurant suggestions, nothing too fancy or late-night.\n</trip_paragraph>\n\nReturn the JSON recommendations object now.<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+  "strategies": {
+   "greedy": {
+    "wall": 16.14,
+    "total_tokens": 454,
+    "jaccard": 0.0,
+    "candidates": [
+     {
+      "text": "{\"recommendations\": [{\"action\": \"Book\", \"target\": \"Family-friendly hotel in Alfama with stroller access\", \"when\": \"2026-06-09/2026-06-13\", \"rationale\": \"A central base in Alfama allows easy access to playgrounds and tram stops for the kids.\"}, {\"action\": \"Visit\", \"target\": \"Tram 28 route\", \"when\": \"2026-06-10\", \"rationale\": \"Perfect for the kids' obsession with trams, offering a relaxed way to see the city.\"}, {\"action\": \"Visit\", \"target\": \"Sintra day trip with stroller-friendly transport\", \"when\": \"2026-06-11\", \"rationale\": \"A manageable day trip to see the castles the kids love, ensuring stroller accessibility.\"}, {\"action\": \"Visit\", \"target\": \"Bel\u00e9m Tower and Monument to the Discoveries\", \"when\": \"2026-06-12\", \"rationale\": \"Historic sites with open grounds and playgrounds suitable for a 4 and 7 year old.\"}, {\"action\": \"Visit\", \"target\": \"Parque das Na\u00e7\u00f5es\", \"when\": \"2026-06-13\", \"rationale\": \"A spacious park area ideal for beach time and playground activities.\"}, {\"action\": \"Ask_About\", \"target\": \"stroller access at Pena Palace\", \"when\": null, \"rationale\": \"Researching specific stroller policies at the castle before booking the Sintra trip.\"}, {\"action\": \"Book\", \"target\": \"Kid-friendly tapas dinner in Baixa\", \"when\": \"2026-06-10\", \"rationale\": \"Securing a spot at a casual, early dinner restaurant that suits the family's preferences.\"}, {\"action\": \"Ask_About\", \"target\": \"best stroller-friendly beaches in Lisbon\", \"when\": null, \"rationale\": \"Checking which nearby beaches are safe and accessible for a family with young children.\"}]}",
+      "tokens": 454,
+      "seq_lp": -115.489,
+      "finish": "stop",
+      "hit_cap": false,
+      "valid": true,
+      "violations": {
+       "when_out_of_window": 4,
+       "when_not_iso": 0,
+       "dup_items": 0,
+       "missing_verbs": [],
+       "foreign_targets": 0
+      },
+      "hard_pass": false,
+      "n_recs": 8,
+      "coverage": 1.0
+     }
+    ]
+   },
+   "samp_t07_g": {
+    "wall": 17.93,
+    "total_tokens": 1813,
+    "jaccard": 0.022,
+    "candidates": [
+     {
+      "text": "{\"recommendations\": [{\"action\": \"Book\", \"target\": \"Family-friendly hotel in Alfama with stroller access\", \"when\": \"2026-06-09/2026-06-13\", \"rationale\": \"Fits the relaxed pace and stroller needs for a first-time international trip.\"}, {\"action\": \"Visit\", \"target\": \"Tram 28 for a short, manageable ride\", \"when\": \"2026-06-10\", \"rationale\": \"Captures the kids' obsession with trams while keeping the pace light.\"}, {\"action\": \"Visit\", \"target\": \"Sintra Palace with stroller-friendly routes\", \"when\": \"2026-06-11\", \"rationale\": \"Delivers the castle interest while planning for stroller manageability.\"}, {\"action\": \"Visit\", \"target\": \"Bel\u00e9m Tower\", \"when\": \"2026-06-12\", \"rationale\": \"A classic, flat, and kid-friendly landmark perfect for a single-day visit.\"}, {\"action\": \"Visit\", \"target\": \"Beach of Cascais\", \"when\": \"2026-06-13\", \"rationale\": \"Provides the requested beach time and playground environment.\"}, {\"action\": \"Ask_About\", \"target\": \"stroller access at Sintra\", \"when\": null, \"rationale\": \"Critical research to confirm safe routes before committing to the day trip.\"}, {\"action\": \"Book\", \"target\": \"Family-friendly tapas dinner in Baixa\", \"when\": \"2026-06-10\", \"rationale\": \"Matches the need for early, non-fancy, kid-friendly meals.\"}, {\"action\": \"Ask_About\", \"target\": \"best stroller-friendly beaches in Lisbon\", \"when\": null, \"rationale\": \"Ensures the planned beach time is actually accessible with a stroller.\"}]}",
+      "tokens": 426,
+      "seq_lp": -126.4684,
+      "finish": "stop",
+      "hit_cap": false,
+      "valid": true,
+      "violations": {
+       "when_out_of_window": 4,
+       "when_not_iso": 0,
+       "dup_items": 0,
+       "missing_verbs": [],
+       "foreign_targets": 0
+      },
+      "hard_pass": false,
+      "n_recs": 8,
+      "coverage": 1.0
+     },
+     {
+      "text": "{\"recommendations\": [{\"action\": \"Book\", \"target\": \"Family-friendly hotel with stroller access in Baixa\", \"when\": \"2026-06-09/2026-06-13\", \"rationale\": \"Central location minimizes travel time for a relaxed pace with young children.\"}, {\"action\": \"Visit\", \"target\": \"Bel\u00e9m Tower and National Tile Museum\", \"when\": \"2026-06-10\", \"rationale\": \"Stroller-friendly site with iconic views and interactive tile displays for kids.\"}, {\"action\": \"Visit\", \"target\": \"LX Factory\", \"when\": \"2026-06-11\", \"rationale\": \"Creative space with playground areas and a relaxed atmosphere suitable for a young family.\"}, {\"action\": \"Visit\", \"target\": \"Sintra day trip with stroller-friendly route planning\", \"when\": \"2026-06-12\", \"rationale\": \"Prioritizes accessibility to Pena Palace and Quinta da Regaleira to manage the stroller load.\"}, {\"action\": \"Ask_About\", \"target\": \"stroller access at Pena Palace and Castelo de S\u00e3o Jorge\", \"when\": \"2026-06-12\", \"rationale\": \"Verifying terrain and ramp availability is crucial before committing to the Sintra itinerary.\"}, {\"action\": \"Visit\", \"target\": \"Bel\u00e9m Frying Pan Park\", \"when\": \"2026-06-13\", \"rationale\": \"Wide paved paths and playgrounds provide a perfect afternoon activity for the kids.\"}, {\"action\": \"Book\", \"target\": \"Kid-friendly tapas lunch at Cervejaria Trindade\", \"when\": \"2026-06-09\", \"rationale\": \"Casual atmosphere with Portuguese cuisine and no need for advance fancy reservations.\"}, {\"action\": \"Book\", \"target\": \"Family-friendly dinner at Largo do Carvalhais\", \"when\": \"2026-06-11\", \"rationale\": \"Easily accessible street with outdoor seating and reasonable prices for early dinner.\"}]}",
+      "tokens": 467,
+      "seq_lp": -205.4767,
+      "finish": "stop",
+      "hit_cap": false,
+      "valid": true,
+      "violations": {
+       "when_out_of_window": 6,
+       "when_not_iso": 0,
+       "dup_items": 0,
+       "missing_verbs": [],
+       "foreign_targets": 1
+      },
+      "hard_pass": false,
+      "n_recs": 8,
+      "coverage": 0.833
+     },
+     {
+      "text": "{\"recommendations\": [{\"action\": \"Book\", \"target\": \"Stroller-accessible hotel in Alfama\", \"when\": \"2026-06-09/2026-06-13\", \"rationale\": \"Ensures easy navigation for the stroller and kids' comfort during the stay.\"}, {\"action\": \"Visit\", \"target\": \"Tram 28 and Rossio Square\", \"when\": \"2026-06-10\", \"rationale\": \"Captures the children's obsession with trams in a short, engaging morning activity.\"}, {\"action\": \"Visit\", \"target\": \"Sintra Day Trip (Palace of Sintra and Pena Palace)\", \"when\": \"2026-06-11\", \"rationale\": \"Delivers the requested castle experience with stroller-friendly options available.\"}, {\"action\": \"Visit\", \"target\": \"Largo do Chafariz and Jardim da Estrela\", \"when\": \"2026-06-12\", \"rationale\": \"Provides a safe, playground-filled space for the kids to burn energy.\"}, {\"action\": \"Visit\", \"target\": \"Beach in Cascais or Estoril\", \"when\": \"2026-06-13\", \"rationale\": \"Offers necessary beach time and a coastal escape after the castle day.\"}, {\"action\": \"Ask_About\", \"target\": \"Stroller-friendly tram routes and breaks\", \"when\": null, \"rationale\": \"Research ensures the family can manage tram rides with the stroller without stress.\"}, {\"action\": \"Book\", \"target\": \"Family-friendly tapas restaurant in Baixa\", \"when\": \"2026-06-12/2026-06-13\", \"rationale\": \"Meets the need for early, non-fancy meals suitable for children.\"}, {\"action\": \"Visit\", \"target\": \"S\u00e3o Jorge Castle\", \"when\": \"2026-06-09\", \"rationale\": \"Offers a fun, castle-themed visit that is manageable with the stroller for a relaxed start.\"}]}",
+      "tokens": 469,
+      "seq_lp": -177.1514,
+      "finish": "stop",
+      "hit_cap": false,
+      "valid": true,
+      "violations": {
+       "when_out_of_window": 4,
+       "when_not_iso": 0,
+       "dup_items": 0,
+       "missing_verbs": [],
+       "foreign_targets": 1
+      },
+      "hard_pass": false,
+      "n_recs": 8,
+      "coverage": 1.0
+     },
+     {
+      "text": "{\"recommendations\": [{\"action\": \"Book\", \"target\": \"Stroller-accessible hotel near Rossio\", \"when\": \"2026-06-09/2026-06-13\", \"rationale\": \"A central base that minimizes travel time for a family with young children.\"}, {\"action\": \"Visit\", \"target\": \"Tram 28\", \"when\": \"2026-06-10\", \"rationale\": \"Perfect for capturing the kids' obsession with trams in a manageable, one-stop experience.\"}, {\"action\": \"Visit\", \"target\": \"Sintra Day Trip\", \"when\": \"2026-06-11\", \"rationale\": \"Delightful castle-hopping option that is manageable with a stroller if timed correctly.\"}, {\"action\": \"Visit\", \"target\": \"Bel\u00e9m Tower\", \"when\": \"2026-06-12\", \"rationale\": \"Easy access from the city center and a great spot for photos and fortifications.\"}, {\"action\": \"Book\", \"target\": \"Kid-friendly tapas dinner near Santa Justa\", \"when\": \"2026-06-10\", \"rationale\": \"Fits the early dinner preference while avoiding overly fancy or late-night venues.\"}, {\"action\": \"Book\", \"target\": \"Beach day pass to Martim Moniz\", \"when\": \"2026-06-11\", \"rationale\": \"Essential for maximizing playground and beach time with strollers.\"}, {\"action\": \"Ask_About\", \"target\": \"Stroller access at Pena Palace\", \"when\": \"2026-06-11\", \"rationale\": \"Crucial research before committing to the Sintra trip to ensure comfort for the kids.\"}, {\"action\": \"Visit\", \"target\": \"LX Factory\", \"when\": \"2026-06-13\", \"rationale\": \"A relaxed, interactive spot that fits a packed but age-appropriate evening activity.\"}]\n}",
+      "tokens": 451,
+      "seq_lp": -174.2481,
+      "finish": "stop",
+      "hit_cap": false,
+      "valid": true,
+      "violations": {
+       "when_out_of_window": 6,
+       "when_not_iso": 0,
+       "dup_items": 0,
+       "missing_verbs": [],
+       "foreign_targets": 1
+      },
+      "hard_pass": false,
+      "n_recs": 8,
+      "coverage": 1.0
+     }
+    ]
+   },
+   "beam_lp10": {
+    "wall": 185.37,
+    "total_tokens": 3600,
+    "jaccard": 1.0,
+    "candidates": [
+     {
+      "text": "{\"recommendations\": [{\"action\": \"Book\", \"target\": \"Hotel in Alfama with stroller access\", \"when\": \"2026-06-09/2026-06-13\", \"rationale\": \"Centrally located in Alfama for easy tram access and proximity to playgrounds for the kids.\"}, {\"action\": \"Visit\", \"target\": \"Gothic Quarter\", \"when\": \"2026-06-10\", \"rationale\": \"A compact, walkable area perfect for a relaxed day of exploring castles and narrow streets with a stroller.\"}, {\"action\": \"Visit\", \"target\": \"Tram 28\", \"when\": \"2026-06-11\", \"rationale\": \"Essential for the kids who are obsessed with trams, offering a fun and scenic way to see the city.\"}, {\"action\": \"Visit\", \"target\": \"Sintra day trip\", \"when\": \"2026-06-12\", \"rationale\": \"A must-visit for castle lovers, but requires careful planning to ensure stroller accessibility.\"}, {\"action\": \"Ask_About\", \"target\": \"stroller access at Sintra\", \"when\": \"2026-06-12\", \"rationale\": \"Critical research needed before committing to the day trip to ensure the route is manageable with a stroller.\"}, {\"action\": \"Book\", \"target\": \"Family-friendly tapas bar for early dinner\", \"when\": \"2026-06-10\", \"rationale\": \"Fits the need for kid-friendly, non-fancy dining with early hours suitable for a family with young children.\"}, {\"action\": \"Visit\", \"target\": \"Bel\u00e9m Tower\", \"when\": \"2026-06-13\", \"rationale\": \"An iconic landmark that is relatively flat and stroller-friendly, perfect for a final day of exploration.\"}, {\"action\": \"Ask_About\", \"target\": \"beach access with stroller in Lisbon\", \"when\": \"2026-06-11\", \"rationale\": \"Research needed to find suitable beach spots that are accessible and safe for a 4-year-old and a 7-year-old with a stroller.\"}], \"recommendations\": [{\"action\": \"Book\", \"target\": \"Hotel in Alfama with stroller access\", \"when\": \"2026-06-09/2026-06-13\", \"rationale\": \"Centrally located in Alfama for easy tram access and proximity to playgrounds for the kids.\"}, {\"action\": \"Visit\", \"target\": \"Gothic Quarter\", \"when\": \"2026-06-10\", \"rationale\": \"A compact, walkable area perfect for a relaxed day of exploring castles and narrow streets with a stroller.\"}, {\"action\": \"Visit\", \"target\": \"Tram 28\", \"when\": \"2026-06-11\", \"rationale\": \"Essential for the kids who are obsessed with trams, offering a fun and scenic way to see the city.\"}, {\"action\": \"Visit\", \"target\": \"Sintra day trip\", \"when\": \"2026-06-12\", \"rationale\": \"A must-visit for castle lovers, but requires careful planning to ensure stroller accessibility.\"}, {\"action\": \"Ask_About\", \"target\": \"stroller access at Sintra\", \"when\": \"2026-06-12\", \"rationale\": \"Critical research needed before committing to the day trip to ensure the route is manageable with a stroller.\"}, {\"action\": \"Book\", \"target\": \"Family-friendly tapas bar for early dinner\", \"when\": \"2026-06-10\", \"rationale\": \"Fits the need for kid-friendly, non-fancy dining with early hours suitable for a family with young children.\"}, {\"action\": \"Visit\", \"target\": \"Bel\u00e9m Tower\", \"when\": \"2026-06-13\", \"rationale",
+      "tokens": 900,
+      "seq_lp": -119.2826,
+      "finish": "length",
+      "hit_cap": true,
+      "valid": false
+     },
+     {
+      "text": "{\"recommendations\": [{\"action\": \"Book\", \"target\": \"Hotel in Alfama with stroller access\", \"when\": \"2026-06-09/2026-06-13\", \"rationale\": \"Centrally located in Alfama for easy tram access and proximity to playgrounds for the kids.\"}, {\"action\": \"Visit\", \"target\": \"Gothic Quarter\", \"when\": \"2026-06-10\", \"rationale\": \"A compact, walkable area perfect for a relaxed day of exploring castles and narrow streets with a stroller.\"}, {\"action\": \"Visit\", \"target\": \"Tram 28\", \"when\": \"2026-06-11\", \"rationale\": \"Essential for the kids who are obsessed with trams, offering a fun and scenic way to see the city.\"}, {\"action\": \"Visit\", \"target\": \"Sintra day trip\", \"when\": \"2026-06-12\", \"rationale\": \"A must-visit for castle lovers, but requires careful planning to ensure stroller accessibility.\"}, {\"action\": \"Ask_About\", \"target\": \"stroller access at Sintra\", \"when\": \"2026-06-12\", \"rationale\": \"Critical research needed before committing to the day trip to ensure the route is manageable with a stroller.\"}, {\"action\": \"Book\", \"target\": \"Family-friendly tapas bar for early dinner\", \"when\": \"2026-06-10\", \"rationale\": \"Fits the need for kid-friendly, non-fancy dining with early hours suitable for a family with young children.\"}, {\"action\": \"Visit\", \"target\": \"Bel\u00e9m Tower\", \"when\": \"2026-06-13\", \"rationale\": \"An iconic landmark that is relatively flat and stroller-friendly, perfect for a final day of exploration.\"}, {\"action\": \"Ask_About\", \"target\": \"beach access with stroller in Lisbon\", \"when\": \"2026-06-11\", \"rationale\": \"Research needed to find suitable beach spots that are accessible and safe for a 4-year-old and a 7-year-old with a stroller.\"}], \"recommendations\": [{\"action\": \"Book\", \"target\": \"Hotel in Alfama\", \"when\": \"2026-06-09/2026-06-13\", \"rationale\": \"Centrally located in Alfama for easy tram access and proximity to playgrounds for the kids.\"}, {\"action\": \"Visit\", \"target\": \"Gothic Quarter\", \"when\": \"2026-06-10\", \"rationale\": \"A compact, walkable area perfect for a relaxed day of exploring castles and narrow streets with a stroller.\"}, {\"action\": \"Visit\", \"target\": \"Tram 28\", \"when\": \"2026-06-11\", \"rationale\": \"Essential for the kids who are obsessed with trams, offering a fun and scenic way to see the city.\"}, {\"action\": \"Visit\", \"target\": \"Sintra day trip\", \"when\": \"2026-06-12\", \"rationale\": \"A must-visit for castle lovers, but requires careful planning to ensure stroller accessibility.\"}, {\"action\": \"Ask_About\", \"target\": \"stroller access at Sintra\", \"when\": \"2026-06-12\", \"rationale\": \"Critical research needed before committing to the day trip to ensure the route is manageable with a stroller.\"}, {\"action\": \"Book\", \"target\": \"Family-friendly tapas bar for early dinner\", \"when\": \"2026-06-10\", \"rationale\": \"Fits the need for kid-friendly, non-fancy dining with early hours suitable for a family with young children.\"}, {\"action\": \"Visit\", \"target\": \"Bel\u00e9m Tower\", \"when\": \"2026-06-13\", \"rationale\": \"An iconic",
+      "tokens": 900,
+      "seq_lp": -123.1993,
+      "finish": "length",
+      "hit_cap": true,
+      "valid": false
+     },
+     {
+      "text": "{\"recommendations\": [{\"action\": \"Book\", \"target\": \"Hotel in Alfama with stroller access\", \"when\": \"2026-06-09/2026-06-13\", \"rationale\": \"Centrally located in Alfama for easy tram access and proximity to playgrounds for the kids.\"}, {\"action\": \"Visit\", \"target\": \"Gothic Quarter\", \"when\": \"2026-06-10\", \"rationale\": \"A compact, walkable area perfect for a relaxed day of exploring castles and narrow streets with a stroller.\"}, {\"action\": \"Visit\", \"target\": \"Tram 28\", \"when\": \"2026-06-11\", \"rationale\": \"Essential for the kids who are obsessed with trams, offering a fun and scenic way to see the city.\"}, {\"action\": \"Visit\", \"target\": \"Sintra day trip\", \"when\": \"2026-06-12\", \"rationale\": \"A must-visit for castle lovers, but requires careful planning to ensure stroller accessibility.\"}, {\"action\": \"Ask_About\", \"target\": \"stroller access at Sintra\", \"when\": \"2026-06-12\", \"rationale\": \"Critical research needed before committing to the day trip to ensure the route is manageable with a stroller.\"}, {\"action\": \"Book\", \"target\": \"Family-friendly tapas bar for early dinner\", \"when\": \"2026-06-10\", \"rationale\": \"Fits the need for kid-friendly, non-fancy dining with early hours suitable for a family with young children.\"}, {\"action\": \"Visit\", \"target\": \"Bel\u00e9m Tower\", \"when\": \"2026-06-13\", \"rationale\": \"An iconic landmark that is relatively flat and stroller-friendly, perfect for a final day of exploration.\"}, {\"action\": \"Ask_About\", \"target\": \"beach access with stroller in Lisbon\", \"when\": \"2026-06-11\", \"rationale\": \"Research needed to find suitable beach spots that are accessible and safe for a 4-year-old and a 7-year-old with a stroller.\"}], \"recommendations\": [{\"action\": \"Book\", \"target\": \"Hotel in Alfama with stroller access\", \"when\": \"2026-06-09/2026-06-13\", \"rationale\": \"Centrally located in Alfama for easy tram access and proximity to playgrounds for the kids.\"}, {\"action\": \"Visit\", \"target\": \"Gothic Quarter\", \"when\": \"2026-06-10\", \"rationale\": \"A compact, walkable area perfect for a relaxed day of exploring castles and narrow streets with a stroller.\"}, {\"action\": \"Visit\", \"target\": \"Tram 28\", \"when\": \"2026-06-11\", \"rationale\": \"Essential for the kids who are obsessed with trams, offering a fun and scenic way to see the city.\"}, {\"action\": \"Visit\", \"target\": \"Sintra day trip\", \"when\": \"2026-06-12\", \"rationale\": \"A must-visit for castle lovers, but requires careful planning to ensure stroller accessibility.\"}, {\"action\": \"Ask_About\", \"target\": \"stroller access at Sintra\", \"when\": \"2026-06-12\", \"rationale\": \"Critical research needed before committing to the day trip to ensure the route is manageable with a stroller.\"}, {\"action\": \"Book\", \"target\": \"Family-friendly tapas bar for early dinner\", \"when\": \"2026-06-10\", \"rationale\": \"Fits the need for kid-friendly, non-fancy dining with early hours suitable for a family with young children.\"}, {\"action\": \"Visit\", \"target\": \"Belem Tower\", \"when\": \"2026-06-13\", \"rationale",
+      "tokens": 900,
+      "seq_lp": -126.38,
+      "finish": "length",
+      "hit_cap": true,
+      "valid": false
+     },
+     {
+      "text": "{\"recommendations\": [{\"action\": \"Book\", \"target\": \"Hotel in Alfama with stroller access\", \"when\": \"2026-06-09/2026-06-13\", \"rationale\": \"Centrally located in Alfama for easy tram access and proximity to playgrounds for the kids.\"}, {\"action\": \"Visit\", \"target\": \"Gothic Quarter\", \"when\": \"2026-06-10\", \"rationale\": \"A compact, walkable area perfect for a relaxed day of exploring castles and narrow streets with a stroller.\"}, {\"action\": \"Visit\", \"target\": \"Tram 28\", \"when\": \"2026-06-11\", \"rationale\": \"Essential for the kids who are obsessed with trams, offering a fun and scenic way to see the city.\"}, {\"action\": \"Visit\", \"target\": \"Sintra day trip\", \"when\": \"2026-06-12\", \"rationale\": \"A must-visit for castle lovers, but requires careful planning to ensure stroller accessibility.\"}, {\"action\": \"Ask_About\", \"target\": \"stroller access at Sintra\", \"when\": \"2026-06-12\", \"rationale\": \"Critical research needed before committing to the day trip to ensure the route is manageable with a stroller.\"}, {\"action\": \"Book\", \"target\": \"Family-friendly tapas bar for early dinner\", \"when\": \"2026-06-10\", \"rationale\": \"Fits the need for kid-friendly, non-fancy dining with early hours suitable for a family with young children.\"}, {\"action\": \"Visit\", \"target\": \"Bel\u00e9m Tower\", \"when\": \"2026-06-13\", \"rationale\": \"An iconic landmark that is relatively flat and stroller-friendly, perfect for a final day of exploration.\"}, {\"action\": \"Ask_About\", \"target\": \"beach access with stroller in Lisbon\", \"when\": \"2026-06-11\", \"rationale\": \"Research needed to find suitable beach spots that are accessible and safe for a 4-year-old and a 7-year-old with a stroller.\"}], \"recommendations\": [{\"action\": \"Book\", \"target\": \"Hotel in Alfama with stroller access\", \"when\": \"2026-06-09/2026-06-13\", \"rationale\": \"Centrally located in Alfama for easy tram access and proximity to playgrounds for the kids.\"}, {\"action\": \"Visit\", \"target\": \"Gothic Quarter\", \"when\": \"2026-06-10\", \"rationale\": \"A compact, walkable area perfect for a relaxed day of exploring castles and narrow streets with a stroller.\"}, {\"action\": \"Visit\", \"target\": \"Tram 28\", \"when\": \"2026-06-11\", \"rationale\": \"Essential for the kids who are obsessed with trams, offering a fun and scenic way to see the city.\"}, {\"action\": \"Visit\", \"target\": \"Sintra day trip\", \"when\": \"2026-06-12\", \"rationale\": \"A must-visit for castle lovers, but requires careful planning to ensure stroller accessibility.\"}, {\"action\": \"Book\", \"target\": \"Family-friendly tapas bar for early dinner\", \"when\": \"2026-06-10\", \"rationale\": \"Fits the need for kid-friendly, non-fancy dining with early hours suitable for a family with young children.\"}, {\"action\": \"Visit\", \"target\": \"Bel\u00e9m Tower\", \"when\": \"2026-06-13\", \"rationale\": \"An iconic landmark that is relatively flat and stroller-friendly, perfect for a final day of exploration.\"}, {\"action\": \"Ask_About\", \"target\": \"beach access with stroller in Lisbon\", \"when\": \"2026-06-11\", \"",
+      "tokens": 900,
+      "seq_lp": -126.734,
+      "finish": "length",
+      "hit_cap": true,
+      "valid": false
+     }
+    ]
+   }
+  }
+ }
+]
