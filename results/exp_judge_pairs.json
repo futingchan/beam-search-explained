@@ -1,0 +1,86 @@
+[
+ {
+  "persona": "solo_backpacker",
+  "pair": "beam_vs_greedy",
+  "beam": 0,
+  "other": 0,
+  "tie": 3
+ },
+ {
+  "persona": "solo_backpacker",
+  "pair": "beam_vs_best_sample",
+  "beam": 0,
+  "other": 0,
+  "tie": 3
+ },
+ {
+  "persona": "family_young_kids",
+  "pair": "beam_vs_greedy",
+  "beam": 0,
+  "other": 0,
+  "tie": 3
+ },
+ {
+  "persona": "family_young_kids",
+  "pair": "beam_vs_best_sample",
+  "beam": 0,
+  "other": 0,
+  "tie": 3
+ },
+ {
+  "persona": "couple_foodie_anniversary",
+  "pair": "beam_vs_greedy",
+  "beam": 0,
+  "other": 0,
+  "tie": 3
+ },
+ {
+  "persona": "couple_foodie_anniversary",
+  "pair": "beam_vs_best_sample",
+  "beam": 0,
+  "other": 0,
+  "tie": 3
+ },
+ {
+  "persona": "retirees_slow_cultural",
+  "pair": "beam_vs_greedy",
+  "beam": 0,
+  "other": 0,
+  "tie": 3
+ },
+ {
+  "persona": "retirees_slow_cultural",
+  "pair": "beam_vs_best_sample",
+  "beam": 0,
+  "other": 0,
+  "tie": 3
+ },
+ {
+  "persona": "friends_adventure",
+  "pair": "beam_vs_greedy",
+  "beam": 0,
+  "other": 1,
+  "tie": 2
+ },
+ {
+  "persona": "friends_adventure",
+  "pair": "beam_vs_best_sample",
+  "beam": 0,
+  "other": 0,
+  "tie": 3
+ },
+ {
+  "persona": "business_bleisure",
+  "pair": "beam_vs_greedy",
+  "beam": 0,
+  "other": 0,
+  "tie": 3
+ },
+ {
+  "persona": "business_bleisure",
+  "pair": "beam_vs_best_sample",
+  "beam": 0,
+  "other": 0,
+  "tie": 3
+ }
+]

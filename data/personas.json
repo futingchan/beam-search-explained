@@ -1,0 +1,135 @@
+[
+  {
+    "id": "solo_backpacker",
+    "label": "Solo backpacker, fast-paced, budget",
+    "paragraph": "I'm a 26-year-old solo traveler doing a fast-paced 10-day trip through Japan in late March — flying into Tokyo, want to hit Kyoto and Osaka too. I'm on a backpacker budget so hostels and street food are fine. I want to pack in as much as possible: temples, markets, neon districts, maybe a day trip to Nara or Hakone. I don't mind early mornings and long walking days. Not a huge foodie but I want to try a proper ramen shop and a conveyor-belt sushi place at least once.",
+    "window": ["2026-03-20", "2026-03-30"],
+    "implied_verbs": ["Book", "Visit", "Ask_About"],
+    "allowlist": ["tokyo", "kyoto", "osaka", "nara", "hakone", "shibuya",
+      "shinjuku", "senso", "asakusa", "fushimi", "inar", "dotonbori",
+      "tsukiji", "teamlab", "arashiyama", "kinkaku", "harajuku",
+      "akihabara", "nishiki", "ueno", "meiji", "nikko", "kamakura",
+      "odaiba", "nakameguro", "shinsekai", "koya", "miyajima",
+      "hiroshima", "kanazawa", "takayama", "nikkō"],
+    "interests": [
+      {"name": "temples/shrines", "match": ["temple", "shrine", "senso", "fushimi", "kinkaku", "meiji", "todai"]},
+      {"name": "markets", "match": ["market", "nishiki", "tsukiji", "kuromon"]},
+      {"name": "neon/nightlife districts", "match": ["neon", "shibuya", "shinjuku", "dotonbori", "akihabara", "golden gai", "night"]},
+      {"name": "day trip (Nara/Hakone)", "match": ["nara", "hakone", "day trip", "day-trip", "nikko", "kamakura", "miyajima"]},
+      {"name": "ramen", "match": ["ramen"]},
+      {"name": "conveyor sushi", "match": ["sushi", "kaiten", "conveyor"]},
+      {"name": "hostels/budget", "match": ["hostel", "budget", "guesthouse", "capsule"]}
+    ]
+  },
+  {
+    "id": "family_young_kids",
+    "label": "Family with two young kids, relaxed pace",
+    "paragraph": "We're a family of four — two adults and kids aged 4 and 7 — planning a week in Lisbon in mid-June. This is our first international trip with the kids so we want a relaxed pace: one big thing per day, lots of playground and beach time, early dinners. We'd love a day trip to Sintra if it's manageable with a stroller. The kids are obsessed with trams and castles. We need kid-friendly restaurant suggestions, nothing too fancy or late-night.",
+    "window": ["2026-06-13", "2026-06-20"],
+    "implied_verbs": ["Book", "Visit", "Ask_About"],
+    "allowlist": ["lisbon", "sintra", "belem", "belém", "alfama", "tram",
+      "praca", "praça", "comercio", "comércio", "parque das nações",
+      "nations", "oceanario", "oceanário", "jorge", "castle", "castelo",
+      "cascais", "jeronimos", "jerónimos", "time out", "bairro", "chiado",
+      "pena", "quinta da regaleira", "regaleira", "estoril", "carcavelos",
+      "guincho", " LX ", "baixa", "miradouro"],
+    "interests": [
+      {"name": "playground/beach time", "match": ["playground", "beach", "cascais", "carcavelos", "guincho", "park"]},
+      {"name": "trams", "match": ["tram", "28e", "elétrico", "funicular"]},
+      {"name": "castles", "match": ["castle", "castelo", "palace", "pena", "jorge"]},
+      {"name": "Sintra day trip", "match": ["sintra"]},
+      {"name": "kid-friendly dining", "match": ["kid", "family", "child", "early dinner", "pizzeria"]},
+      {"name": "stroller logistics", "match": ["stroller", "accessib", "buggy", "pram"]}
+    ]
+  },
+  {
+    "id": "couple_foodie_anniversary",
+    "label": "Couple, anniversary, food-focused",
+    "paragraph": "My partner and I are celebrating our 10th anniversary with a long weekend in San Sebastián, Spain, first weekend of October. Food is the whole point of the trip — pintxos crawls in the old town, one splurge Michelin-star dinner, a txoko-style cider house if possible. Between meals we want gentle stuff: beach walks, the funicular up Monte Igueldo, maybe a market visit. Romantic but not cheesy. Budget is flexible — this is our treat trip.",
+    "window": ["2026-10-02", "2026-10-05"],
+    "implied_verbs": ["Book", "Visit"],
+    "allowlist": ["sebasti", "donostia", "concha", "igueldo", "parte vieja",
+      "old town", "bretxa", "zurriola", "arzak", "mugaritz", "san telmo",
+      "peine", "comb of the wind", "aquarium", "urgull", "gros",
+      "ondarreta", "miramar", "kursaal", "basque", "sagardotegi",
+      "petritegi", "astigarraga", "zuberoa", "martin berasategui",
+      "berasategui", "akela", "akelarre"],
+    "interests": [
+      {"name": "pintxos crawl", "match": ["pintxo", "pincho", "tapas", "old town", "parte vieja"]},
+      {"name": "Michelin dinner", "match": ["michelin", "arzak", "mugaritz", "akelarre", "berasategui", "tasting menu", "fine dining"]},
+      {"name": "cider house", "match": ["cider", "txoko", "sagardo", "sidreria", "sidrería"]},
+      {"name": "beach walks", "match": ["beach", "concha", "zurriola", "ondarreta", "promenade", "walk"]},
+      {"name": "Monte Igueldo funicular", "match": ["igueldo", "funicular"]},
+      {"name": "market visit", "match": ["market", "bretxa", "mercado"]}
+    ]
+  },
+  {
+    "id": "retirees_slow_cultural",
+    "label": "Retired couple, slow pace, cultural",
+    "paragraph": "We're recently retired and finally doing the Italy trip we've talked about for years: two weeks in May, flying into Rome and out of Venice, with Florence in between. We want a slow pace — no more than one museum or sight per morning, afternoons free for cafés and wandering. My husband has a bad knee so minimal stairs and steep hills. We love art, churches, and long lunches with good wine. We'd rather do fewer things properly than rush.",
+    "window": ["2026-05-01", "2026-05-15"],
+    "implied_verbs": ["Book", "Visit"],
+    "allowlist": ["rome", "roma", "florence", "firenze", "venice", "venezia",
+      "colosseum", "colosseo", "vatican", "sistine", "uffizi", "duomo",
+      "ponte vecchio", "mark", "marco", "doge", "trastevere", "pantheon",
+      "borghese", "rialto", "accademia", "trevi", "navona", "campo",
+      "pitti", "palazzo", "murano", "burano", "san gimignano", "siena",
+      "lucca", "pisa", "bologna", "verona", "padua", "orvieto",
+      "galleria", "uffizi", "boboli", "oltrarno"],
+    "interests": [
+      {"name": "art/museums", "match": ["museum", "gallery", "uffizi", "accademia", "borghese", "vatican", "art", "galleria"]},
+      {"name": "churches", "match": ["church", "cathedral", "duomo", "basilica", "sistine", "san marco", "pantheon"]},
+      {"name": "long lunches/wine", "match": ["lunch", "wine", "enoteca", "osteria", "trattoria", "restaurant", "dinner"]},
+      {"name": "low-stairs mobility", "match": ["stair", "step-free", "elevator", "accessible", "flat", "gentle", "wheelchair", "mobility", "knee"]},
+      {"name": "cafés/wandering", "match": ["cafe", "café", "wander", "stroll", "piazza", "promenade", "gelato"]}
+    ]
+  },
+  {
+    "id": "friends_adventure",
+    "label": "Group of friends, packed, outdoorsy",
+    "paragraph": "Four friends in our early 30s doing a packed 8-day Iceland ring-road trip in September. We've rented a 4x4 and want waterfalls, glacier hiking, black sand beaches, hot springs, and hopefully northern lights. We're all pretty fit and happy with long driving days and 6am starts to beat the crowds. Budget is mid-range — guesthouses are fine, but we'll splurge on one glacier tour and one nice dinner in Reykjavik.",
+    "window": ["2026-09-05", "2026-09-12"],
+    "implied_verbs": ["Book", "Visit", "Ask_About"],
+    "allowlist": ["iceland", "reykjavik", "reykjavík", "seljalandsfoss",
+      "skogafoss", "skógafoss", "reynisfjara", "jokulsarlon",
+      "jökulsárlón", "vik", "vík", "golden circle", "thingvellir",
+      "þingvellir", "geysir", "gullfoss", "vatnajokull", "vatnajökull",
+      "blue lagoon", "myvatn", "mývatn", "dettifoss", "skaftafell",
+      "solheimajokull", "sólheimajökull", "kirkjufell", "hofn", "höfn",
+      "husavik", "húsavík", "akureyri", "egilsstadir", "djupivogur",
+      "westman", "vestmannaeyjar", "landmannalaugar", "snæfellsnes",
+      "snaefellsnes", "djupalonssandur", "arnarstapi", "stykkisholmur"],
+    "interests": [
+      {"name": "waterfalls", "match": ["waterfall", "foss", "seljalandsfoss", "skogafoss", "gullfoss", "dettifoss", "svartifoss"]},
+      {"name": "glacier hiking", "match": ["glacier", "vatnajokull", "skaftafell", "solheimajokull", "ice"]},
+      {"name": "black sand beaches", "match": ["black sand", "reynisfjara", "diamond beach", "beach"]},
+      {"name": "hot springs", "match": ["hot spring", "lagoon", "geothermal", "blue lagoon", "myvatn nature", "secret lagoon", "sky lagoon", "spa"]},
+      {"name": "northern lights", "match": ["northern light", "aurora"]},
+      {"name": "ring road drives", "match": ["ring road", "drive", "route 1", "4x4", "road trip", "golden circle"]},
+      {"name": "nice dinner Reykjavik", "match": ["dinner", "restaurant", "reykjavik", "food"]}
+    ]
+  },
+  {
+    "id": "business_bleisure",
+    "label": "Business traveler extending, efficient",
+    "paragraph": "I'm in Singapore for a conference Monday to Wednesday and extending through the weekend with my wife flying in Thursday. Weekday evenings I need efficient recommendations near the Marina Bay area — good dinners I can expense, a rooftop bar for client drinks. Once my wife arrives we want a mix: Gardens by the Bay, hawker centers, a day on Sentosa maybe, and one really nice anniversary-adjacent dinner. She's vegetarian so food picks need to work for both of us.",
+    "window": ["2026-10-12", "2026-10-18"],
+    "implied_verbs": ["Book", "Visit"],
+    "allowlist": ["singapore", "marina bay", "gardens by the bay", "sentosa",
+      "maxwell", "lau pa sat", "old airport", "hawker", "botanic",
+      "clarke quay", "boat quay", "chinatown", "little india", "artscience",
+      "supertree", "east coast", "orchard", "kuala", "raffles", "ce la vi",
+      "level33", "1-altitude", "mbS", "esplanade", "merlion", "bugis",
+      "tiong bahru", "katong", "joo chiat", "pulau ubin", "zoo",
+      "night safari", "jewel", "changi"],
+    "interests": [
+      {"name": "expense-able dinners near Marina Bay", "match": ["dinner", "restaurant", "marina bay", "expense", "client"]},
+      {"name": "rooftop bar", "match": ["rooftop", "bar", "ce la vi", "level33", "1-altitude", "drinks", "cocktail"]},
+      {"name": "Gardens by the Bay", "match": ["gardens by the bay", "supertree", "cloud forest", "flower dome"]},
+      {"name": "hawker centers", "match": ["hawker", "maxwell", "lau pa sat", "old airport", "food centre", "food center"]},
+      {"name": "Sentosa", "match": ["sentosa"]},
+      {"name": "anniversary dinner", "match": ["anniversary", "nice dinner", "special", "romantic", "fine dining", "michelin"]},
+      {"name": "vegetarian-friendly", "match": ["vegetarian", "veggie", "plant"]}
+    ]
+  }
+]

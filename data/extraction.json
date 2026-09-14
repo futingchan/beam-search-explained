@@ -1,0 +1,66 @@
+{
+ "task": "extract booking fields from a confirmation email into JSON",
+ "fields": ["vendor", "date", "amount", "currency", "confirmation_code"],
+ "items": [
+  {
+   "input": "Thank you for your booking with Skyline Airlines. Your flight on 2026-03-14 is confirmed. Total charged: $412.50. Confirmation code: SKX-8841.",
+   "gold": {"vendor": "Skyline Airlines", "date": "2026-03-14", "amount": "412.50", "currency": "USD", "confirmation_code": "SKX-8841"}
+  },
+  {
+   "input": "Order confirmation - Blue Nile Books. Your order placed March 3, 2026 has shipped. Amount charged: EUR 27.99. Order ID: BNB-20314.",
+   "gold": {"vendor": "Blue Nile Books", "date": "2026-03-03", "amount": "27.99", "currency": "EUR", "confirmation_code": "BNB-20314"}
+  },
+  {
+   "input": "Receipt from Harborview Hotel. Stay dates confirmed for 2026-07-22. Your card was billed 189.00 GBP. Booking reference: HVH-55210.",
+   "gold": {"vendor": "Harborview Hotel", "date": "2026-07-22", "amount": "189.00", "currency": "GBP", "confirmation_code": "HVH-55210"}
+  },
+  {
+   "input": "Your AquaRide car rental is booked for 2026-05-09. Total: $96.40 USD. Confirmation number AQ-7712. Have a great trip!",
+   "gold": {"vendor": "AquaRide", "date": "2026-05-09", "amount": "96.40", "currency": "USD", "confirmation_code": "AQ-7712"}
+  },
+  {
+   "input": "Northwind Rail ticket confirmation. Travel date: 2026-01-30. Fare paid: 54.20 EUR. Reference: NWR-3098.",
+   "gold": {"vendor": "Northwind Rail", "date": "2026-01-30", "amount": "54.20", "currency": "EUR", "confirmation_code": "NWR-3098"}
+  },
+  {
+   "input": "Booking confirmed at Cedar Peak Lodge for 2026-11-15. Deposit of $250.00 charged to your Visa. Confirmation code CPL-6620.",
+   "gold": {"vendor": "Cedar Peak Lodge", "date": "2026-11-15", "amount": "250.00", "currency": "USD", "confirmation_code": "CPL-6620"}
+  },
+  {
+   "input": "Marathon Cycles order #MC-44821 confirmed, placed on 2026-02-11. You paid EUR 1120.00.",
+   "gold": {"vendor": "Marathon Cycles", "date": "2026-02-11", "amount": "1120.00", "currency": "EUR", "confirmation_code": "MC-44821"}
+  },
+  {
+   "input": "Your reservation at Bella Vista Tours is set for 2026-06-18. The charge of $78.25 has been processed. Ref: BVT-1905.",
+   "gold": {"vendor": "Bella Vista Tours", "date": "2026-06-18", "amount": "78.25", "currency": "USD", "confirmation_code": "BVT-1905"}
+  },
+  {
+   "input": "CloudKitchen delivery confirmed for 2026-04-05. Order total: GBP 32.80. Order number: CK-3345.",
+   "gold": {"vendor": "CloudKitchen", "date": "2026-04-05", "amount": "32.80", "currency": "GBP", "confirmation_code": "CK-3345"}
+  },
+  {
+   "input": "Pacific Ferry Lines: your sailing on 2026-08-27 is confirmed. Payment received: $45.00 USD. Booking code PFL-8812.",
+   "gold": {"vendor": "Pacific Ferry Lines", "date": "2026-08-27", "amount": "45.00", "currency": "USD", "confirmation_code": "PFL-8812"}
+  },
+  {
+   "input": "Invoice from UrbanDesk Software. Subscription renewed 2026-09-01 for EUR 199.99. Invoice ID UDS-7410.",
+   "gold": {"vendor": "UrbanDesk Software", "date": "2026-09-01", "amount": "199.99", "currency": "EUR", "confirmation_code": "UDS-7410"}
+  },
+  {
+   "input": "Silverline Bus Co. ticket purchased for travel on 2026-03-21. Fare: $22.50. Ticket no. SLB-5567.",
+   "gold": {"vendor": "Silverline Bus Co.", "date": "2026-03-21", "amount": "22.50", "currency": "USD", "confirmation_code": "SLB-5567"}
+  },
+  {
+   "input": "Golden Gate Parking reservation confirmed: 2026-10-02, total charge $18.75, confirmation GGP-2209.",
+   "gold": {"vendor": "Golden Gate Parking", "date": "2026-10-02", "amount": "18.75", "currency": "USD", "confirmation_code": "GGP-2209"}
+  },
+  {
+   "input": "Your CineMaxx tickets for 2026-05-30 are confirmed. Charged GBP 24.50 to your card. Reference CMX-9134.",
+   "gold": {"vendor": "CineMaxx", "date": "2026-05-30", "amount": "24.50", "currency": "GBP", "confirmation_code": "CMX-9134"}
+  },
+  {
+   "input": "Alpine Gear Outfitters order shipped 2026-12-05. Total paid: EUR 340.00. Tracking/confirmation: AGO-6608.",
+   "gold": {"vendor": "Alpine Gear Outfitters", "date": "2026-12-05", "amount": "340.00", "currency": "EUR", "confirmation_code": "AGO-6608"}
+  }
+ ]
+}

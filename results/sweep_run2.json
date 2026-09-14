@@ -1,0 +1,256 @@
+{
+  "summary": {
+    "model": "Qwen/Qwen2.5-0.5B-Instruct",
+    "n_personas": 6,
+    "beam_width": 4,
+    "length_penalty": 1.0,
+    "min_new_tokens": 150,
+    "repetition_penalty": 1.0,
+    "beam_all": {
+      "valid": 24,
+      "of": 24,
+      "mean_wall": 23.5,
+      "total_tokens": 7092
+    },
+    "beam_best": {
+      "valid": 6,
+      "of": 6
+    }
+  },
+  "per_persona": [
+    {
+      "persona": "solo_backpacker",
+      "beam_best": {
+        "wall": 25.6,
+        "tokens": 196,
+        "valid": true,
+        "n_recs": 4,
+        "snippet": ""
+      },
+      "beam_all": {
+        "wall": 23.61,
+        "candidates": [
+          {
+            "valid": true,
+            "n_recs": 4,
+            "tokens": 292,
+            "snippet": ""
+          },
+          {
+            "valid": true,
+            "n_recs": 6,
+            "tokens": 292,
+            "snippet": ""
+          },
+          {
+            "valid": true,
+            "n_recs": 6,
+            "tokens": 292,
+            "snippet": ""
+          },
+          {
+            "valid": true,
+            "n_recs": 4,
+            "tokens": 292,
+            "snippet": ""
+          }
+        ]
+      }
+    },
+    {
+      "persona": "family_young_kids",
+      "beam_best": {
+        "wall": 20.44,
+        "tokens": 252,
+        "valid": true,
+        "n_recs": 6,
+        "snippet": ""
+      },
+      "beam_all": {
+        "wall": 20.26,
+        "candidates": [
+          {
+            "valid": true,
+            "n_recs": 6,
+            "tokens": 259,
+            "snippet": ""
+          },
+          {
+            "valid": true,
+            "n_recs": 6,
+            "tokens": 259,
+            "snippet": ""
+          },
+          {
+            "valid": true,
+            "n_recs": 4,
+            "tokens": 259,
+            "snippet": ""
+          },
+          {
+            "valid": true,
+            "n_recs": 4,
+            "tokens": 259,
+            "snippet": ""
+          }
+        ]
+      }
+    },
+    {
+      "persona": "couple_foodie_anniversary",
+      "beam_best": {
+        "wall": 25.67,
+        "tokens": 323,
+        "valid": true,
+        "n_recs": 8,
+        "snippet": ""
+      },
+      "beam_all": {
+        "wall": 25.71,
+        "candidates": [
+          {
+            "valid": true,
+            "n_recs": 8,
+            "tokens": 323,
+            "snippet": ""
+          },
+          {
+            "valid": true,
+            "n_recs": 8,
+            "tokens": 323,
+            "snippet": ""
+          },
+          {
+            "valid": true,
+            "n_recs": 7,
+            "tokens": 323,
+            "snippet": ""
+          },
+          {
+            "valid": true,
+            "n_recs": 6,
+            "tokens": 323,
+            "snippet": ""
+          }
+        ]
+      }
+    },
+    {
+      "persona": "retirees_slow_cultural",
+      "beam_best": {
+        "wall": 28.6,
+        "tokens": 319,
+        "valid": true,
+        "n_recs": 8,
+        "snippet": ""
+      },
+      "beam_all": {
+        "wall": 28.65,
+        "candidates": [
+          {
+            "valid": true,
+            "n_recs": 8,
+            "tokens": 356,
+            "snippet": ""
+          },
+          {
+            "valid": true,
+            "n_recs": 9,
+            "tokens": 356,
+            "snippet": ""
+          },
+          {
+            "valid": true,
+            "n_recs": 8,
+            "tokens": 356,
+            "snippet": ""
+          },
+          {
+            "valid": true,
+            "n_recs": 8,
+            "tokens": 356,
+            "snippet": ""
+          }
+        ]
+      }
+    },
+    {
+      "persona": "friends_adventure",
+      "beam_best": {
+        "wall": 14.68,
+        "tokens": 188,
+        "valid": true,
+        "n_recs": 4,
+        "snippet": ""
+      },
+      "beam_all": {
+        "wall": 14.63,
+        "candidates": [
+          {
+            "valid": true,
+            "n_recs": 4,
+            "tokens": 194,
+            "snippet": ""
+          },
+          {
+            "valid": true,
+            "n_recs": 4,
+            "tokens": 194,
+            "snippet": ""
+          },
+          {
+            "valid": true,
+            "n_recs": 3,
+            "tokens": 194,
+            "snippet": ""
+          },
+          {
+            "valid": true,
+            "n_recs": 3,
+            "tokens": 194,
+            "snippet": ""
+          }
+        ]
+      }
+    },
+    {
+      "persona": "business_bleisure",
+      "beam_best": {
+        "wall": 28.25,
+        "tokens": 319,
+        "valid": true,
+        "n_recs": 8,
+        "snippet": ""
+      },
+      "beam_all": {
+        "wall": 27.96,
+        "candidates": [
+          {
+            "valid": true,
+            "n_recs": 8,
+            "tokens": 349,
+            "snippet": ""
+          },
+          {
+            "valid": true,
+            "n_recs": 9,
+            "tokens": 349,
+            "snippet": ""
+          },
+          {
+            "valid": true,
+            "n_recs": 9,
+            "tokens": 349,
+            "snippet": ""
+          },
+          {
+            "valid": true,
+            "n_recs": 8,
+            "tokens": 349,
+            "snippet": ""
+          }
+        ]
+      }
+    }
+  ]
+}

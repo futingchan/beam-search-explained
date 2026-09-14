@@ -1,0 +1,492 @@
+{
+  "summary": {
+    "model": "Qwen/Qwen2.5-0.5B-Instruct",
+    "n_personas": 6,
+    "beam_width": 4,
+    "length_penalty": 1.0,
+    "min_new_tokens": 0,
+    "repetition_penalty": 1.0,
+    "beam_all": {
+      "valid": 23,
+      "of": 24,
+      "mean_wall": 19.0,
+      "total_tokens": 5744
+    },
+    "beam_best": {
+      "valid": 5,
+      "of": 6
+    },
+    "samples_per_persona": 5,
+    "greedy": {
+      "valid": 6,
+      "of": 6,
+      "mean_wall": 8.5,
+      "total_tokens": 1283
+    },
+    "sampling": {
+      "valid": 10,
+      "of": 30,
+      "mean_wall_per_pass": 8.4,
+      "total_tokens": 6431,
+      "expected_passes_for_k_valid": 12.0
+    }
+  },
+  "per_persona": [
+    {
+      "persona": "solo_backpacker",
+      "greedy": {
+        "wall": 6.11,
+        "tokens": 122,
+        "valid": true
+      },
+      "sampling": [
+        {
+          "wall": 17.05,
+          "tokens": 400,
+          "valid": false,
+          "n_recs": 0
+        },
+        {
+          "wall": 2.72,
+          "tokens": 74,
+          "valid": false,
+          "n_recs": 0
+        },
+        {
+          "wall": 3.69,
+          "tokens": 100,
+          "valid": true,
+          "n_recs": 3
+        },
+        {
+          "wall": 16.87,
+          "tokens": 400,
+          "valid": false,
+          "n_recs": 0
+        },
+        {
+          "wall": 4.48,
+          "tokens": 120,
+          "valid": true,
+          "n_recs": 3
+        }
+      ],
+      "beam_best": {
+        "wall": 11.69,
+        "tokens": 148,
+        "valid": true,
+        "n_recs": 3,
+        "snippet": ""
+      },
+      "beam_all": {
+        "wall": 11.63,
+        "candidates": [
+          {
+            "valid": true,
+            "n_recs": 3,
+            "tokens": 154,
+            "snippet": ""
+          },
+          {
+            "valid": true,
+            "n_recs": 4,
+            "tokens": 154,
+            "snippet": ""
+          },
+          {
+            "valid": true,
+            "n_recs": 3,
+            "tokens": 154,
+            "snippet": ""
+          },
+          {
+            "valid": true,
+            "n_recs": 2,
+            "tokens": 154,
+            "snippet": ""
+          }
+        ]
+      }
+    },
+    {
+      "persona": "family_young_kids",
+      "greedy": {
+        "wall": 10.8,
+        "tokens": 275,
+        "valid": true
+      },
+      "sampling": [
+        {
+          "wall": 5.86,
+          "tokens": 157,
+          "valid": true,
+          "n_recs": 3
+        },
+        {
+          "wall": 4.3,
+          "tokens": 118,
+          "valid": true,
+          "n_recs": 2
+        },
+        {
+          "wall": 3.23,
+          "tokens": 89,
+          "valid": false,
+          "n_recs": 0
+        },
+        {
+          "wall": 7.16,
+          "tokens": 190,
+          "valid": false,
+          "n_recs": 0
+        },
+        {
+          "wall": 7.69,
+          "tokens": 203,
+          "valid": false,
+          "n_recs": 0
+        }
+      ],
+      "beam_best": {
+        "wall": 7.36,
+        "tokens": 100,
+        "valid": false,
+        "n_recs": 0,
+        "snippet": "{\"recommendations\": [\n  {\"action\": \"Visit\", \"target\": \"Sintra\", \"when\": \"2026-06-10\",\n   \"rationale\": \"...\"},\n  {\"action\": \"Book\", \"target\": \"Hotel in Alfama\",\n"
+      },
+      "beam_all": {
+        "wall": 7.33,
+        "candidates": [
+          {
+            "valid": false,
+            "n_recs": 0,
+            "tokens": 100,
+            "snippet": "{\"recommendations\": [\n  {\"action\": \"Visit\", \"target\": \"Sintra\", \"when\": \"2026-06-10\",\n   \"rationale\": \"...\"},\n  {\"action\": \"Book\", \"target\": \"Hotel in Alfama\",\n"
+          },
+          {
+            "valid": true,
+            "n_recs": 2,
+            "tokens": 100,
+            "snippet": ""
+          },
+          {
+            "valid": true,
+            "n_recs": 2,
+            "tokens": 100,
+            "snippet": ""
+          },
+          {
+            "valid": true,
+            "n_recs": 1,
+            "tokens": 100,
+            "snippet": ""
+          }
+        ]
+      }
+    },
+    {
+      "persona": "couple_foodie_anniversary",
+      "greedy": {
+        "wall": 7.55,
+        "tokens": 201,
+        "valid": true
+      },
+      "sampling": [
+        {
+          "wall": 12.13,
+          "tokens": 301,
+          "valid": false,
+          "n_recs": 0
+        },
+        {
+          "wall": 6.4,
+          "tokens": 170,
+          "valid": false,
+          "n_recs": 0
+        },
+        {
+          "wall": 5.78,
+          "tokens": 155,
+          "valid": false,
+          "n_recs": 0
+        },
+        {
+          "wall": 11.17,
+          "tokens": 282,
+          "valid": false,
+          "n_recs": 0
+        },
+        {
+          "wall": 12.68,
+          "tokens": 313,
+          "valid": true,
+          "n_recs": 6
+        }
+      ],
+      "beam_best": {
+        "wall": 26.22,
+        "tokens": 323,
+        "valid": true,
+        "n_recs": 8,
+        "snippet": ""
+      },
+      "beam_all": {
+        "wall": 26.12,
+        "candidates": [
+          {
+            "valid": true,
+            "n_recs": 8,
+            "tokens": 323,
+            "snippet": ""
+          },
+          {
+            "valid": true,
+            "n_recs": 8,
+            "tokens": 323,
+            "snippet": ""
+          },
+          {
+            "valid": true,
+            "n_recs": 7,
+            "tokens": 323,
+            "snippet": ""
+          },
+          {
+            "valid": true,
+            "n_recs": 6,
+            "tokens": 323,
+            "snippet": ""
+          }
+        ]
+      }
+    },
+    {
+      "persona": "retirees_slow_cultural",
+      "greedy": {
+        "wall": 12.38,
+        "tokens": 311,
+        "valid": true
+      },
+      "sampling": [
+        {
+          "wall": 11.19,
+          "tokens": 281,
+          "valid": false,
+          "n_recs": 0
+        },
+        {
+          "wall": 7.64,
+          "tokens": 199,
+          "valid": true,
+          "n_recs": 5
+        },
+        {
+          "wall": 2.94,
+          "tokens": 80,
+          "valid": false,
+          "n_recs": 0
+        },
+        {
+          "wall": 9.18,
+          "tokens": 235,
+          "valid": true,
+          "n_recs": 5
+        },
+        {
+          "wall": 12.84,
+          "tokens": 316,
+          "valid": true,
+          "n_recs": 8
+        }
+      ],
+      "beam_best": {
+        "wall": 25.98,
+        "tokens": 319,
+        "valid": true,
+        "n_recs": 8,
+        "snippet": ""
+      },
+      "beam_all": {
+        "wall": 26.08,
+        "candidates": [
+          {
+            "valid": true,
+            "n_recs": 8,
+            "tokens": 322,
+            "snippet": ""
+          },
+          {
+            "valid": true,
+            "n_recs": 8,
+            "tokens": 322,
+            "snippet": ""
+          },
+          {
+            "valid": true,
+            "n_recs": 8,
+            "tokens": 322,
+            "snippet": ""
+          },
+          {
+            "valid": true,
+            "n_recs": 1,
+            "tokens": 322,
+            "snippet": ""
+          }
+        ]
+      }
+    },
+    {
+      "persona": "friends_adventure",
+      "greedy": {
+        "wall": 5.06,
+        "tokens": 137,
+        "valid": true
+      },
+      "sampling": [
+        {
+          "wall": 7.69,
+          "tokens": 201,
+          "valid": false,
+          "n_recs": 0
+        },
+        {
+          "wall": 3.29,
+          "tokens": 90,
+          "valid": false,
+          "n_recs": 0
+        },
+        {
+          "wall": 6.0,
+          "tokens": 160,
+          "valid": false,
+          "n_recs": 0
+        },
+        {
+          "wall": 7.57,
+          "tokens": 198,
+          "valid": false,
+          "n_recs": 0
+        },
+        {
+          "wall": 11.68,
+          "tokens": 292,
+          "valid": false,
+          "n_recs": 0
+        }
+      ],
+      "beam_best": {
+        "wall": 14.22,
+        "tokens": 188,
+        "valid": true,
+        "n_recs": 4,
+        "snippet": ""
+      },
+      "beam_all": {
+        "wall": 14.32,
+        "candidates": [
+          {
+            "valid": true,
+            "n_recs": 4,
+            "tokens": 188,
+            "snippet": ""
+          },
+          {
+            "valid": true,
+            "n_recs": 3,
+            "tokens": 188,
+            "snippet": ""
+          },
+          {
+            "valid": true,
+            "n_recs": 3,
+            "tokens": 188,
+            "snippet": ""
+          },
+          {
+            "valid": true,
+            "n_recs": 1,
+            "tokens": 188,
+            "snippet": ""
+          }
+        ]
+      }
+    },
+    {
+      "persona": "business_bleisure",
+      "greedy": {
+        "wall": 9.14,
+        "tokens": 237,
+        "valid": true
+      },
+      "sampling": [
+        {
+          "wall": 8.39,
+          "tokens": 217,
+          "valid": true,
+          "n_recs": 5
+        },
+        {
+          "wall": 10.97,
+          "tokens": 278,
+          "valid": false,
+          "n_recs": 0
+        },
+        {
+          "wall": 11.06,
+          "tokens": 280,
+          "valid": false,
+          "n_recs": 0
+        },
+        {
+          "wall": 4.86,
+          "tokens": 132,
+          "valid": true,
+          "n_recs": 3
+        },
+        {
+          "wall": 16.77,
+          "tokens": 400,
+          "valid": false,
+          "n_recs": 0
+        }
+      ],
+      "beam_best": {
+        "wall": 28.37,
+        "tokens": 319,
+        "valid": true,
+        "n_recs": 8,
+        "snippet": ""
+      },
+      "beam_all": {
+        "wall": 28.34,
+        "candidates": [
+          {
+            "valid": true,
+            "n_recs": 8,
+            "tokens": 349,
+            "snippet": ""
+          },
+          {
+            "valid": true,
+            "n_recs": 9,
+            "tokens": 349,
+            "snippet": ""
+          },
+          {
+            "valid": true,
+            "n_recs": 9,
+            "tokens": 349,
+            "snippet": ""
+          },
+          {
+            "valid": true,
+            "n_recs": 8,
+            "tokens": 349,
+            "snippet": ""
+          }
+        ]
+      }
+    }
+  ]
+}

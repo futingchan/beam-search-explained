@@ -1,0 +1,2511 @@
+[
+ {
+  "persona": "solo_backpacker",
+  "k": 1,
+  "wall": 8.25,
+  "total_tokens": 172,
+  "jaccard": 0.0,
+  "top1": {
+   "tokens": 172,
+   "seq_lp": -0.4488,
+   "valid": true,
+   "violations": {
+    "when_out_of_window": 3,
+    "when_not_iso": 0,
+    "dup_items": 0,
+    "missing_verbs": [
+     "Ask_About"
+    ],
+    "foreign_targets": 0
+   },
+   "hard_pass": false,
+   "n_recs": 3,
+   "coverage": 0.143,
+   "verbs": [
+    "Book",
+    "Visit"
+   ]
+  },
+  "candidates": [
+   {
+    "tokens": 172,
+    "seq_lp": -0.4488,
+    "valid": true,
+    "violations": {
+     "when_out_of_window": 3,
+     "when_not_iso": 0,
+     "dup_items": 0,
+     "missing_verbs": [
+      "Ask_About"
+     ],
+     "foreign_targets": 0
+    },
+    "hard_pass": false,
+    "n_recs": 3,
+    "coverage": 0.143,
+    "verbs": [
+     "Book",
+     "Visit"
+    ]
+   }
+  ]
+ },
+ {
+  "persona": "solo_backpacker",
+  "k": 2,
+  "wall": 14.6,
+  "total_tokens": 584,
+  "jaccard": 0.667,
+  "top1": {
+   "tokens": 292,
+   "seq_lp": -0.0684,
+   "valid": true,
+   "violations": {
+    "when_out_of_window": 2,
+    "when_not_iso": 0,
+    "dup_items": 0,
+    "missing_verbs": [
+     "Book",
+     "Ask_About"
+    ],
+    "foreign_targets": 0
+   },
+   "hard_pass": false,
+   "n_recs": 4,
+   "coverage": 0.143,
+   "verbs": [
+    "Visit"
+   ]
+  },
+  "candidates": [
+   {
+    "tokens": 292,
+    "seq_lp": -0.0684,
+    "valid": true,
+    "violations": {
+     "when_out_of_window": 2,
+     "when_not_iso": 0,
+     "dup_items": 0,
+     "missing_verbs": [
+      "Book",
+      "Ask_About"
+     ],
+     "foreign_targets": 0
+    },
+    "hard_pass": false,
+    "n_recs": 4,
+    "coverage": 0.143,
+    "verbs": [
+     "Visit"
+    ]
+   },
+   {
+    "tokens": 292,
+    "seq_lp": -0.0733,
+    "valid": true,
+    "violations": {
+     "when_out_of_window": 3,
+     "when_not_iso": 0,
+     "dup_items": 0,
+     "missing_verbs": [
+      "Book",
+      "Ask_About"
+     ],
+     "foreign_targets": 2
+    },
+    "hard_pass": false,
+    "n_recs": 6,
+    "coverage": 0.429,
+    "verbs": [
+     "Visit"
+    ]
+   }
+  ]
+ },
+ {
+  "persona": "solo_backpacker",
+  "k": 4,
+  "wall": 23.59,
+  "total_tokens": 1168,
+  "jaccard": 0.778,
+  "top1": {
+   "tokens": 292,
+   "seq_lp": -0.0684,
+   "valid": true,
+   "violations": {
+    "when_out_of_window": 2,
+    "when_not_iso": 0,
+    "dup_items": 0,
+    "missing_verbs": [
+     "Book",
+     "Ask_About"
+    ],
+    "foreign_targets": 0
+   },
+   "hard_pass": false,
+   "n_recs": 4,
+   "coverage": 0.143,
+   "verbs": [
+    "Visit"
+   ]
+  },
+  "candidates": [
+   {
+    "tokens": 292,
+    "seq_lp": -0.0684,
+    "valid": true,
+    "violations": {
+     "when_out_of_window": 2,
+     "when_not_iso": 0,
+     "dup_items": 0,
+     "missing_verbs": [
+      "Book",
+      "Ask_About"
+     ],
+     "foreign_targets": 0
+    },
+    "hard_pass": false,
+    "n_recs": 4,
+    "coverage": 0.143,
+    "verbs": [
+     "Visit"
+    ]
+   },
+   {
+    "tokens": 292,
+    "seq_lp": -0.0732,
+    "valid": true,
+    "violations": {
+     "when_out_of_window": 3,
+     "when_not_iso": 0,
+     "dup_items": 0,
+     "missing_verbs": [
+      "Book",
+      "Ask_About"
+     ],
+     "foreign_targets": 2
+    },
+    "hard_pass": false,
+    "n_recs": 6,
+    "coverage": 0.429,
+    "verbs": [
+     "Visit"
+    ]
+   },
+   {
+    "tokens": 292,
+    "seq_lp": -0.0733,
+    "valid": true,
+    "violations": {
+     "when_out_of_window": 3,
+     "when_not_iso": 0,
+     "dup_items": 0,
+     "missing_verbs": [
+      "Book",
+      "Ask_About"
+     ],
+     "foreign_targets": 2
+    },
+    "hard_pass": false,
+    "n_recs": 6,
+    "coverage": 0.429,
+    "verbs": [
+     "Visit"
+    ]
+   },
+   {
+    "tokens": 292,
+    "seq_lp": -0.0793,
+    "valid": true,
+    "violations": {
+     "when_out_of_window": 4,
+     "when_not_iso": 0,
+     "dup_items": 0,
+     "missing_verbs": [
+      "Book",
+      "Ask_About"
+     ],
+     "foreign_targets": 0
+    },
+    "hard_pass": false,
+    "n_recs": 4,
+    "coverage": 0.143,
+    "verbs": [
+     "Visit"
+    ]
+   }
+  ]
+ },
+ {
+  "persona": "solo_backpacker",
+  "k": 8,
+  "wall": 52.75,
+  "total_tokens": 2336,
+  "jaccard": 0.815,
+  "top1": {
+   "tokens": 292,
+   "seq_lp": -0.0684,
+   "valid": true,
+   "violations": {
+    "when_out_of_window": 2,
+    "when_not_iso": 0,
+    "dup_items": 0,
+    "missing_verbs": [
+     "Book",
+     "Ask_About"
+    ],
+    "foreign_targets": 0
+   },
+   "hard_pass": false,
+   "n_recs": 4,
+   "coverage": 0.143,
+   "verbs": [
+    "Visit"
+   ]
+  },
+  "candidates": [
+   {
+    "tokens": 292,
+    "seq_lp": -0.0684,
+    "valid": true,
+    "violations": {
+     "when_out_of_window": 2,
+     "when_not_iso": 0,
+     "dup_items": 0,
+     "missing_verbs": [
+      "Book",
+      "Ask_About"
+     ],
+     "foreign_targets": 0
+    },
+    "hard_pass": false,
+    "n_recs": 4,
+    "coverage": 0.143,
+    "verbs": [
+     "Visit"
+    ]
+   },
+   {
+    "tokens": 292,
+    "seq_lp": -0.0732,
+    "valid": true,
+    "violations": {
+     "when_out_of_window": 3,
+     "when_not_iso": 0,
+     "dup_items": 0,
+     "missing_verbs": [
+      "Book",
+      "Ask_About"
+     ],
+     "foreign_targets": 2
+    },
+    "hard_pass": false,
+    "n_recs": 6,
+    "coverage": 0.429,
+    "verbs": [
+     "Visit"
+    ]
+   },
+   {
+    "tokens": 292,
+    "seq_lp": -0.0733,
+    "valid": true,
+    "violations": {
+     "when_out_of_window": 3,
+     "when_not_iso": 0,
+     "dup_items": 0,
+     "missing_verbs": [
+      "Book",
+      "Ask_About"
+     ],
+     "foreign_targets": 2
+    },
+    "hard_pass": false,
+    "n_recs": 6,
+    "coverage": 0.429,
+    "verbs": [
+     "Visit"
+    ]
+   },
+   {
+    "tokens": 292,
+    "seq_lp": -0.0793,
+    "valid": true,
+    "violations": {
+     "when_out_of_window": 4,
+     "when_not_iso": 0,
+     "dup_items": 0,
+     "missing_verbs": [
+      "Book",
+      "Ask_About"
+     ],
+     "foreign_targets": 0
+    },
+    "hard_pass": false,
+    "n_recs": 4,
+    "coverage": 0.143,
+    "verbs": [
+     "Visit"
+    ]
+   },
+   {
+    "tokens": 292,
+    "seq_lp": -0.0817,
+    "valid": true,
+    "violations": {
+     "when_out_of_window": 5,
+     "when_not_iso": 0,
+     "dup_items": 0,
+     "missing_verbs": [
+      "Ask_About"
+     ],
+     "foreign_targets": 0
+    },
+    "hard_pass": false,
+    "n_recs": 5,
+    "coverage": 0.286,
+    "verbs": [
+     "Book",
+     "Visit"
+    ]
+   },
+   {
+    "tokens": 292,
+    "seq_lp": -0.0844,
+    "valid": true,
+    "violations": {
+     "when_out_of_window": 2,
+     "when_not_iso": 0,
+     "dup_items": 0,
+     "missing_verbs": [
+      "Book",
+      "Ask_About"
+     ],
+     "foreign_targets": 0
+    },
+    "hard_pass": false,
+    "n_recs": 4,
+    "coverage": 0.143,
+    "verbs": [
+     "Visit"
+    ]
+   },
+   {
+    "tokens": 292,
+    "seq_lp": -0.1011,
+    "valid": true,
+    "violations": {
+     "when_out_of_window": 2,
+     "when_not_iso": 0,
+     "dup_items": 0,
+     "missing_verbs": [
+      "Book",
+      "Ask_About"
+     ],
+     "foreign_targets": 0
+    },
+    "hard_pass": false,
+    "n_recs": 4,
+    "coverage": 0.143,
+    "verbs": [
+     "Visit"
+    ]
+   },
+   {
+    "tokens": 292,
+    "seq_lp": -0.1026,
+    "valid": true,
+    "violations": {
+     "when_out_of_window": 3,
+     "when_not_iso": 0,
+     "dup_items": 0,
+     "missing_verbs": [
+      "Book",
+      "Ask_About"
+     ],
+     "foreign_targets": 0
+    },
+    "hard_pass": false,
+    "n_recs": 4,
+    "coverage": 0.143,
+    "verbs": [
+     "Visit"
+    ]
+   }
+  ]
+ },
+ {
+  "persona": "family_young_kids",
+  "k": 1,
+  "wall": 11.12,
+  "total_tokens": 275,
+  "jaccard": 0.0,
+  "top1": {
+   "tokens": 275,
+   "seq_lp": -0.1601,
+   "valid": true,
+   "violations": {
+    "when_out_of_window": 0,
+    "when_not_iso": 0,
+    "dup_items": 0,
+    "missing_verbs": [
+     "Ask_About"
+    ],
+    "foreign_targets": 0
+   },
+   "hard_pass": false,
+   "n_recs": 7,
+   "coverage": 0.667,
+   "verbs": [
+    "Book",
+    "Visit"
+   ]
+  },
+  "candidates": [
+   {
+    "tokens": 275,
+    "seq_lp": -0.1601,
+    "valid": true,
+    "violations": {
+     "when_out_of_window": 0,
+     "when_not_iso": 0,
+     "dup_items": 0,
+     "missing_verbs": [
+      "Ask_About"
+     ],
+     "foreign_targets": 0
+    },
+    "hard_pass": false,
+    "n_recs": 7,
+    "coverage": 0.667,
+    "verbs": [
+     "Book",
+     "Visit"
+    ]
+   }
+  ]
+ },
+ {
+  "persona": "family_young_kids",
+  "k": 2,
+  "wall": 11.76,
+  "total_tokens": 478,
+  "jaccard": 1.0,
+  "top1": {
+   "tokens": 239,
+   "seq_lp": -0.3509,
+   "valid": true,
+   "violations": {
+    "when_out_of_window": 2,
+    "when_not_iso": 0,
+    "dup_items": 0,
+    "missing_verbs": [
+     "Ask_About"
+    ],
+    "foreign_targets": 1
+   },
+   "hard_pass": false,
+   "n_recs": 3,
+   "coverage": 0.167,
+   "verbs": [
+    "Book",
+    "Visit"
+   ]
+  },
+  "candidates": [
+   {
+    "tokens": 239,
+    "seq_lp": -0.3509,
+    "valid": true,
+    "violations": {
+     "when_out_of_window": 2,
+     "when_not_iso": 0,
+     "dup_items": 0,
+     "missing_verbs": [
+      "Ask_About"
+     ],
+     "foreign_targets": 1
+    },
+    "hard_pass": false,
+    "n_recs": 3,
+    "coverage": 0.167,
+    "verbs": [
+     "Book",
+     "Visit"
+    ]
+   },
+   {
+    "tokens": 239,
+    "seq_lp": -0.3527,
+    "valid": true,
+    "violations": {
+     "when_out_of_window": 2,
+     "when_not_iso": 0,
+     "dup_items": 0,
+     "missing_verbs": [
+      "Ask_About"
+     ],
+     "foreign_targets": 1
+    },
+    "hard_pass": false,
+    "n_recs": 3,
+    "coverage": 0.167,
+    "verbs": [
+     "Book",
+     "Visit"
+    ]
+   }
+  ]
+ },
+ {
+  "persona": "family_young_kids",
+  "k": 4,
+  "wall": 20.81,
+  "total_tokens": 1036,
+  "jaccard": 0.481,
+  "top1": {
+   "tokens": 259,
+   "seq_lp": -0.0892,
+   "valid": true,
+   "violations": {
+    "when_out_of_window": 5,
+    "when_not_iso": 0,
+    "dup_items": 0,
+    "missing_verbs": [],
+    "foreign_targets": 1
+   },
+   "hard_pass": false,
+   "n_recs": 6,
+   "coverage": 0.5,
+   "verbs": [
+    "Ask_About",
+    "Book",
+    "Visit"
+   ]
+  },
+  "candidates": [
+   {
+    "tokens": 259,
+    "seq_lp": -0.0892,
+    "valid": true,
+    "violations": {
+     "when_out_of_window": 5,
+     "when_not_iso": 0,
+     "dup_items": 0,
+     "missing_verbs": [],
+     "foreign_targets": 1
+    },
+    "hard_pass": false,
+    "n_recs": 6,
+    "coverage": 0.5,
+    "verbs": [
+     "Ask_About",
+     "Book",
+     "Visit"
+    ]
+   },
+   {
+    "tokens": 259,
+    "seq_lp": -0.0929,
+    "valid": true,
+    "violations": {
+     "when_out_of_window": 5,
+     "when_not_iso": 0,
+     "dup_items": 0,
+     "missing_verbs": [],
+     "foreign_targets": 1
+    },
+    "hard_pass": false,
+    "n_recs": 6,
+    "coverage": 0.5,
+    "verbs": [
+     "Ask_About",
+     "Book",
+     "Visit"
+    ]
+   },
+   {
+    "tokens": 259,
+    "seq_lp": -0.1103,
+    "valid": true,
+    "violations": {
+     "when_out_of_window": 3,
+     "when_not_iso": 0,
+     "dup_items": 0,
+     "missing_verbs": [],
+     "foreign_targets": 1
+    },
+    "hard_pass": false,
+    "n_recs": 4,
+    "coverage": 0.333,
+    "verbs": [
+     "Ask_About",
+     "Book",
+     "Visit"
+    ]
+   },
+   {
+    "tokens": 259,
+    "seq_lp": -0.1114,
+    "valid": true,
+    "violations": {
+     "when_out_of_window": 3,
+     "when_not_iso": 0,
+     "dup_items": 0,
+     "missing_verbs": [],
+     "foreign_targets": 1
+    },
+    "hard_pass": false,
+    "n_recs": 4,
+    "coverage": 0.5,
+    "verbs": [
+     "Ask_About",
+     "Book",
+     "Visit"
+    ]
+   }
+  ]
+ },
+ {
+  "persona": "family_young_kids",
+  "k": 8,
+  "wall": 44.6,
+  "total_tokens": 2064,
+  "jaccard": 0.606,
+  "top1": {
+   "tokens": 258,
+   "seq_lp": -0.0892,
+   "valid": true,
+   "violations": {
+    "when_out_of_window": 5,
+    "when_not_iso": 0,
+    "dup_items": 0,
+    "missing_verbs": [],
+    "foreign_targets": 1
+   },
+   "hard_pass": false,
+   "n_recs": 6,
+   "coverage": 0.5,
+   "verbs": [
+    "Ask_About",
+    "Book",
+    "Visit"
+   ]
+  },
+  "candidates": [
+   {
+    "tokens": 258,
+    "seq_lp": -0.0892,
+    "valid": true,
+    "violations": {
+     "when_out_of_window": 5,
+     "when_not_iso": 0,
+     "dup_items": 0,
+     "missing_verbs": [],
+     "foreign_targets": 1
+    },
+    "hard_pass": false,
+    "n_recs": 6,
+    "coverage": 0.5,
+    "verbs": [
+     "Ask_About",
+     "Book",
+     "Visit"
+    ]
+   },
+   {
+    "tokens": 258,
+    "seq_lp": -0.0903,
+    "valid": true,
+    "violations": {
+     "when_out_of_window": 5,
+     "when_not_iso": 0,
+     "dup_items": 0,
+     "missing_verbs": [],
+     "foreign_targets": 1
+    },
+    "hard_pass": false,
+    "n_recs": 6,
+    "coverage": 0.5,
+    "verbs": [
+     "Ask_About",
+     "Book",
+     "Visit"
+    ]
+   },
+   {
+    "tokens": 258,
+    "seq_lp": -0.0937,
+    "valid": true,
+    "violations": {
+     "when_out_of_window": 5,
+     "when_not_iso": 0,
+     "dup_items": 0,
+     "missing_verbs": [],
+     "foreign_targets": 1
+    },
+    "hard_pass": false,
+    "n_recs": 6,
+    "coverage": 0.5,
+    "verbs": [
+     "Ask_About",
+     "Book",
+     "Visit"
+    ]
+   },
+   {
+    "tokens": 258,
+    "seq_lp": -0.1001,
+    "valid": true,
+    "violations": {
+     "when_out_of_window": 4,
+     "when_not_iso": 0,
+     "dup_items": 0,
+     "missing_verbs": [],
+     "foreign_targets": 1
+    },
+    "hard_pass": false,
+    "n_recs": 5,
+    "coverage": 0.5,
+    "verbs": [
+     "Ask_About",
+     "Book",
+     "Visit"
+    ]
+   },
+   {
+    "tokens": 258,
+    "seq_lp": -0.1002,
+    "valid": true,
+    "violations": {
+     "when_out_of_window": 4,
+     "when_not_iso": 0,
+     "dup_items": 0,
+     "missing_verbs": [],
+     "foreign_targets": 1
+    },
+    "hard_pass": false,
+    "n_recs": 5,
+    "coverage": 0.5,
+    "verbs": [
+     "Ask_About",
+     "Book",
+     "Visit"
+    ]
+   },
+   {
+    "tokens": 258,
+    "seq_lp": -0.1027,
+    "valid": true,
+    "violations": {
+     "when_out_of_window": 4,
+     "when_not_iso": 0,
+     "dup_items": 0,
+     "missing_verbs": [],
+     "foreign_targets": 1
+    },
+    "hard_pass": false,
+    "n_recs": 5,
+    "coverage": 0.333,
+    "verbs": [
+     "Ask_About",
+     "Book",
+     "Visit"
+    ]
+   },
+   {
+    "tokens": 258,
+    "seq_lp": -0.1067,
+    "valid": true,
+    "violations": {
+     "when_out_of_window": 2,
+     "when_not_iso": 0,
+     "dup_items": 0,
+     "missing_verbs": [],
+     "foreign_targets": 1
+    },
+    "hard_pass": false,
+    "n_recs": 4,
+    "coverage": 0.167,
+    "verbs": [
+     "Ask_About",
+     "Book",
+     "Visit"
+    ]
+   },
+   {
+    "tokens": 258,
+    "seq_lp": -0.1101,
+    "valid": true,
+    "violations": {
+     "when_out_of_window": 3,
+     "when_not_iso": 0,
+     "dup_items": 0,
+     "missing_verbs": [],
+     "foreign_targets": 1
+    },
+    "hard_pass": false,
+    "n_recs": 4,
+    "coverage": 0.167,
+    "verbs": [
+     "Ask_About",
+     "Book",
+     "Visit"
+    ]
+   }
+  ]
+ },
+ {
+  "persona": "couple_foodie_anniversary",
+  "k": 1,
+  "wall": 7.56,
+  "total_tokens": 201,
+  "jaccard": 0.0,
+  "top1": {
+   "tokens": 201,
+   "seq_lp": -0.2844,
+   "valid": true,
+   "violations": {
+    "when_out_of_window": 3,
+    "when_not_iso": 0,
+    "dup_items": 0,
+    "missing_verbs": [
+     "Book"
+    ],
+    "foreign_targets": 1
+   },
+   "hard_pass": false,
+   "n_recs": 4,
+   "coverage": 1.0,
+   "verbs": [
+    "Visit"
+   ]
+  },
+  "candidates": [
+   {
+    "tokens": 201,
+    "seq_lp": -0.2844,
+    "valid": true,
+    "violations": {
+     "when_out_of_window": 3,
+     "when_not_iso": 0,
+     "dup_items": 0,
+     "missing_verbs": [
+      "Book"
+     ],
+     "foreign_targets": 1
+    },
+    "hard_pass": false,
+    "n_recs": 4,
+    "coverage": 1.0,
+    "verbs": [
+     "Visit"
+    ]
+   }
+  ]
+ },
+ {
+  "persona": "couple_foodie_anniversary",
+  "k": 2,
+  "wall": 13.37,
+  "total_tokens": 552,
+  "jaccard": 1.0,
+  "top1": {
+   "tokens": 276,
+   "seq_lp": -0.0995,
+   "valid": true,
+   "violations": {
+    "when_out_of_window": 3,
+    "when_not_iso": 0,
+    "dup_items": 4,
+    "missing_verbs": [
+     "Book"
+    ],
+    "foreign_targets": 5
+   },
+   "hard_pass": false,
+   "n_recs": 7,
+   "coverage": 0.333,
+   "verbs": [
+    "Visit"
+   ]
+  },
+  "candidates": [
+   {
+    "tokens": 276,
+    "seq_lp": -0.0995,
+    "valid": true,
+    "violations": {
+     "when_out_of_window": 3,
+     "when_not_iso": 0,
+     "dup_items": 4,
+     "missing_verbs": [
+      "Book"
+     ],
+     "foreign_targets": 5
+    },
+    "hard_pass": false,
+    "n_recs": 7,
+    "coverage": 0.333,
+    "verbs": [
+     "Visit"
+    ]
+   },
+   {
+    "tokens": 276,
+    "seq_lp": -0.1156,
+    "valid": true,
+    "violations": {
+     "when_out_of_window": 2,
+     "when_not_iso": 0,
+     "dup_items": 3,
+     "missing_verbs": [
+      "Book"
+     ],
+     "foreign_targets": 4
+    },
+    "hard_pass": false,
+    "n_recs": 6,
+    "coverage": 0.333,
+    "verbs": [
+     "Visit"
+    ]
+   }
+  ]
+ },
+ {
+  "persona": "couple_foodie_anniversary",
+  "k": 4,
+  "wall": 25.77,
+  "total_tokens": 1292,
+  "jaccard": 1.0,
+  "top1": {
+   "tokens": 323,
+   "seq_lp": -0.0798,
+   "valid": true,
+   "violations": {
+    "when_out_of_window": 4,
+    "when_not_iso": 0,
+    "dup_items": 4,
+    "missing_verbs": [],
+    "foreign_targets": 5
+   },
+   "hard_pass": false,
+   "n_recs": 8,
+   "coverage": 0.167,
+   "verbs": [
+    "Book",
+    "Visit"
+   ]
+  },
+  "candidates": [
+   {
+    "tokens": 323,
+    "seq_lp": -0.0798,
+    "valid": true,
+    "violations": {
+     "when_out_of_window": 4,
+     "when_not_iso": 0,
+     "dup_items": 4,
+     "missing_verbs": [],
+     "foreign_targets": 5
+    },
+    "hard_pass": false,
+    "n_recs": 8,
+    "coverage": 0.167,
+    "verbs": [
+     "Book",
+     "Visit"
+    ]
+   },
+   {
+    "tokens": 323,
+    "seq_lp": -0.081,
+    "valid": true,
+    "violations": {
+     "when_out_of_window": 4,
+     "when_not_iso": 0,
+     "dup_items": 4,
+     "missing_verbs": [],
+     "foreign_targets": 3
+    },
+    "hard_pass": false,
+    "n_recs": 8,
+    "coverage": 0.167,
+    "verbs": [
+     "Book",
+     "Visit"
+    ]
+   },
+   {
+    "tokens": 323,
+    "seq_lp": -0.0926,
+    "valid": true,
+    "violations": {
+     "when_out_of_window": 3,
+     "when_not_iso": 0,
+     "dup_items": 3,
+     "missing_verbs": [],
+     "foreign_targets": 4
+    },
+    "hard_pass": false,
+    "n_recs": 7,
+    "coverage": 0.167,
+    "verbs": [
+     "Book",
+     "Visit"
+    ]
+   },
+   {
+    "tokens": 323,
+    "seq_lp": -0.104,
+    "valid": true,
+    "violations": {
+     "when_out_of_window": 2,
+     "when_not_iso": 0,
+     "dup_items": 2,
+     "missing_verbs": [],
+     "foreign_targets": 2
+    },
+    "hard_pass": false,
+    "n_recs": 6,
+    "coverage": 0.167,
+    "verbs": [
+     "Book",
+     "Visit"
+    ]
+   }
+  ]
+ },
+ {
+  "persona": "couple_foodie_anniversary",
+  "k": 8,
+  "wall": 47.46,
+  "total_tokens": 2208,
+  "jaccard": 1.0,
+  "top1": {
+   "tokens": 276,
+   "seq_lp": -0.0645,
+   "valid": true,
+   "violations": {
+    "when_out_of_window": 3,
+    "when_not_iso": 0,
+    "dup_items": 5,
+    "missing_verbs": [
+     "Book"
+    ],
+    "foreign_targets": 0
+   },
+   "hard_pass": false,
+   "n_recs": 7,
+   "coverage": 0.167,
+   "verbs": [
+    "Visit"
+   ]
+  },
+  "candidates": [
+   {
+    "tokens": 276,
+    "seq_lp": -0.0645,
+    "valid": true,
+    "violations": {
+     "when_out_of_window": 3,
+     "when_not_iso": 0,
+     "dup_items": 5,
+     "missing_verbs": [
+      "Book"
+     ],
+     "foreign_targets": 0
+    },
+    "hard_pass": false,
+    "n_recs": 7,
+    "coverage": 0.167,
+    "verbs": [
+     "Visit"
+    ]
+   },
+   {
+    "tokens": 276,
+    "seq_lp": -0.0707,
+    "valid": true,
+    "violations": {
+     "when_out_of_window": 3,
+     "when_not_iso": 0,
+     "dup_items": 5,
+     "missing_verbs": [
+      "Book"
+     ],
+     "foreign_targets": 0
+    },
+    "hard_pass": false,
+    "n_recs": 7,
+    "coverage": 0.167,
+    "verbs": [
+     "Visit"
+    ]
+   },
+   {
+    "tokens": 276,
+    "seq_lp": -0.0765,
+    "valid": true,
+    "violations": {
+     "when_out_of_window": 2,
+     "when_not_iso": 0,
+     "dup_items": 4,
+     "missing_verbs": [
+      "Book"
+     ],
+     "foreign_targets": 0
+    },
+    "hard_pass": false,
+    "n_recs": 6,
+    "coverage": 0.167,
+    "verbs": [
+     "Visit"
+    ]
+   },
+   {
+    "tokens": 276,
+    "seq_lp": -0.0783,
+    "valid": true,
+    "violations": {
+     "when_out_of_window": 3,
+     "when_not_iso": 0,
+     "dup_items": 5,
+     "missing_verbs": [
+      "Book"
+     ],
+     "foreign_targets": 0
+    },
+    "hard_pass": false,
+    "n_recs": 7,
+    "coverage": 0.167,
+    "verbs": [
+     "Visit"
+    ]
+   },
+   {
+    "tokens": 276,
+    "seq_lp": -0.0832,
+    "valid": true,
+    "violations": {
+     "when_out_of_window": 2,
+     "when_not_iso": 0,
+     "dup_items": 4,
+     "missing_verbs": [
+      "Book"
+     ],
+     "foreign_targets": 0
+    },
+    "hard_pass": false,
+    "n_recs": 6,
+    "coverage": 0.167,
+    "verbs": [
+     "Visit"
+    ]
+   },
+   {
+    "tokens": 276,
+    "seq_lp": -0.0893,
+    "valid": true,
+    "violations": {
+     "when_out_of_window": 1,
+     "when_not_iso": 0,
+     "dup_items": 3,
+     "missing_verbs": [
+      "Book"
+     ],
+     "foreign_targets": 0
+    },
+    "hard_pass": false,
+    "n_recs": 5,
+    "coverage": 0.167,
+    "verbs": [
+     "Visit"
+    ]
+   },
+   {
+    "tokens": 276,
+    "seq_lp": -0.0931,
+    "valid": true,
+    "violations": {
+     "when_out_of_window": 2,
+     "when_not_iso": 0,
+     "dup_items": 4,
+     "missing_verbs": [
+      "Book"
+     ],
+     "foreign_targets": 0
+    },
+    "hard_pass": false,
+    "n_recs": 6,
+    "coverage": 0.167,
+    "verbs": [
+     "Visit"
+    ]
+   },
+   {
+    "tokens": 276,
+    "seq_lp": -0.1099,
+    "valid": true,
+    "violations": {
+     "when_out_of_window": 1,
+     "when_not_iso": 0,
+     "dup_items": 2,
+     "missing_verbs": [
+      "Book"
+     ],
+     "foreign_targets": 0
+    },
+    "hard_pass": false,
+    "n_recs": 4,
+    "coverage": 0.167,
+    "verbs": [
+     "Visit"
+    ]
+   }
+  ]
+ },
+ {
+  "persona": "retirees_slow_cultural",
+  "k": 1,
+  "wall": 12.33,
+  "total_tokens": 311,
+  "jaccard": 0.0,
+  "top1": {
+   "tokens": 311,
+   "seq_lp": -0.196,
+   "valid": true,
+   "violations": {
+    "when_out_of_window": 7,
+    "when_not_iso": 0,
+    "dup_items": 0,
+    "missing_verbs": [
+     "Book"
+    ],
+    "foreign_targets": 3
+   },
+   "hard_pass": false,
+   "n_recs": 8,
+   "coverage": 0.4,
+   "verbs": [
+    "Visit"
+   ]
+  },
+  "candidates": [
+   {
+    "tokens": 311,
+    "seq_lp": -0.196,
+    "valid": true,
+    "violations": {
+     "when_out_of_window": 7,
+     "when_not_iso": 0,
+     "dup_items": 0,
+     "missing_verbs": [
+      "Book"
+     ],
+     "foreign_targets": 3
+    },
+    "hard_pass": false,
+    "n_recs": 8,
+    "coverage": 0.4,
+    "verbs": [
+     "Visit"
+    ]
+   }
+  ]
+ },
+ {
+  "persona": "retirees_slow_cultural",
+  "k": 2,
+  "wall": 7.59,
+  "total_tokens": 326,
+  "jaccard": 0.6,
+  "top1": {
+   "tokens": 163,
+   "seq_lp": -0.1505,
+   "valid": true,
+   "violations": {
+    "when_out_of_window": 4,
+    "when_not_iso": 0,
+    "dup_items": 0,
+    "missing_verbs": [
+     "Book"
+    ],
+    "foreign_targets": 4
+   },
+   "hard_pass": false,
+   "n_recs": 4,
+   "coverage": 0.4,
+   "verbs": [
+    "Visit"
+   ]
+  },
+  "candidates": [
+   {
+    "tokens": 163,
+    "seq_lp": -0.1505,
+    "valid": true,
+    "violations": {
+     "when_out_of_window": 4,
+     "when_not_iso": 0,
+     "dup_items": 0,
+     "missing_verbs": [
+      "Book"
+     ],
+     "foreign_targets": 4
+    },
+    "hard_pass": false,
+    "n_recs": 4,
+    "coverage": 0.4,
+    "verbs": [
+     "Visit"
+    ]
+   },
+   {
+    "tokens": 163,
+    "seq_lp": -0.1506,
+    "valid": true,
+    "violations": {
+     "when_out_of_window": 4,
+     "when_not_iso": 0,
+     "dup_items": 0,
+     "missing_verbs": [
+      "Book"
+     ],
+     "foreign_targets": 3
+    },
+    "hard_pass": false,
+    "n_recs": 4,
+    "coverage": 0.4,
+    "verbs": [
+     "Visit"
+    ]
+   }
+  ]
+ },
+ {
+  "persona": "retirees_slow_cultural",
+  "k": 4,
+  "wall": 28.69,
+  "total_tokens": 1424,
+  "jaccard": 0.756,
+  "top1": {
+   "tokens": 356,
+   "seq_lp": -0.1098,
+   "valid": true,
+   "violations": {
+    "when_out_of_window": 8,
+    "when_not_iso": 0,
+    "dup_items": 2,
+    "missing_verbs": [
+     "Book"
+    ],
+    "foreign_targets": 6
+   },
+   "hard_pass": false,
+   "n_recs": 8,
+   "coverage": 0.6,
+   "verbs": [
+    "Visit"
+   ]
+  },
+  "candidates": [
+   {
+    "tokens": 356,
+    "seq_lp": -0.1098,
+    "valid": true,
+    "violations": {
+     "when_out_of_window": 8,
+     "when_not_iso": 0,
+     "dup_items": 2,
+     "missing_verbs": [
+      "Book"
+     ],
+     "foreign_targets": 6
+    },
+    "hard_pass": false,
+    "n_recs": 8,
+    "coverage": 0.6,
+    "verbs": [
+     "Visit"
+    ]
+   },
+   {
+    "tokens": 356,
+    "seq_lp": -0.1103,
+    "valid": true,
+    "violations": {
+     "when_out_of_window": 9,
+     "when_not_iso": 0,
+     "dup_items": 3,
+     "missing_verbs": [
+      "Book"
+     ],
+     "foreign_targets": 6
+    },
+    "hard_pass": false,
+    "n_recs": 9,
+    "coverage": 0.6,
+    "verbs": [
+     "Visit"
+    ]
+   },
+   {
+    "tokens": 356,
+    "seq_lp": -0.113,
+    "valid": true,
+    "violations": {
+     "when_out_of_window": 8,
+     "when_not_iso": 0,
+     "dup_items": 2,
+     "missing_verbs": [
+      "Book"
+     ],
+     "foreign_targets": 7
+    },
+    "hard_pass": false,
+    "n_recs": 8,
+    "coverage": 0.6,
+    "verbs": [
+     "Visit"
+    ]
+   },
+   {
+    "tokens": 356,
+    "seq_lp": -0.1156,
+    "valid": true,
+    "violations": {
+     "when_out_of_window": 8,
+     "when_not_iso": 0,
+     "dup_items": 1,
+     "missing_verbs": [
+      "Book"
+     ],
+     "foreign_targets": 6
+    },
+    "hard_pass": false,
+    "n_recs": 8,
+    "coverage": 0.6,
+    "verbs": [
+     "Visit"
+    ]
+   }
+  ]
+ },
+ {
+  "persona": "retirees_slow_cultural",
+  "k": 8,
+  "wall": 51.45,
+  "total_tokens": 2368,
+  "jaccard": 0.64,
+  "top1": {
+   "tokens": 296,
+   "seq_lp": -0.1112,
+   "valid": true,
+   "violations": {
+    "when_out_of_window": 7,
+    "when_not_iso": 0,
+    "dup_items": 2,
+    "missing_verbs": [],
+    "foreign_targets": 4
+   },
+   "hard_pass": false,
+   "n_recs": 7,
+   "coverage": 0.4,
+   "verbs": [
+    "Book",
+    "Visit"
+   ]
+  },
+  "candidates": [
+   {
+    "tokens": 296,
+    "seq_lp": -0.1112,
+    "valid": true,
+    "violations": {
+     "when_out_of_window": 7,
+     "when_not_iso": 0,
+     "dup_items": 2,
+     "missing_verbs": [],
+     "foreign_targets": 4
+    },
+    "hard_pass": false,
+    "n_recs": 7,
+    "coverage": 0.4,
+    "verbs": [
+     "Book",
+     "Visit"
+    ]
+   },
+   {
+    "tokens": 296,
+    "seq_lp": -0.1127,
+    "valid": true,
+    "violations": {
+     "when_out_of_window": 7,
+     "when_not_iso": 0,
+     "dup_items": 2,
+     "missing_verbs": [],
+     "foreign_targets": 4
+    },
+    "hard_pass": false,
+    "n_recs": 7,
+    "coverage": 0.4,
+    "verbs": [
+     "Book",
+     "Visit"
+    ]
+   },
+   {
+    "tokens": 296,
+    "seq_lp": -0.1154,
+    "valid": true,
+    "violations": {
+     "when_out_of_window": 5,
+     "when_not_iso": 0,
+     "dup_items": 0,
+     "missing_verbs": [],
+     "foreign_targets": 3
+    },
+    "hard_pass": false,
+    "n_recs": 5,
+    "coverage": 0.4,
+    "verbs": [
+     "Book",
+     "Visit"
+    ]
+   },
+   {
+    "tokens": 296,
+    "seq_lp": -0.1177,
+    "valid": true,
+    "violations": {
+     "when_out_of_window": 5,
+     "when_not_iso": 0,
+     "dup_items": 0,
+     "missing_verbs": [],
+     "foreign_targets": 3
+    },
+    "hard_pass": false,
+    "n_recs": 5,
+    "coverage": 0.4,
+    "verbs": [
+     "Book",
+     "Visit"
+    ]
+   },
+   {
+    "tokens": 296,
+    "seq_lp": -0.1186,
+    "valid": true,
+    "violations": {
+     "when_out_of_window": 4,
+     "when_not_iso": 0,
+     "dup_items": 0,
+     "missing_verbs": [],
+     "foreign_targets": 2
+    },
+    "hard_pass": false,
+    "n_recs": 4,
+    "coverage": 0.4,
+    "verbs": [
+     "Book",
+     "Visit"
+    ]
+   },
+   {
+    "tokens": 296,
+    "seq_lp": -0.1202,
+    "valid": true,
+    "violations": {
+     "when_out_of_window": 6,
+     "when_not_iso": 0,
+     "dup_items": 0,
+     "missing_verbs": [],
+     "foreign_targets": 3
+    },
+    "hard_pass": false,
+    "n_recs": 6,
+    "coverage": 0.4,
+    "verbs": [
+     "Book",
+     "Visit"
+    ]
+   },
+   {
+    "tokens": 296,
+    "seq_lp": -0.1238,
+    "valid": true,
+    "violations": {
+     "when_out_of_window": 6,
+     "when_not_iso": 0,
+     "dup_items": 0,
+     "missing_verbs": [],
+     "foreign_targets": 4
+    },
+    "hard_pass": false,
+    "n_recs": 6,
+    "coverage": 0.6,
+    "verbs": [
+     "Book",
+     "Visit"
+    ]
+   },
+   {
+    "tokens": 296,
+    "seq_lp": -0.169,
+    "valid": false
+   }
+  ]
+ },
+ {
+  "persona": "friends_adventure",
+  "k": 1,
+  "wall": 5.73,
+  "total_tokens": 156,
+  "jaccard": 0.0,
+  "top1": {
+   "tokens": 156,
+   "seq_lp": -0.3742,
+   "valid": true,
+   "violations": {
+    "when_out_of_window": 0,
+    "when_not_iso": 0,
+    "dup_items": 0,
+    "missing_verbs": [
+     "Ask_About"
+    ],
+    "foreign_targets": 0
+   },
+   "hard_pass": false,
+   "n_recs": 3,
+   "coverage": 0.429,
+   "verbs": [
+    "Book",
+    "Visit"
+   ]
+  },
+  "candidates": [
+   {
+    "tokens": 156,
+    "seq_lp": -0.3742,
+    "valid": true,
+    "violations": {
+     "when_out_of_window": 0,
+     "when_not_iso": 0,
+     "dup_items": 0,
+     "missing_verbs": [
+      "Ask_About"
+     ],
+     "foreign_targets": 0
+    },
+    "hard_pass": false,
+    "n_recs": 3,
+    "coverage": 0.429,
+    "verbs": [
+     "Book",
+     "Visit"
+    ]
+   }
+  ]
+ },
+ {
+  "persona": "friends_adventure",
+  "k": 2,
+  "wall": 14.37,
+  "total_tokens": 592,
+  "jaccard": 1.0,
+  "top1": {
+   "tokens": 296,
+   "seq_lp": -0.1805,
+   "valid": true,
+   "violations": {
+    "when_out_of_window": 0,
+    "when_not_iso": 0,
+    "dup_items": 0,
+    "missing_verbs": [
+     "Ask_About"
+    ],
+    "foreign_targets": 0
+   },
+   "hard_pass": false,
+   "n_recs": 5,
+   "coverage": 0.714,
+   "verbs": [
+    "Book",
+    "Visit"
+   ]
+  },
+  "candidates": [
+   {
+    "tokens": 296,
+    "seq_lp": -0.1805,
+    "valid": true,
+    "violations": {
+     "when_out_of_window": 0,
+     "when_not_iso": 0,
+     "dup_items": 0,
+     "missing_verbs": [
+      "Ask_About"
+     ],
+     "foreign_targets": 0
+    },
+    "hard_pass": false,
+    "n_recs": 5,
+    "coverage": 0.714,
+    "verbs": [
+     "Book",
+     "Visit"
+    ]
+   },
+   {
+    "tokens": 296,
+    "seq_lp": -0.182,
+    "valid": true,
+    "violations": {
+     "when_out_of_window": 0,
+     "when_not_iso": 0,
+     "dup_items": 0,
+     "missing_verbs": [
+      "Ask_About"
+     ],
+     "foreign_targets": 0
+    },
+    "hard_pass": false,
+    "n_recs": 5,
+    "coverage": 0.714,
+    "verbs": [
+     "Book",
+     "Visit"
+    ]
+   }
+  ]
+ },
+ {
+  "persona": "friends_adventure",
+  "k": 4,
+  "wall": 14.61,
+  "total_tokens": 776,
+  "jaccard": 0.456,
+  "top1": {
+   "tokens": 194,
+   "seq_lp": -0.1468,
+   "valid": true,
+   "violations": {
+    "when_out_of_window": 0,
+    "when_not_iso": 0,
+    "dup_items": 0,
+    "missing_verbs": [
+     "Ask_About"
+    ],
+    "foreign_targets": 3
+   },
+   "hard_pass": false,
+   "n_recs": 4,
+   "coverage": 0.571,
+   "verbs": [
+    "Book",
+    "Visit"
+   ]
+  },
+  "candidates": [
+   {
+    "tokens": 194,
+    "seq_lp": -0.1468,
+    "valid": true,
+    "violations": {
+     "when_out_of_window": 0,
+     "when_not_iso": 0,
+     "dup_items": 0,
+     "missing_verbs": [
+      "Ask_About"
+     ],
+     "foreign_targets": 3
+    },
+    "hard_pass": false,
+    "n_recs": 4,
+    "coverage": 0.571,
+    "verbs": [
+     "Book",
+     "Visit"
+    ]
+   },
+   {
+    "tokens": 194,
+    "seq_lp": -0.1482,
+    "valid": true,
+    "violations": {
+     "when_out_of_window": 0,
+     "when_not_iso": 0,
+     "dup_items": 0,
+     "missing_verbs": [
+      "Ask_About"
+     ],
+     "foreign_targets": 2
+    },
+    "hard_pass": false,
+    "n_recs": 4,
+    "coverage": 0.571,
+    "verbs": [
+     "Book",
+     "Visit"
+    ]
+   },
+   {
+    "tokens": 194,
+    "seq_lp": -0.1604,
+    "valid": true,
+    "violations": {
+     "when_out_of_window": 0,
+     "when_not_iso": 0,
+     "dup_items": 0,
+     "missing_verbs": [
+      "Ask_About"
+     ],
+     "foreign_targets": 1
+    },
+    "hard_pass": false,
+    "n_recs": 3,
+    "coverage": 0.286,
+    "verbs": [
+     "Book",
+     "Visit"
+    ]
+   },
+   {
+    "tokens": 194,
+    "seq_lp": -0.1726,
+    "valid": true,
+    "violations": {
+     "when_out_of_window": 0,
+     "when_not_iso": 0,
+     "dup_items": 0,
+     "missing_verbs": [
+      "Ask_About"
+     ],
+     "foreign_targets": 1
+    },
+    "hard_pass": false,
+    "n_recs": 3,
+    "coverage": 0.286,
+    "verbs": [
+     "Book",
+     "Visit"
+    ]
+   }
+  ]
+ },
+ {
+  "persona": "friends_adventure",
+  "k": 8,
+  "wall": 47.49,
+  "total_tokens": 2224,
+  "jaccard": 0.337,
+  "top1": {
+   "tokens": 278,
+   "seq_lp": -0.1134,
+   "valid": true,
+   "violations": {
+    "when_out_of_window": 3,
+    "when_not_iso": 0,
+    "dup_items": 0,
+    "missing_verbs": [
+     "Ask_About"
+    ],
+    "foreign_targets": 0
+   },
+   "hard_pass": false,
+   "n_recs": 6,
+   "coverage": 0.714,
+   "verbs": [
+    "Book",
+    "Visit"
+   ]
+  },
+  "candidates": [
+   {
+    "tokens": 278,
+    "seq_lp": -0.1134,
+    "valid": true,
+    "violations": {
+     "when_out_of_window": 3,
+     "when_not_iso": 0,
+     "dup_items": 0,
+     "missing_verbs": [
+      "Ask_About"
+     ],
+     "foreign_targets": 0
+    },
+    "hard_pass": false,
+    "n_recs": 6,
+    "coverage": 0.714,
+    "verbs": [
+     "Book",
+     "Visit"
+    ]
+   },
+   {
+    "tokens": 278,
+    "seq_lp": -0.1193,
+    "valid": true,
+    "violations": {
+     "when_out_of_window": 0,
+     "when_not_iso": 0,
+     "dup_items": 0,
+     "missing_verbs": [
+      "Ask_About"
+     ],
+     "foreign_targets": 4
+    },
+    "hard_pass": false,
+    "n_recs": 6,
+    "coverage": 0.714,
+    "verbs": [
+     "Book",
+     "Visit"
+    ]
+   },
+   {
+    "tokens": 278,
+    "seq_lp": -0.1205,
+    "valid": true,
+    "violations": {
+     "when_out_of_window": 0,
+     "when_not_iso": 0,
+     "dup_items": 0,
+     "missing_verbs": [
+      "Ask_About"
+     ],
+     "foreign_targets": 3
+    },
+    "hard_pass": false,
+    "n_recs": 6,
+    "coverage": 0.714,
+    "verbs": [
+     "Book",
+     "Visit"
+    ]
+   },
+   {
+    "tokens": 278,
+    "seq_lp": -0.1296,
+    "valid": true,
+    "violations": {
+     "when_out_of_window": 0,
+     "when_not_iso": 0,
+     "dup_items": 0,
+     "missing_verbs": [
+      "Ask_About"
+     ],
+     "foreign_targets": 0
+    },
+    "hard_pass": false,
+    "n_recs": 4,
+    "coverage": 0.571,
+    "verbs": [
+     "Book",
+     "Visit"
+    ]
+   },
+   {
+    "tokens": 278,
+    "seq_lp": -0.1321,
+    "valid": true,
+    "violations": {
+     "when_out_of_window": 0,
+     "when_not_iso": 0,
+     "dup_items": 0,
+     "missing_verbs": [
+      "Ask_About"
+     ],
+     "foreign_targets": 3
+    },
+    "hard_pass": false,
+    "n_recs": 5,
+    "coverage": 0.714,
+    "verbs": [
+     "Book",
+     "Visit"
+    ]
+   },
+   {
+    "tokens": 278,
+    "seq_lp": -0.1355,
+    "valid": true,
+    "violations": {
+     "when_out_of_window": 0,
+     "when_not_iso": 0,
+     "dup_items": 0,
+     "missing_verbs": [
+      "Ask_About"
+     ],
+     "foreign_targets": 0
+    },
+    "hard_pass": false,
+    "n_recs": 4,
+    "coverage": 0.571,
+    "verbs": [
+     "Book",
+     "Visit"
+    ]
+   },
+   {
+    "tokens": 278,
+    "seq_lp": -0.1354,
+    "valid": true,
+    "violations": {
+     "when_out_of_window": 1,
+     "when_not_iso": 0,
+     "dup_items": 0,
+     "missing_verbs": [
+      "Ask_About"
+     ],
+     "foreign_targets": 0
+    },
+    "hard_pass": false,
+    "n_recs": 4,
+    "coverage": 0.429,
+    "verbs": [
+     "Book",
+     "Visit"
+    ]
+   },
+   {
+    "tokens": 278,
+    "seq_lp": -0.1449,
+    "valid": true,
+    "violations": {
+     "when_out_of_window": 0,
+     "when_not_iso": 0,
+     "dup_items": 0,
+     "missing_verbs": [
+      "Ask_About"
+     ],
+     "foreign_targets": 2
+    },
+    "hard_pass": false,
+    "n_recs": 4,
+    "coverage": 0.571,
+    "verbs": [
+     "Book",
+     "Visit"
+    ]
+   }
+  ]
+ },
+ {
+  "persona": "business_bleisure",
+  "k": 1,
+  "wall": 8.96,
+  "total_tokens": 237,
+  "jaccard": 0.0,
+  "top1": {
+   "tokens": 237,
+   "seq_lp": -0.1573,
+   "valid": true,
+   "violations": {
+    "when_out_of_window": 6,
+    "when_not_iso": 0,
+    "dup_items": 0,
+    "missing_verbs": [],
+    "foreign_targets": 1
+   },
+   "hard_pass": false,
+   "n_recs": 6,
+   "coverage": 0.571,
+   "verbs": [
+    "Book",
+    "Visit"
+   ]
+  },
+  "candidates": [
+   {
+    "tokens": 237,
+    "seq_lp": -0.1573,
+    "valid": true,
+    "violations": {
+     "when_out_of_window": 6,
+     "when_not_iso": 0,
+     "dup_items": 0,
+     "missing_verbs": [],
+     "foreign_targets": 1
+    },
+    "hard_pass": false,
+    "n_recs": 6,
+    "coverage": 0.571,
+    "verbs": [
+     "Book",
+     "Visit"
+    ]
+   }
+  ]
+ },
+ {
+  "persona": "business_bleisure",
+  "k": 2,
+  "wall": 17.34,
+  "total_tokens": 698,
+  "jaccard": 1.0,
+  "top1": {
+   "tokens": 349,
+   "seq_lp": -0.0487,
+   "valid": true,
+   "violations": {
+    "when_out_of_window": 9,
+    "when_not_iso": 0,
+    "dup_items": 6,
+    "missing_verbs": [
+     "Book"
+    ],
+    "foreign_targets": 0
+   },
+   "hard_pass": false,
+   "n_recs": 9,
+   "coverage": 0.429,
+   "verbs": [
+    "Visit"
+   ]
+  },
+  "candidates": [
+   {
+    "tokens": 349,
+    "seq_lp": -0.0487,
+    "valid": true,
+    "violations": {
+     "when_out_of_window": 9,
+     "when_not_iso": 0,
+     "dup_items": 6,
+     "missing_verbs": [
+      "Book"
+     ],
+     "foreign_targets": 0
+    },
+    "hard_pass": false,
+    "n_recs": 9,
+    "coverage": 0.429,
+    "verbs": [
+     "Visit"
+    ]
+   },
+   {
+    "tokens": 349,
+    "seq_lp": -0.0492,
+    "valid": true,
+    "violations": {
+     "when_out_of_window": 9,
+     "when_not_iso": 0,
+     "dup_items": 6,
+     "missing_verbs": [
+      "Book"
+     ],
+     "foreign_targets": 0
+    },
+    "hard_pass": false,
+    "n_recs": 9,
+    "coverage": 0.429,
+    "verbs": [
+     "Visit"
+    ]
+   }
+  ]
+ },
+ {
+  "persona": "business_bleisure",
+  "k": 4,
+  "wall": 28.31,
+  "total_tokens": 1396,
+  "jaccard": 0.833,
+  "top1": {
+   "tokens": 349,
+   "seq_lp": -0.0478,
+   "valid": true,
+   "violations": {
+    "when_out_of_window": 8,
+    "when_not_iso": 0,
+    "dup_items": 6,
+    "missing_verbs": [
+     "Book"
+    ],
+    "foreign_targets": 0
+   },
+   "hard_pass": false,
+   "n_recs": 8,
+   "coverage": 0.286,
+   "verbs": [
+    "Visit"
+   ]
+  },
+  "candidates": [
+   {
+    "tokens": 349,
+    "seq_lp": -0.0478,
+    "valid": true,
+    "violations": {
+     "when_out_of_window": 8,
+     "when_not_iso": 0,
+     "dup_items": 6,
+     "missing_verbs": [
+      "Book"
+     ],
+     "foreign_targets": 0
+    },
+    "hard_pass": false,
+    "n_recs": 8,
+    "coverage": 0.286,
+    "verbs": [
+     "Visit"
+    ]
+   },
+   {
+    "tokens": 349,
+    "seq_lp": -0.0487,
+    "valid": true,
+    "violations": {
+     "when_out_of_window": 9,
+     "when_not_iso": 0,
+     "dup_items": 6,
+     "missing_verbs": [
+      "Book"
+     ],
+     "foreign_targets": 0
+    },
+    "hard_pass": false,
+    "n_recs": 9,
+    "coverage": 0.429,
+    "verbs": [
+     "Visit"
+    ]
+   },
+   {
+    "tokens": 349,
+    "seq_lp": -0.0492,
+    "valid": true,
+    "violations": {
+     "when_out_of_window": 9,
+     "when_not_iso": 0,
+     "dup_items": 6,
+     "missing_verbs": [
+      "Book"
+     ],
+     "foreign_targets": 0
+    },
+    "hard_pass": false,
+    "n_recs": 9,
+    "coverage": 0.429,
+    "verbs": [
+     "Visit"
+    ]
+   },
+   {
+    "tokens": 349,
+    "seq_lp": -0.0531,
+    "valid": true,
+    "violations": {
+     "when_out_of_window": 8,
+     "when_not_iso": 0,
+     "dup_items": 5,
+     "missing_verbs": [
+      "Book"
+     ],
+     "foreign_targets": 0
+    },
+    "hard_pass": false,
+    "n_recs": 8,
+    "coverage": 0.429,
+    "verbs": [
+     "Visit"
+    ]
+   }
+  ]
+ },
+ {
+  "persona": "business_bleisure",
+  "k": 8,
+  "wall": 62.37,
+  "total_tokens": 2792,
+  "jaccard": 0.795,
+  "top1": {
+   "tokens": 349,
+   "seq_lp": -0.0478,
+   "valid": true,
+   "violations": {
+    "when_out_of_window": 8,
+    "when_not_iso": 0,
+    "dup_items": 6,
+    "missing_verbs": [
+     "Book"
+    ],
+    "foreign_targets": 0
+   },
+   "hard_pass": false,
+   "n_recs": 8,
+   "coverage": 0.286,
+   "verbs": [
+    "Visit"
+   ]
+  },
+  "candidates": [
+   {
+    "tokens": 349,
+    "seq_lp": -0.0478,
+    "valid": true,
+    "violations": {
+     "when_out_of_window": 8,
+     "when_not_iso": 0,
+     "dup_items": 6,
+     "missing_verbs": [
+      "Book"
+     ],
+     "foreign_targets": 0
+    },
+    "hard_pass": false,
+    "n_recs": 8,
+    "coverage": 0.286,
+    "verbs": [
+     "Visit"
+    ]
+   },
+   {
+    "tokens": 349,
+    "seq_lp": -0.0487,
+    "valid": true,
+    "violations": {
+     "when_out_of_window": 9,
+     "when_not_iso": 0,
+     "dup_items": 6,
+     "missing_verbs": [
+      "Book"
+     ],
+     "foreign_targets": 0
+    },
+    "hard_pass": false,
+    "n_recs": 9,
+    "coverage": 0.429,
+    "verbs": [
+     "Visit"
+    ]
+   },
+   {
+    "tokens": 349,
+    "seq_lp": -0.0492,
+    "valid": true,
+    "violations": {
+     "when_out_of_window": 9,
+     "when_not_iso": 0,
+     "dup_items": 6,
+     "missing_verbs": [
+      "Book"
+     ],
+     "foreign_targets": 0
+    },
+    "hard_pass": false,
+    "n_recs": 9,
+    "coverage": 0.429,
+    "verbs": [
+     "Visit"
+    ]
+   },
+   {
+    "tokens": 349,
+    "seq_lp": -0.0495,
+    "valid": true,
+    "violations": {
+     "when_out_of_window": 9,
+     "when_not_iso": 0,
+     "dup_items": 6,
+     "missing_verbs": [
+      "Book"
+     ],
+     "foreign_targets": 0
+    },
+    "hard_pass": false,
+    "n_recs": 9,
+    "coverage": 0.429,
+    "verbs": [
+     "Visit"
+    ]
+   },
+   {
+    "tokens": 349,
+    "seq_lp": -0.0496,
+    "valid": true,
+    "violations": {
+     "when_out_of_window": 9,
+     "when_not_iso": 0,
+     "dup_items": 6,
+     "missing_verbs": [
+      "Book"
+     ],
+     "foreign_targets": 0
+    },
+    "hard_pass": false,
+    "n_recs": 9,
+    "coverage": 0.429,
+    "verbs": [
+     "Visit"
+    ]
+   },
+   {
+    "tokens": 349,
+    "seq_lp": -0.0502,
+    "valid": true,
+    "violations": {
+     "when_out_of_window": 9,
+     "when_not_iso": 0,
+     "dup_items": 6,
+     "missing_verbs": [
+      "Book"
+     ],
+     "foreign_targets": 0
+    },
+    "hard_pass": false,
+    "n_recs": 9,
+    "coverage": 0.429,
+    "verbs": [
+     "Visit"
+    ]
+   },
+   {
+    "tokens": 349,
+    "seq_lp": -0.0531,
+    "valid": true,
+    "violations": {
+     "when_out_of_window": 8,
+     "when_not_iso": 0,
+     "dup_items": 5,
+     "missing_verbs": [
+      "Book"
+     ],
+     "foreign_targets": 0
+    },
+    "hard_pass": false,
+    "n_recs": 8,
+    "coverage": 0.429,
+    "verbs": [
+     "Visit"
+    ]
+   },
+   {
+    "tokens": 349,
+    "seq_lp": -0.0535,
+    "valid": true,
+    "violations": {
+     "when_out_of_window": 8,
+     "when_not_iso": 0,
+     "dup_items": 5,
+     "missing_verbs": [
+      "Book"
+     ],
+     "foreign_targets": 0
+    },
+    "hard_pass": false,
+    "n_recs": 8,
+    "coverage": 0.429,
+    "verbs": [
+     "Visit"
+    ]
+   }
+  ]
+ }
+]
