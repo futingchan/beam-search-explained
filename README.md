@@ -1,14 +1,5 @@
 # Beam Search Explained — Experimenting with Beam Search for LLM Inference on Recommendation Systems
 
-**TL;DR:** Beam search is not faster on any stack we benchmarked — on
-vLLM it ran at 8 tok/s where batched sampling hit 316. On a
-recommendations endpoint it returned the same answer four times
-(Jaccard ~1.0), and its own ranking anti-correlated with judged quality
-(Spearman −0.60). But on canonical-answer tasks it wins or ties for
-free — including 2× execution accuracy over greedy on NL→SQL. The rule:
-**match the search to the deliverable — mode-finder for one right
-answer, sampler for a set.**
-
 The majority of large-language models in production today are
 autoregressive: they generate one token at a time, and each token is
 conditioned on everything produced so far.
@@ -62,6 +53,11 @@ where it has been getting steady perf attention since. This post digs into
 how the algorithm actually works, what the vLLM implementation buys you, and
 then (the part that surprised me) what a properly controlled benchmark on
 a real travel-recommendations workload says beam search is actually worth.
+Spoiler: beam search is not faster for most use cases we benchmarked, but it
+has very real applications where outputs need to be consistent —
+canonical-answer tasks like translation, extraction, and semantic
+parsing — where, compared to vanilla greedy decoding, it gives a
+measurably better answer (up to 2× execution accuracy on NL→SQL).
 
 ---
 
